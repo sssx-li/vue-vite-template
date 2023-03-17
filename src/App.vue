@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-container">11111</div>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts" name="demo"></script>
