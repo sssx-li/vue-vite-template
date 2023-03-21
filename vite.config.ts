@@ -10,6 +10,10 @@ import { presetAttributify, presetUno, presetIcons } from 'unocss';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 
+import Icons from 'unplugin-icons/vite';
+import IconsResolver from 'unplugin-icons/resolver';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -43,7 +47,19 @@ export default defineConfig({
     }),
     Components({
       dts: './typing/.auto.components.d.ts',
-      resolvers: [],
+      resolvers: [
+        IconsResolver({
+          customCollections: ['sy'],
+        }),
+      ],
+    }),
+    Icons({
+      autoInstall: true,
+      customCollections: {
+        sy: FileSystemIconLoader('./src/assets/svgs', (svg) =>
+          svg.replace(/^<svg /, '<svg fill="currentColor" ')
+        ),
+      },
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],

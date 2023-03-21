@@ -41,3 +41,26 @@ e.g.: git commit -m "docs: update README.md"
 | ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令 |
 | chore    |                                 变更构建流程或辅助工具 |
 | revert   |                                               代码回退 |
+
+### svg 及 iconify 图标的使用使用
+
+```base
+  1. 下载svg文件，并存放在src/assets/svgs目录下(该项目指定在此目录，可以在vite.config.js文件中进行修改)
+
+  2. 使用: i-sy-{{svgName}}
+    <!-- i 及 sy (前缀名)均可在vite.config.js进行修改，根据个人喜好设置(具体请查看使用说明:https://github.com/antfu/unplugin-icons) -->
+    <i-sy-vue />
+```
+
+#### iconify 使用及 iconify([访问地址](https://icon-sets.iconify.design/))
+
+```
+  项目中引入的图集unplugin-icons会自动进行安装，可直接使用
+
+  1. 在官方网站找到想用的图标
+
+  2. 复制图集及icon名, 例： clarity:accessibility-1-solid; 图集为clarity，图标名为accessibility-1-solid
+  <i-clarity:accessibility-1-solid/>
+  or
+  <i-clarity-accessibility-1-solid/>
+```

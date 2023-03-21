@@ -3,6 +3,7 @@
     首页
     <test-comp />
     <sy-button>测试按钮</sy-button>
+    <i-sy-vue class="w20px h20px inline-block" />
   </div>
 </template>
 

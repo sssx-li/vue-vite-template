@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-withDefaults(defineProps<{ title: string }>(), {
+withDefaults(defineProps<{ title?: string }>(), {
   title: '按钮',
 });
 </script>
