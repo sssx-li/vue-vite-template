@@ -7,6 +7,8 @@ import eslintPlugin from 'vite-plugin-eslint';
 import Unocss from 'unocss/vite';
 import { presetAttributify, presetUno, presetIcons } from 'unocss';
 
+import AutoImport from 'unplugin-auto-import/vite';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -20,6 +22,23 @@ export default defineConfig({
         'src/*.js',
         'src/*.vue',
       ],
+    }),
+    AutoImport({
+      dts: './typing/auto.import.d.ts',
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia',
+        {
+          from: 'vue-router',
+          imports: ['RouteRecordRaw'],
+          type: true,
+        },
+      ],
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.json',
+      },
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],

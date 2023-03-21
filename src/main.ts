@@ -1,6 +1,3 @@
-import { createApp } from 'vue';
-import { createPinia } from 'pinia';
-
 import 'normalize.css';
 import 'uno.css';
 import './styles/index.scss';

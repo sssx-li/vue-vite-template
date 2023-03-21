@@ -9,6 +9,7 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    './.eslintrc-auto-import.json',
   ],
   overrides: [],
   parser: 'vue-eslint-parser',
@@ -27,6 +28,5 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'linebreak-style': [0, 'error', 'windows'],
   },
 };
