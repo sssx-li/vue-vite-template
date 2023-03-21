@@ -1,0 +1,48 @@
+@mixin f_a($align: center) {
+  display: flex;
+  align-items: $align;
+}
+
+@mixin f_j($justify: center) {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin lt($left, $top) {
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+
+@mixin lb($left, $bottom) {
+  position: absolute;
+  left: $left;
+  bottom: $bottom;
+}
+
+@mixin rt($right, $top) {
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+@mixin rb($right, $bottom) {
+  position: absolute;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin textOverflow($x) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $x;
+}
