@@ -8,6 +8,7 @@ import Unocss from 'unocss/vite';
 import { presetAttributify, presetUno, presetIcons } from 'unocss';
 
 import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -39,6 +40,10 @@ export default defineConfig({
         enabled: true,
         filepath: './.eslintrc-auto-import.json',
       },
+    }),
+    Components({
+      dts: './typing/.auto.components.d.ts',
+      resolvers: [],
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],
