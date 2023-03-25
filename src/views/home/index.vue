@@ -1,17 +1,16 @@
 <template>
   <div class="text-20px p-20px">
-    首页-{{ $filters.dateFormat(Date.now()) }}
+    <i-sy-vue class="w20px h20px inline-block" />
+    {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
     <br />
     <input type="text" v-focus placeholder="测试聚焦指令" class="my10px" />
     <br />
     <TsxComp />
     <test-comp />
     <sy-button>测试按钮</sy-button>
-    <i-sy-vue class="w20px h20px inline-block" />
-    <div class="theme-box fvc mt10px" ref="el">
+    <div class="theme-box fvc my10px" ref="el">
       <div class="text">主题测试区域</div>
     </div>
-    <br />
     <select placeholder="切换主题" v-model="activeTheme" @change="switchColor">
       <option
         v-for="theme in themeOptions"
@@ -26,14 +25,16 @@
 
 <script setup lang="ts">
 import { ThemeUnion, useSwitchTheme } from '@/hooks';
+import { useStore } from '@/store';
+
 import TsxComp from '@/components/TsxComp';
 
+const { userInfo } = useStore().user;
 // 主题测试
-interface ITheme {
+const themeOptions: {
   value: ThemeUnion;
   label: string;
-}
-const themeOptions: ITheme[] = [
+}[] = [
   { label: '默认主题', value: 'defaultTheme' },
   {
     label: '自定义主题',
