@@ -67,8 +67,6 @@ export default defineConfig({
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],
       rules: [
-        ['fac', { display: 'flex', 'align-items': 'center' }],
-        ['fjc', { display: 'flex', 'justify-content': 'center' }],
         [
           'fhc',
           {
