@@ -36,6 +36,7 @@ export default defineConfig({
         'vue',
         'vue-router',
         'pinia',
+        '@vueuse/core',
         {
           from: 'vue-router',
           imports: ['RouteRecordRaw'],

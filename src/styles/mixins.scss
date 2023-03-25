@@ -1,11 +1,8 @@
-@mixin f_a($align: center) {
+@mixin flex($align: normal, $justify: normal, $direction: row) {
   display: flex;
   align-items: $align;
-}
-
-@mixin f_j($justify: center) {
-  display: flex;
   justify-content: $justify;
+  flex-direction: $direction;
 }
 
 @mixin wh($width, $height) {
