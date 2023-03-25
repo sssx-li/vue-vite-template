@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import VueJsx from '@vitejs/plugin-vue-jsx';
 
 import eslintPlugin from 'vite-plugin-eslint';
 
@@ -18,6 +19,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 export default defineConfig({
   plugins: [
     vue(),
+    VueJsx(),
     eslintPlugin({
       include: [
         'src/**/*.ts',
