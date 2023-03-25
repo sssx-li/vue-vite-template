@@ -5,3 +5,5 @@ export const useStore = () => {
     user: useUserStore(),
   };
 };
+
+export default createPinia();
