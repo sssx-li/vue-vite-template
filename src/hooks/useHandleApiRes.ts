@@ -1,4 +1,4 @@
-export function useHandleApiRes(promise: PromiseLike<any>) {
+export function useHandleApiRes<T = any>(promise: PromiseLike<any>) {
   return promise.then((res) => {
     const { isFinished, data, abort, aborted, canAbort, statusCode, execute } =
       res;
@@ -7,7 +7,7 @@ export function useHandleApiRes(promise: PromiseLike<any>) {
       isFinished,
       code,
       message,
-      data: resData,
+      data: resData as T,
       abort,
       aborted,
       canAbort,

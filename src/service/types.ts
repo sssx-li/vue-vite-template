@@ -8,3 +8,8 @@ export interface ILogin {
   password: string;
   username: string;
 }
+
+export interface ILoginRes {
+  username: string;
+  avatar: string;
+}
