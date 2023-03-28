@@ -25,6 +25,7 @@
 
 <script setup lang="ts">
 import { ThemeUnion, useSwitchTheme } from '@/hooks';
+// import { ThemeUnion, useSwitchTheme, useHandleApiRes } from '@/hooks';
 import { useStore } from '@/store';
 
 import TsxComp from '@/components/TsxComp';
@@ -52,6 +53,15 @@ const { switchColor } = useSwitchTheme(el, activeTheme);
 //     console.log('data', data);
 //   }
 // });
+// const submit = async () => {
+// const { code, data, abort } = await useHandleApiRes(
+//   Login({ password: 'admin123', username: 'sy' })
+// );
+// abort(); // 取消请求
+// if (code === responseStatusCode.success) {
+//   console.log('data', data);
+// }
+// };
 </script>
 
 <style lang="scss" scoped>
