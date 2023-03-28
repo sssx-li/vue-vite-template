@@ -1,14 +1,15 @@
-import localCache from '@/utils/localCache';
+import { useLocalCache } from '@/hooks';
 import { responseStatusCode } from './api';
 import Fetch from './fetch';
 
+const { getToken, clearCache } = useLocalCache();
 const whiteApis = ['/user/login', 'uurm/v1/public/applicationInfo']; // 接口白名单
 
 export const Request = new Fetch({
   baseUrl: import.meta.env.VITE_BASE_URL,
   options: {
     beforeFetch({ options, cancel, url }) {
-      const token = localCache.getCache('token');
+      const token = getToken();
       if (!whiteApis.find((item) => url.includes(item)) && !token) {
         cancel();
       }
@@ -23,7 +24,7 @@ export const Request = new Fetch({
       const { code, message } = ctx.data;
       if (code === responseStatusCode.tokenInvalid) {
         console.log('登录过期，请重新登录');
-        localCache.clearCache();
+        clearCache();
         location.reload();
       } else if (code !== responseStatusCode.success) {
         console.log(message || '请求失败，请稍后再试');
