@@ -28,6 +28,7 @@ import { ThemeUnion, useSwitchTheme } from '@/hooks';
 import { useStore } from '@/store';
 
 import TsxComp from '@/components/TsxComp';
+// import { Login, responseStatusCode } from '@/service/api';
 
 const { userInfo } = useStore().user;
 // 主题测试
@@ -44,6 +45,13 @@ const themeOptions: {
 const el = ref(null);
 const activeTheme = ref<ThemeUnion>('defaultTheme');
 const { switchColor } = useSwitchTheme(el, activeTheme);
+
+// Login({ password: 'admin123', username: 'sy' }).then((res) => {
+//   const { code, data } = res.data.value;
+//   if (code === responseStatusCode.success) {
+//     console.log('data', data);
+//   }
+// });
 </script>
 
 <style lang="scss" scoped>
