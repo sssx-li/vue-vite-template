@@ -1,5 +1,6 @@
 <template>
   <div class="text-20px p-20px">
+    {{ user.username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
     {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
     <br />
@@ -24,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { ThemeUnion, useSwitchTheme } from '@/hooks';
+import { ThemeUnion, useLocalCache, useSwitchTheme } from '@/hooks';
 // import { ThemeUnion, useSwitchTheme, useHandleApiRes } from '@/hooks';
 import { useStore } from '@/store';
 
@@ -47,6 +48,13 @@ const themeOptions: {
 const el = ref(null);
 const activeTheme = ref<ThemeUnion>('defaultTheme');
 const { switchColor } = useSwitchTheme(el, activeTheme);
+
+const { getCache, setCache } = useLocalCache();
+setCache('userInfo', {
+  username: 'sy',
+  avatar: '',
+});
+const user = getCache('userInfo');
 
 // 接口调用示例1
 // Login({ password: 'admin123', username: 'sy' }).then((res) => {
