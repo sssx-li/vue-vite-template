@@ -2,14 +2,14 @@ import { useLocalCache } from '@/hooks';
 import { responseStatusCode } from './api';
 import Fetch from './fetch';
 
-const { getToken, clearCache } = useLocalCache();
-const whiteApis = ['/user/login', 'uurm/v1/public/applicationInfo']; // 接口白名单
+const { getCache, clearCache } = useLocalCache();
+const whiteApis = ['/user/login']; // 接口白名单
 
 export const Request = new Fetch({
   baseUrl: import.meta.env.VITE_BASE_URL,
   options: {
     beforeFetch({ options, cancel, url }) {
-      const token = getToken();
+      const token = getCache('token');
       if (!whiteApis.find((item) => url.includes(item)) && !token) {
         cancel();
       }
