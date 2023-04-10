@@ -10,7 +10,8 @@ const defCache: ILocalCache = {
 
 export function useLocalCache() {
   // 1.获取cache
-  function getCache(key: Exclude<Keys, 'userInfo'>): string;
+  function getCache(key: 'token'): string;
+  function getCache(key: 'theme'): ThemeUnion;
   function getCache(key: 'userInfo'): TUserInfo;
   function getCache(key: Keys): TGetCache {
     return toRaw(useLocalStorage(key, defCache[key]).value);

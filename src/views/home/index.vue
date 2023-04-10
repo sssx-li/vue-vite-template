@@ -34,6 +34,14 @@ import TsxComp from '@/components/TsxComp';
 // import { ILoginRes } from '@/service/types';
 
 const { userInfo } = useStore().user;
+
+const { getCache, setCache } = useLocalCache();
+setCache('userInfo', {
+  username: 'sy',
+  avatar: '',
+});
+const user = getCache('userInfo');
+
 // 主题测试
 const themeOptions: {
   value: ThemeUnion;
@@ -46,16 +54,9 @@ const themeOptions: {
   },
 ];
 const el = ref(null);
-const activeTheme = ref<ThemeUnion>('defaultTheme');
+const activeTheme = ref<ThemeUnion>(getCache('theme'));
 const { switchColor } = useSwitchTheme(el, activeTheme);
-
-const { getCache, setCache } = useLocalCache();
-setCache('userInfo', {
-  username: 'sy',
-  avatar: '',
-});
-const user = getCache('userInfo');
-
+switchColor();
 // 接口调用示例1
 // Login({ password: 'admin123', username: 'sy' }).then((res) => {
 //   const { code, data } = res.data.value;
