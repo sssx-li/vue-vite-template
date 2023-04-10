@@ -1,5 +1,6 @@
 <template>
   <div class="text-20px p-20px">
+    <el-button type="primary">测试按钮</el-button>
     {{ user.username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
     {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
