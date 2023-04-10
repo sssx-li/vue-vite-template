@@ -14,7 +14,7 @@ export function useLocalCache() {
   function getCache(key: 'theme'): ThemeUnion;
   function getCache(key: 'userInfo'): TUserInfo;
   function getCache(key: Keys): TGetCache {
-    return toRaw(useLocalStorage(key, defCache[key]).value);
+    return useLocalStorage(key, defCache[key]).value;
   }
   // 2.设置cache
   function setCache(key: 'token', value: string): void;
