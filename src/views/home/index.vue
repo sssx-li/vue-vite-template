@@ -56,7 +56,9 @@ const themeOptions: {
 const el = ref(null);
 const activeTheme = ref<ThemeUnion>(getCache('theme'));
 const { switchColor } = useSwitchTheme(el, activeTheme);
-switchColor();
+nextTick(() => {
+  switchColor();
+});
 // 接口调用示例1
 // Login({ password: 'admin123', username: 'sy' }).then((res) => {
 //   const { code, data } = res.data.value;
