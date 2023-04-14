@@ -1,5 +1,5 @@
 {
-  "name": "vue-vite-template",
+  "name": "{{name}}",
   "private": true,
   "version": "0.0.0",
   "type": "module",
