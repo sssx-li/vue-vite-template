@@ -64,3 +64,11 @@ e.g.: git commit -m "docs: update README.md"
   or
   <i-clarity-accessibility-1-solid/>
 ```
+
+#### 分支管理
+
+```base
+  main/master: 用于基础功能开发
+  element-template: 集成element-plus
+  *-scope: 用于cli工具模板生产
+```
