@@ -48,5 +48,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": "eslint --fix"
+  },
+  "engines": {
+    "node": ">= 16.15.1"
   }
 }
