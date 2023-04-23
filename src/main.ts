@@ -11,8 +11,10 @@ import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(store);
-app.use(router);
-app.use(directives);
-app.use(filters);
-app.mount('#app');
+(async () => {
+  app.use(store);
+  app.use(router);
+  await app.use(directives);
+  app.use(filters);
+  app.mount('#app');
+})();
