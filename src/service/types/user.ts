@@ -4,8 +4,7 @@ export interface ILogin {
 }
 
 export interface ILoginRes {
-  username: string;
-  avatar: string;
+  token: string;
 }
 
 export interface IUserInfo {
