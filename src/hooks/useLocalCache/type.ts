@@ -8,8 +8,4 @@ export interface ILocalCache {
 }
 export type Keys = ObjToUnion<ILocalCache>;
 
-type FilterKeyToValue<T extends keyof ILocalCache> = Pick<ILocalCache, T>[T];
-
-export type TUserInfo = FilterKeyToValue<'userInfo'>;
-
-export type TGetCache = ThemeUnion | TUserInfo | string;
+export type TGetCache = ThemeUnion | ILocalCache['userInfo'] | string;
