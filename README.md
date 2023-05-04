@@ -12,6 +12,12 @@ pnpm install
 pnpm run dev
 ```
 
+### mock 环境
+
+```
+pnpm run dev:mock
+```
+
 ### 生产环境编译打包
 
 ```
@@ -70,5 +76,5 @@ e.g.: git commit -m "docs: update README.md"
 ```base
   main/master: 用于基础功能开发
   element-template: 集成element-plus
-  *-scope: 用于cli工具模板生产
+  *-scope: 用于cli工具模板生成
 ```
