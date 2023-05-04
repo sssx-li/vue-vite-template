@@ -8,10 +8,13 @@ import directives from './directives';
 import filters from './filters';
 
 import App from './App.vue';
-
+import { setupMock } from './mock';
 const app = createApp(App);
 
 (async () => {
+  if (import.meta.env.VITE_MOCK_ENV) {
+    await setupMock();
+  }
   app.use(store);
   app.use(router);
   await app.use(directives);

@@ -32,8 +32,13 @@ export const Request = new Fetch({
       return ctx;
     },
     onFetchError(ctx) {
-      // 错误请求
-      console.log('错误的请求，请稍后再试');
+      console.log('ctx', ctx);
+      const { code, message } = ctx.error;
+      if (code === responseStatusCode.aborted) {
+        console.log(message || '请求取消');
+      } else {
+        console.log('请求不存在, 请确认后再试');
+      }
       return ctx;
     },
     timeout: 10000,
