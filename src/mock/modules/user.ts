@@ -14,19 +14,27 @@ function generateRandomString(length: number) {
   return result;
 }
 
+const userInfo = {
+  username: 'sy',
+};
+
 const userMocks: IMock[] = [
   {
     url: User.INFO,
     method: 'get',
     response: () => {
-      return createResponse<IUserInfo>({ username: 'sssx', avatar: '' });
+      return createResponse<IUserInfo>({
+        username: userInfo.username,
+        avatar: '',
+      });
     },
-    options: { timing: 3000 },
   },
   {
     url: User.LOGIN,
     method: 'post',
-    response: () => {
+    response: (schema, request) => {
+      const body = JSON.parse(request.requestBody);
+      userInfo.username = body.username;
       return createResponse({
         token: generateRandomString(30),
       });

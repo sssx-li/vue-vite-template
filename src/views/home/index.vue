@@ -1,7 +1,6 @@
 <template>
   <div class="text-20px p-20px">
-    <el-button type="primary">测试按钮</el-button>
-    {{ user.username }} <br />
+    {{ getCache('userInfo').username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
     {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
     <br />
@@ -22,6 +21,10 @@
         {{ theme.label }}
       </option>
     </select>
+    <br />
+    <el-button type="primary" class="mt10px" @click="handleLogout">
+      登出
+    </el-button>
   </div>
 </template>
 
@@ -40,12 +43,11 @@ import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = useStore().user;
 
-const { getCache, setCache } = useLocalCache();
+const { getCache, setCache, clearCache } = useLocalCache();
 setCache('userInfo', {
   username: 'sy',
   avatar: '',
 });
-const user = getCache('userInfo');
 
 // 主题测试
 const themeOptions: {
@@ -80,6 +82,11 @@ const getInfo = async () => {
 if (import.meta.env.VITE_MOCK_ENV) {
   getInfo();
 }
+
+const handleLogout = () => {
+  clearCache();
+  window.location.reload();
+};
 </script>
 
 <style lang="scss" scoped>

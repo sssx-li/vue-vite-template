@@ -2,7 +2,7 @@ import 'normalize.css';
 import 'uno.css';
 import './styles/index.scss';
 
-import router from './router';
+import router from './permission';
 import store from './store';
 import directives from './directives';
 import filters from './filters';
