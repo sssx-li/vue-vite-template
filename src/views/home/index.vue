@@ -43,11 +43,7 @@ import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = useStore().user;
 
-const { getCache, setCache, clearCache } = useLocalCache();
-setCache('userInfo', {
-  username: 'sy',
-  avatar: '',
-});
+const { getCache, clearCache } = useLocalCache();
 
 // 主题测试
 const themeOptions: {

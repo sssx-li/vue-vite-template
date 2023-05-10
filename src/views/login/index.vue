@@ -63,7 +63,7 @@ const handleLogin = () => {
     if (valid) {
       loading.value = true;
       const { code, data, message } = await useHandleApiRes<ILoginRes>(
-        Login({ password: 'admin1234', username: 'sy' })
+        Login({ ...ruleForm })
       );
       if (code === responseStatusCode.success) {
         setCache('token', data.token);
