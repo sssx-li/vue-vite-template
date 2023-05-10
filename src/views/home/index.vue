@@ -34,16 +34,12 @@ import {
 import { useStore } from '@/store';
 
 import TsxComp from '@/components/TsxComp';
-import { getUserInfo } from '@/service/api';
+import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = useStore().user;
 
-const { getCache, setCache } = useLocalCache();
-setCache('userInfo', {
-  username: 'sy',
-  avatar: '',
-});
+const { getCache } = useLocalCache();
 const user = getCache('userInfo');
 
 // 主题测试
@@ -66,6 +62,7 @@ nextTick(() => {
 
 // 接口使用示例
 const getInfo = async () => {
+  await Login({ username: 'sssx', password: '123456' });
   const { abort } = getUserInfo();
   setTimeout(() => {
     // 取消本次请求
