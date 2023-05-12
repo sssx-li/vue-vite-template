@@ -1,5 +1,5 @@
 <template>
-  <div class="text-20px p-20px">
+  <div class="text-20px">
     {{ getCache('userInfo').username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
     {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
