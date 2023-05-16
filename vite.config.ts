@@ -16,6 +16,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -70,6 +71,10 @@ export default defineConfig({
           svg.replace(/^<svg /, '<svg fill="currentColor" ')
         ),
       },
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svgs')],
+      symbolId: 'icon-[dir]-[name]',
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],

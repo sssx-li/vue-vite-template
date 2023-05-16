@@ -1,5 +1,8 @@
 <template>
   <div class="text-20px">
+    <el-icon :size="14">
+      <svg-icon name="vue" />
+    </el-icon>
     {{ getCache('userInfo').username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
     {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
