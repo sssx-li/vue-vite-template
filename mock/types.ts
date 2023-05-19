@@ -13,7 +13,6 @@ export type TMethods =
   | 'options'
   | 'head';
 
-export type TApis = 'user';
 export interface IMock {
   method: TMethods;
   url: string;
