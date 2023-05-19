@@ -21,23 +21,35 @@
         </template>
       </el-breadcrumb>
     </div>
-    <div class="fhc">
-      <el-image
-        :src="getImgUrl('avatar.png')"
-        class="w-40px h-40px b-rd-50%"
-      ></el-image>
-      <span class="ml-14px">{{ userInfo.username }}</span>
-    </div>
+    <el-dropdown @command="handleCommand">
+      <span class="fhc outline-none">
+        <el-image
+          :src="getImgUrl('avatar.png')"
+          class="w-40px h-40px b-rd-50%"
+        ></el-image>
+        <span class="ml-4px">{{ userInfo.username }}</span>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item command="logout">
+            <i-ep:switch-button class="mr-4px" />
+            登出
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 
 <script setup lang="ts" name="header">
 import { useStore } from '@/store';
 import { getImgUrl } from '@/utils';
+import { useLocalCache } from '@/hooks';
 
 defineProps<{ isCollapse?: boolean }>();
 const emits = defineEmits(['update:isCollapse']);
 
+const { clearCache } = useLocalCache();
 const route = useRoute();
 const router = useRouter();
 const layoutRoutes = computed(
@@ -72,6 +84,13 @@ const breadcrumbs = computed(() => {
   return breadcrumbArr;
 });
 const { userInfo } = useStore().user;
+
+const handleCommand = (command: string) => {
+  if (command === 'logout') {
+    clearCache();
+    window.location.reload();
+  }
+};
 </script>
 
 <style lang="scss" scoped>

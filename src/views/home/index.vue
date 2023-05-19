@@ -24,10 +24,6 @@
         {{ theme.label }}
       </option>
     </select>
-    <br />
-    <el-button type="primary" class="mt10px" @click="handleLogout">
-      登出
-    </el-button>
   </div>
 </template>
 
@@ -45,8 +41,7 @@ import { getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = useStore().user;
-
-const { getCache, clearCache } = useLocalCache();
+const { getCache } = useLocalCache();
 
 // 主题测试
 const themeOptions: {
@@ -81,11 +76,6 @@ const getInfo = async () => {
 if (import.meta.env.VITE_MOCK_ENV) {
   getInfo();
 }
-
-const handleLogout = () => {
-  clearCache();
-  window.location.reload();
-};
 </script>
 
 <style lang="scss" scoped>
