@@ -34,41 +34,6 @@ const defaultActive = computed(() => route.path);
 </script>
 
 <style lang="scss" scoped>
-.menu-container {
-  height: 100%;
-  &:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-  .el-sub-menu {
-    background-color: #001529 !important;
-    // 二级菜单 ( 默认背景 )
-    .el-menu-item {
-      padding-left: 50px !important;
-      background-color: #0c2135 !important;
-    }
-  }
-  :deep(.el-sub-menu__title) {
-    background-color: #001529 !important;
-  }
-  .el-menu-item:hover {
-    color: #fff !important; // 菜单
-  }
-  :deep(.el-menu-item.is-active) {
-    color: #fff !important;
-    background-color: #0a60bd !important;
-  }
-  .el-menu-item.is-active {
-    color: #fff !important;
-    background-color: #0a60bd !important;
-  }
-}
-.log-box {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
 .el-menu {
   border-right: none;
 }

@@ -4,10 +4,16 @@
       :index="item.path"
       v-if="!item.children || item.children.length === 0"
     >
+      <el-icon :size="14" v-if="item.meta && item.meta.icon">
+        <svg-icon :name="item.meta.icon" />
+      </el-icon>
       <span>{{ item.meta?.title }}</span>
     </el-menu-item>
     <el-sub-menu :index="item.path" v-else>
       <template #title>
+        <el-icon :size="14" v-if="item.meta && item.meta.icon">
+          <svg-icon :name="item.meta.icon" />
+        </el-icon>
         <span>{{ item.meta?.title }}</span>
       </template>
       <menuItem :routes="item.children" />
@@ -18,5 +24,3 @@
 <script setup lang="ts" name="menuItem">
 defineProps<{ routes: Array<RouteRecordRaw> }>();
 </script>
-
-<style lang="scss" scoped></style>

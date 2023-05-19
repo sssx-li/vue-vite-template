@@ -11,19 +11,19 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/home',
         name: 'home',
-        meta: { title: '首页', isHidden: false },
+        meta: { title: '首页', icon: 'home' },
         component: () => import('@/views/home/index.vue'),
       },
       {
         path: '/form',
         name: 'form',
-        meta: { title: '表单' },
+        meta: { title: '表单', icon: 'form' },
         component: () => import('@/views/form/index.vue'),
       },
       {
         path: '/table',
         name: 'table',
-        meta: { title: '表格' },
+        meta: { title: '表格', icon: 'table' },
         component: () => import('@/views/table/index.vue'),
         redirect: '/table/first',
         children: [
