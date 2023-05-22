@@ -30,13 +30,13 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/table/first',
             name: 'tableFirst',
-            meta: { title: '表单1' },
+            meta: { title: '表格1' },
             component: () => import('@/views/table/first.vue'),
           },
           {
             path: '/table/secound',
             name: 'tableSecound',
-            meta: { title: '表单2' },
+            meta: { title: '表格2', isHidden: true },
             component: () => import('@/views/table/secound.vue'),
           },
         ],

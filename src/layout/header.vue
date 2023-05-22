@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="header">
+<script setup lang="ts" name="layout-header">
 import { useStore } from '@/store';
 import { getImgUrl } from '@/utils';
 import { useLocalCache } from '@/hooks';
@@ -83,7 +83,7 @@ const breadcrumbs = computed(() => {
   layoutRoutes.value && findBreadcrumb(layoutRoutes.value);
   return breadcrumbArr;
 });
-const { userInfo } = useStore().user;
+const { userInfo } = storeToRefs(useStore().user);
 
 const handleCommand = (command: string) => {
   if (command === 'logout') {

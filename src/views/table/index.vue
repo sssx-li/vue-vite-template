@@ -4,6 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts" name="table"></script>
+<script setup lang="ts" name="table-page"></script>
 
 <style lang="scss" scoped></style>
