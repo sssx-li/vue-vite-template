@@ -43,7 +43,7 @@ import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
-const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD HH:mm:ss');
+const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
 const cacheUserInfo = getCache('userInfo');
 
 // 主题测试

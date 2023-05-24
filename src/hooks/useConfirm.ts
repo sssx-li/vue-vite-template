@@ -24,9 +24,11 @@ export function useConfirm(): (options?: IConfirm) => any {
   ) => {
     const { content, title, options } = params;
     return new Promise((resolve) => {
-      ElMessageBox.confirm(content, title, options).then(() => {
-        resolve(true);
-      });
+      ElMessageBox.confirm(content, title, options)
+        .then(() => {
+          resolve(true);
+        })
+        .catch(() => {});
     });
   };
 }
