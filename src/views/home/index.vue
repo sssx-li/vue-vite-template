@@ -37,7 +37,7 @@ import TsxComp from '@/components/TsxComp';
 import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 
-const { userInfo } = useStore().user;
+const { userInfo } = storeToRefs(useStore().user);
 
 const { getCache } = useLocalCache();
 const user = getCache('userInfo');
@@ -71,6 +71,7 @@ const getInfo = async () => {
   const { code, data, message } = await useHandleApiRes<IUserInfo>(
     getUserInfo()
   );
+  userInfo.value = data;
   console.log(code, data, message);
 };
 if (import.meta.env.VITE_MOCK_ENV) {
