@@ -31,19 +31,48 @@ class Fetch {
     ).json();
   }
   post(
-    { url, data }: Omit<IFeatchParams, 'params'>,
+    { url, data, params = {} }: IFeatchParams,
     featOptions: UseFetchOptions = {}
   ) {
-    return this.instances(url, featOptions).post(data).json();
+    return this.instances(
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      featOptions
+    )
+      .post(data)
+      .json();
   }
-  put({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).put(data).json();
+  put(
+    { url, data, params = {} }: IFeatchParams,
+    featOptions: UseFetchOptions = {}
+  ) {
+    return this.instances(
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      featOptions
+    )
+      .put(data)
+      .json();
   }
-  patch({ url, data }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).patch(data).json();
+  patch(
+    { url, data, params = {} }: IFeatchParams,
+    featOptions: UseFetchOptions = {}
+  ) {
+    return this.instances(
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      featOptions
+    )
+      .patch(data)
+      .json();
   }
-  delete({ url }: IFeatchParams, featOptions: UseFetchOptions = {}) {
-    return this.instances(url, featOptions).delete().json();
+  delete(
+    { url, params = {} }: IFeatchParams,
+    featOptions: UseFetchOptions = {}
+  ) {
+    return this.instances(
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      featOptions
+    )
+      .delete()
+      .json();
   }
 }
 
