@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     ISyVue: typeof import('~icons/sy/vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SvgIcon: typeof import('./../src/components/SvgIcon.vue')['default']
     SyButton: typeof import('./../src/components/SyButton/index.vue')['default']
     TestComp: typeof import('./../src/components/TestComp.vue')['default']
   }

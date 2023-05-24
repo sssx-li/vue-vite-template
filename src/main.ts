@@ -1,3 +1,5 @@
+import 'virtual:svg-icons-register';
+
 import 'normalize.css';
 import 'uno.css';
 import './styles/index.scss';
