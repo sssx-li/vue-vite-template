@@ -1,8 +1,10 @@
 <template>
   <div class="text-20px p-20px">
-    {{ user.username }} <br />
+    当前时间: {{ currentTime }} <br />
+    <svg-icon name="vue" />
+    {{ cacheUserInfo.username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
-    {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
+    {{ userInfo.username }}
     <br />
     <input type="text" v-focus placeholder="测试聚焦指令" class="my10px" />
     <br />
@@ -37,11 +39,11 @@ import TsxComp from '@/components/TsxComp';
 import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 
-const { userInfo } = useStore().user;
-
+const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
-const user = getCache('userInfo');
 
+const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
+const cacheUserInfo = getCache('userInfo');
 // 主题测试
 const themeOptions: {
   value: ThemeUnion;
@@ -71,6 +73,7 @@ const getInfo = async () => {
   const { code, data, message } = await useHandleApiRes<IUserInfo>(
     getUserInfo()
   );
+  userInfo.value = data;
   console.log(code, data, message);
 };
 if (import.meta.env.VITE_MOCK_ENV) {

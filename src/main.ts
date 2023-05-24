@@ -1,3 +1,5 @@
+import 'virtual:svg-icons-register';
+
 import 'normalize.css';
 import 'uno.css';
 import './styles/index.scss';
@@ -8,7 +10,7 @@ import directives from './directives';
 import filters from './filters';
 
 import App from './App.vue';
-import { setupMock } from './mock';
+import { setupMock } from '../mock';
 const app = createApp(App);
 
 (async () => {

@@ -1,5 +1,13 @@
 # vue-vite-template
 
+#### 分支管理
+
+```base
+  main/master: 用于基础功能开发
+  element-template: 集成element-plus
+  *-scope: 用于cli工具模板生成
+```
+
 ## 安装依赖
 
 ```
@@ -71,10 +79,19 @@ e.g.: git commit -m "docs: update README.md"
   <i-clarity-accessibility-1-solid/>
 ```
 
-#### 分支管理
+### 动态 svg 使用 SvgIcon
 
-```base
-  main/master: 用于基础功能开发
-  element-template: 集成element-plus
-  *-scope: 用于cli工具模板生成
 ```
+  // 动态使用的svg存放在src/assets/svgs 目录下。根据svg图标名传入相应的参数, 同时支持修改图标颜色(修改颜色前请先删除svg代码里的fill属性，否则color属性将失效)。例:
+  <svg-icon name="vue" style="color: #f60" />
+```
+
+### vueuse 中部分方法使用说明
+
+[1. vueuse-useLocalStorage 在项目中的使用](https://blog.csdn.net/weixin_42386379/article/details/130059649)
+
+[2. vueuse-useCssVar 实现主题色切换功能](https://blog.csdn.net/weixin_42386379/article/details/130193843)
+
+[3. vueuse-createFetch 实现接口请求及其封装(代替 axios)](https://blog.csdn.net/weixin_42386379/article/details/130216301)
+
+[4. vueuse-useFullscreen 优雅的使用全屏及退出全屏](https://blog.csdn.net/weixin_42386379/article/details/130598170)
