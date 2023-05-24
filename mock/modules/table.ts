@@ -10,7 +10,7 @@ const tableData: { data: ITableList[] } = Mock.mock({
       'id|+1': 1,
       name: '@cname',
       'sex|1': [0, 1],
-      age: /^[1-9][0-9]$/,
+      'age|1-100': 1,
       createTime: '@datetime',
     },
   ],
