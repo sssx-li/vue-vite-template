@@ -21,7 +21,7 @@
     <el-table-column prop="createTime" label="创建时间" />
     <el-table-column prop="handler" label="操作">
       <template #default="scope">
-        <el-button link @click="handleAction('edit', scope.row)">
+        <el-button type="primary" link @click="handleAction('edit', scope.row)">
           编辑
         </el-button>
         <el-button
