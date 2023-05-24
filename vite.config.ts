@@ -54,7 +54,8 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      dts: './typing/.auto.components.d.ts',
+      // dts: './typing/.auto.components.d.ts',
+      dts: false,
       resolvers: [
         ElementPlusResolver({
           importStyle: 'sass',
