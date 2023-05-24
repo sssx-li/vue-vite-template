@@ -23,6 +23,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@iconify-json/ep": "^1.1.10",
     "@types/mockjs": "^1.0.7",
     "@types/node": "^18.15.3",
     "@types/nprogress": "^0.2.0",
@@ -48,6 +49,7 @@
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.2.0",
     "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-eslint-parser": "^9.1.0",
     "vue-tsc": "^1.2.0"

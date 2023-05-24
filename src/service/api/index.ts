@@ -10,3 +10,7 @@ export enum User {
   LOGIN = '/login',
   INFO = '/info',
 }
+
+export enum Table {
+  LIST = '/list',
+}

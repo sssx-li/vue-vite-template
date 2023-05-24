@@ -1,8 +1,12 @@
 <template>
-  <div class="text-20px p-20px">
-    {{ getCache('userInfo').username }} <br />
+  <div class="text-20px">
+    当前时间: {{ currentTime }} <br />
+    <el-icon :size="14">
+      <svg-icon name="vue" />
+    </el-icon>
+    {{ cacheUserInfo.username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
-    {{ userInfo.username }} - {{ $filters.dateFormat(Date.now()) }}
+    {{ userInfo.username }}
     <br />
     <input type="text" v-focus placeholder="测试聚焦指令" class="my10px" />
     <br />
@@ -21,10 +25,6 @@
         {{ theme.label }}
       </option>
     </select>
-    <br />
-    <el-button type="primary" class="mt10px" @click="handleLogout">
-      登出
-    </el-button>
   </div>
 </template>
 
@@ -41,9 +41,10 @@ import TsxComp from '@/components/TsxComp';
 import { getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 
-const { userInfo } = useStore().user;
-
-const { getCache, clearCache } = useLocalCache();
+const { userInfo } = storeToRefs(useStore().user);
+const { getCache } = useLocalCache();
+const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
+const cacheUserInfo = getCache('userInfo');
 
 // 主题测试
 const themeOptions: {
@@ -73,16 +74,12 @@ const getInfo = async () => {
   const { code, data, message } = await useHandleApiRes<IUserInfo>(
     getUserInfo()
   );
+  userInfo.value = data;
   console.log(code, data, message);
 };
 if (import.meta.env.VITE_MOCK_ENV) {
   getInfo();
 }
-
-const handleLogout = () => {
-  clearCache();
-  window.location.reload();
-};
 </script>
 
 <style lang="scss" scoped>
