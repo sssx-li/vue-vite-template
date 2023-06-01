@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts" name="form-page">
-const labelPosition = ref('right');
+const labelPosition = ref<'right' | 'top' | 'left'>('right');
 const formLabelAlign = reactive({
   name: '',
   region: '',

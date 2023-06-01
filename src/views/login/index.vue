@@ -77,8 +77,8 @@ const handleLogin = () => {
     }
   });
 };
-const handleKeyDown = (ev: KeyboardEvent) => {
-  if (ev.key === 'Enter') {
+const handleKeyDown = (ev: KeyboardEvent | Event) => {
+  if ((ev as KeyboardEvent).key === 'Enter') {
     handleLogin();
   }
 };
