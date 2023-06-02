@@ -4,7 +4,10 @@
   </svg>
 </template>
 
-<script setup lang="ts" name="SvgIcon">
+<script setup lang="ts">
+defineOptions({
+  name: 'SvgIcon',
+});
 interface Props {
   prefix?: string;
   name: string;
