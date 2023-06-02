@@ -296,6 +296,4 @@ declare global {
   } from 'vue';
   // @ts-ignore
   export type { RouteRecordRaw } from 'vue-router';
-  // @ts-ignore
-  export type { defineOptions } from 'unplugin-vue-macros';
 }
