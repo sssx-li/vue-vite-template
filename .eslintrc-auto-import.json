@@ -32,6 +32,7 @@
     "debouncedWatch": true,
     "defineAsyncComponent": true,
     "defineComponent": true,
+    "defineOptions": true,
     "defineStore": true,
     "eagerComputed": true,
     "effectScope": true,
