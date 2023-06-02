@@ -45,6 +45,7 @@
     "unplugin-auto-import": "^0.15.1",
     "unplugin-icons": "^0.15.3",
     "unplugin-vue-components": "^0.24.1",
+    "unplugin-vue-macros": "^2.2.1",
     "vite": "^4.2.0",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svg-icons": "^2.0.1",
