@@ -23,7 +23,10 @@
   </el-form>
 </template>
 
-<script setup lang="ts" name="form-page">
+<script setup lang="ts">
+defineOptions({
+  name: 'formPage',
+});
 const labelPosition = ref<'right' | 'top' | 'left'>('right');
 const formLabelAlign = reactive({
   name: '',

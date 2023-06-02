@@ -89,7 +89,10 @@
   </el-dialog>
 </template>
 
-<script setup lang="ts" name="table-first">
+<script setup lang="ts">
+defineOptions({
+  name: 'tableFirst',
+});
 import { Table } from '@/service/api';
 import { usePage } from './usePage';
 
