@@ -84,8 +84,9 @@ if (import.meta.env.VITE_MOCK_ENV) {
 <style lang="scss" scoped>
 .theme-box {
   @include wh(180px, 40px);
-  border: 1px solid #ccc;
-  background-color: var(--sy-primary-bg-color);
+
   color: var(--sy-primary-title-color);
+  background-color: var(--sy-primary-bg-color);
+  border: 1px solid #ccc;
 }
 </style>
