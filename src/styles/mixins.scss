@@ -1,8 +1,8 @@
 @mixin flex($align: normal, $justify: normal, $direction: row) {
   display: flex;
+  flex-direction: $direction;
   align-items: $align;
   justify-content: $justify;
-  flex-direction: $direction;
 }
 
 @mixin wh($width, $height) {
@@ -12,20 +12,20 @@
 
 @mixin lt($left, $top) {
   position: absolute;
-  left: $left;
   top: $top;
+  left: $left;
 }
 
 @mixin lb($left, $bottom) {
   position: absolute;
-  left: $left;
   bottom: $bottom;
+  left: $left;
 }
 
 @mixin rt($right, $top) {
   position: absolute;
-  right: $right;
   top: $top;
+  right: $right;
 }
 
 @mixin rb($right, $bottom) {
@@ -35,11 +35,10 @@
 }
 
 @mixin textOverflow($x) {
+  display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
   word-break: break-all;
-  -moz-box-orient: vertical;
-  -webkit-box-orient: vertical;
+  box-orient: vertical;
   -webkit-line-clamp: $x;
 }
