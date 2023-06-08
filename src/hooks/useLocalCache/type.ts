@@ -1,6 +1,6 @@
 import { ObjToUnion } from '@/typing';
 import { ThemeUnion } from '../useSwitchTheme';
-import { TLang } from '@/i18n/type';
+import { TLang } from '@/i18n';
 
 export interface ILocalCache {
   token: string;
