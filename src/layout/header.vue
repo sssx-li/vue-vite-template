@@ -21,23 +21,26 @@
         </template>
       </el-breadcrumb>
     </div>
-    <el-dropdown @command="handleCommand">
-      <span class="fhc outline-none">
-        <el-image
-          :src="getImgUrl('avatar.png')"
-          class="w-40px h-40px b-rd-50%"
-        ></el-image>
-        <span class="ml-4px">{{ userInfo.username }}</span>
-      </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item command="logout">
-            <i-ep:switch-button class="mr-4px" />
-            登出
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
+    <div class="fhc">
+      <select-lang class="mr-14px" />
+      <el-dropdown @command="handleCommand">
+        <span class="fhc outline-none">
+          <el-image
+            :src="getImgUrl('avatar.png')"
+            class="w-40px h-40px b-rd-50%"
+          ></el-image>
+          <span class="ml-4px">{{ userInfo.username }}</span>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="logout">
+              <i-ep:switch-button class="mr-4px" />
+              登出
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
   </div>
 </template>
 
@@ -52,11 +55,16 @@ const emits = defineEmits(['update:isCollapse']);
 const { clearCache } = useLocalCache();
 const route = useRoute();
 const router = useRouter();
+const { t } = useI18n();
 const layoutRoutes = computed(
   () => router.getRoutes().find((item) => item.name === 'layout')?.children
 );
 const breadcrumbs = computed(() => {
-  const breadcrumbArr: Array<{ path: string; title: string }> = [];
+  const breadcrumbArr: Array<{
+    path: string;
+    title: string;
+    subTitle?: string;
+  }> = [];
   const findBreadcrumb = (
     routes: Array<RouteRecordRaw>,
     parentRoute: RouteRecordRaw | null = null
@@ -67,11 +75,19 @@ const breadcrumbs = computed(() => {
         parentRoute &&
           parentRoute.meta &&
           breadcrumbArr.push({
-            title: parentRoute!.meta.title as string,
+            title: parentRoute!.meta.subTitle
+              ? t(`nav.${parentRoute!.meta.title}`, {
+                  subTitle: parentRoute!.meta.subTitle,
+                })
+              : t(`nav.${parentRoute!.meta.title}`),
             path: parentRoute.path,
           });
         breadcrumbArr.push({
-          title: item.meta.title as string,
+          title: item.meta.subTitle
+            ? t(`nav.${item.meta.title}`, {
+                subTitle: item.meta.subTitle,
+              })
+            : t(`nav.${item.meta.title}`),
           path: item.path,
         });
         break;

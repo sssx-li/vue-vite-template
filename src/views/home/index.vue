@@ -6,7 +6,7 @@
     </el-icon>
     {{ cacheUserInfo.username }} <br />
     <i-sy-vue class="w20px h20px inline-block" />
-    {{ userInfo.username }}
+    {{ userInfo?.username }}
     <br />
     <input type="text" v-focus placeholder="测试聚焦指令" class="my10px" />
     <br />
@@ -43,6 +43,7 @@ import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
+
 const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
 const cacheUserInfo = getCache('userInfo');
 

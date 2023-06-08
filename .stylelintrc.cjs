@@ -17,6 +17,7 @@ module.exports = {
     'prettier/prettier': true,
     'selector-class-pattern': null,
     'scss/operator-no-newline-after': null,
+    'custom-property-pattern': null,
     'no-empty-source': null,
     'property-no-unknown': [
       true,
