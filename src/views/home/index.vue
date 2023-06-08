@@ -47,7 +47,7 @@ import TsxComp from '@/components/TsxComp';
 import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 import { useI18n } from 'vue-i18n';
-import { TLang } from '@/i18n/type';
+import { TLang } from '@/i18n';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache, setCache } = useLocalCache();
