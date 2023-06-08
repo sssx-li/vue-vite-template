@@ -18,6 +18,7 @@ export function usePage({
   validateRules: FormRules;
 }) {
   const { success } = useMessage();
+  const { t } = useI18n();
   const confirm = useConfirm();
   const loading = ref(false);
   const dataSource = ref<ITableRes>({ data: [], count: 0 });
@@ -100,7 +101,7 @@ export function usePage({
       })
     );
     if (code === responseStatusCode.success) {
-      success('创建成功');
+      success(t('tips.create_success'));
     }
   };
   const handleEdit = async () => {
@@ -113,13 +114,15 @@ export function usePage({
       })
     );
     if (code === responseStatusCode.success) {
-      success('修改成功');
+      success(t('tips.edit_success'));
     }
   };
   const handleDelete = (row: Record<string, any>) => {
     confirm({
-      title: '删除',
-      content: `确定要删除 "${row.name}" 这条记录吗？删除之后不能恢复哦`,
+      title: t('tips.delete'),
+      content: t('tips.delete_confirm', {
+        desc: row.name,
+      }),
       options: {
         type: 'warning',
       },
@@ -131,7 +134,7 @@ export function usePage({
         })
       );
       if (code === responseStatusCode.success) {
-        success('删除成功');
+        success(t('tips.delete_success'));
         pageInfo.currentPage = 1;
         getPageData();
       }
