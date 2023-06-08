@@ -49,8 +49,7 @@ export default defineConfig({
       },
     }),
     Components({
-      // dts: './typing/.auto.components.d.ts',
-      dts: false,
+      dts: './typing/auto.components.d.ts',
       resolvers: [
         IconsResolver({
           customCollections: ['sy'],
