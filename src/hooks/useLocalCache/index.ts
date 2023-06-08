@@ -6,6 +6,7 @@ const defCache: ILocalCache = {
   token: '',
   theme: 'defaultTheme',
   userInfo: { username: '', avatar: '' },
+  lang: 'zh',
 };
 
 export function useLocalCache() {
@@ -13,6 +14,7 @@ export function useLocalCache() {
   function getCache(key: 'token'): string;
   function getCache(key: 'theme'): ThemeUnion;
   function getCache(key: 'userInfo'): ILocalCache['userInfo'];
+  function getCache(key: 'lang'): ILocalCache['lang'];
   function getCache(key: Keys): TGetCache {
     return useLocalStorage(key, defCache[key]).value;
   }
@@ -20,6 +22,7 @@ export function useLocalCache() {
   function setCache(key: 'token', value: string): void;
   function setCache(key: 'theme', value: ThemeUnion): void;
   function setCache(key: 'userInfo', value: ILocalCache['userInfo']): void;
+  function setCache(key: 'lang', value: ILocalCache['lang']): void;
   function setCache(key: Keys, value: any) {
     useLocalStorage(key, defCache[key]).value = value;
   }

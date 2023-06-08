@@ -1,7 +1,8 @@
 <template>
   <div class="login-container fvc">
-    <div class="form-content w450px p30px">
-      <div class="title text-center text-30px mb30px">后台管理系统</div>
+    <div class="form-content w450px p30px relative">
+      <select-lang class="absolute! top-10px right-10px" />
+      <div class="title text-center text-30px mb30px">{{ $t('title') }}</div>
       <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" size="large">
         <el-form-item prop="username">
           <el-input v-model="ruleForm.username" placeholder="请输入用户名" />
@@ -22,7 +23,7 @@
             type="primary"
             class="w100%"
           >
-            登录
+            {{ $t('nav.login') }}
           </el-button>
         </el-form-item>
       </el-form>
@@ -39,6 +40,7 @@ import { ILoginRes } from '@/service/types/user';
 const router = useRouter();
 const { setCache } = useLocalCache();
 const { error } = useMessage();
+const { t } = useI18n();
 
 const loading = ref(false);
 const ruleForm = reactive({
@@ -46,16 +48,35 @@ const ruleForm = reactive({
   password: '',
 });
 const ruleFormRef = ref<FormInstance>();
-const rules = reactive<FormRules>({
+const computedRule = computed(() => ({
   username: [
-    { required: true, message: '请输入用户名', trigger: 'blur' },
-    { min: 2, max: 12, message: '用户名长度为2~12个字符', trigger: 'blur' },
+    {
+      required: true,
+      message: t('errorTip.please_enter_username'),
+      trigger: 'blur',
+    },
+    {
+      min: 2,
+      max: 12,
+      message: t('errorTip.username_length', { min: 2, max: 12 }),
+      trigger: 'blur',
+    },
   ],
   password: [
-    { required: true, message: '请输入密码', trigger: 'blur' },
-    { min: 4, max: 12, message: '密码长度为4~12个字符', trigger: 'blur' },
+    {
+      required: true,
+      message: t('errorTip.please_enter_password'),
+      trigger: 'blur',
+    },
+    {
+      min: 4,
+      max: 12,
+      message: t('errorTip.password_length', { min: 4, max: 12 }),
+      trigger: 'blur',
+    },
   ],
-});
+}));
+const rules = ref<FormRules>(computedRule as any);
 
 const handleLogin = () => {
   if (!ruleFormRef.value) return;

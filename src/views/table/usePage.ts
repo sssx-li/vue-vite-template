@@ -65,6 +65,7 @@ export function usePage({
     dialogParams.visible = false;
     dialogParams.loading = false;
     Object.assign(formInline, { ...queryForm });
+    formRef.value?.resetFields();
   };
   const handleConfirm = () => {
     formRef.value?.validate().then(async (valid) => {
