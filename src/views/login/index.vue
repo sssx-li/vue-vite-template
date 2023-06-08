@@ -33,13 +33,12 @@
 
 <script setup lang="ts">
 import { FormInstance, FormRules } from 'element-plus';
-import { useHandleApiRes, useLocalCache, useMessage } from '@/hooks';
+import { useHandleApiRes, useLocalCache } from '@/hooks';
 import { Login, responseStatusCode } from '@/service/api';
 import { ILoginRes } from '@/service/types/user';
 
 const router = useRouter();
 const { setCache } = useLocalCache();
-const { error } = useMessage();
 const { t } = useI18n();
 
 const loading = ref(false);
@@ -83,14 +82,12 @@ const handleLogin = () => {
   ruleFormRef.value.validate(async (valid, fields) => {
     if (valid) {
       loading.value = true;
-      const { code, data, message } = await useHandleApiRes<ILoginRes>(
+      const { code, data } = await useHandleApiRes<ILoginRes>(
         Login({ ...ruleForm })
       );
       if (code === responseStatusCode.success) {
         setCache('token', data.token);
         router.push('/');
-      } else {
-        error(message);
       }
       loading.value = false;
     } else {
