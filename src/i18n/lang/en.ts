@@ -1,4 +1,4 @@
-export default {
+const en = {
   title: 'Management System',
   nav: {
     login: 'Login',
@@ -37,3 +37,7 @@ export default {
     },
   },
 };
+
+export type TLangConfig = typeof en;
+
+export default en;
