@@ -1,5 +1,20 @@
 # vue-vite-template
 
+### 特色功能
+
+```
+  基于vite、vue3
+
+  集成vue-router、vueuse、pinia、typescript、mockjs
+
+  集成ESlint、Prettie、Stylelint等代码规范工具。
+
+  集成commitlint git提交信息规范工具
+
+  集成vue-i18n国际化及主题色切换功能
+
+```
+
 #### 分支管理
 
 ```base
