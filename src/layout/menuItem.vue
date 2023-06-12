@@ -25,6 +25,9 @@
   </template>
 </template>
 
-<script setup lang="ts" name="menuItem">
+<script setup lang="ts">
+defineOptions({
+  name: 'menuItem',
+});
 defineProps<{ routes: Array<RouteRecordRaw> }>();
 </script>

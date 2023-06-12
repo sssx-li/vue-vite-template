@@ -14,7 +14,7 @@
   </el-container>
 </template>
 
-<script setup lang="ts" name="layout">
+<script setup lang="ts">
 import Header from './header.vue';
 import sideBar from './sideBar.vue';
 const isCollapse = ref(false);
