@@ -22,7 +22,16 @@
       </el-breadcrumb>
     </div>
     <div class="fhc">
-      <select-lang class="mr-14px" />
+      <el-switch
+        v-model="isDark"
+        inline-prompt
+        active-text="暗黑"
+        size="large"
+        inactive-text="浅亮"
+        @change="toggleDark"
+        class="theme-switch"
+      />
+      <select-lang class="mx-14px" />
       <el-dropdown @command="handleCommand">
         <span class="fhc outline-none">
           <el-image
@@ -44,7 +53,7 @@
   </div>
 </template>
 
-<script setup lang="ts" name="layout-header">
+<script setup lang="ts">
 import { useStore } from '@/store';
 import { getImgUrl } from '@/utils';
 import { useLocalCache } from '@/hooks';
@@ -107,10 +116,18 @@ const handleCommand = (command: string) => {
     window.location.reload();
   }
 };
+
+// 主题色切换 暗黑模式
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <style lang="scss" scoped>
 .header-container {
   @include flex(center, space-between);
+
+  .theme-switch {
+    --el-switch-on-color: #313136;
+  }
 }
 </style>

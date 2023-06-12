@@ -31,7 +31,6 @@ const { setCache } = useLocalCache();
 
 const { locale } = useI18n();
 const handleCommand = (command: TLang) => {
-  console.log('command', command);
   locale.value = command;
   setCache('lang', command);
 };
