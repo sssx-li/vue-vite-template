@@ -43,7 +43,7 @@ import {
 } from '@/hooks';
 import { useStore } from '@/store';
 
-import TsxComp from '@/components/TsxComp';
+import TsxComp from '@/components/tsxComp';
 import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 import { useI18n } from 'vue-i18n';
