@@ -37,7 +37,7 @@ import {
 } from '@/hooks';
 import { useStore } from '@/store';
 
-import TsxComp from '@/components/TsxComp';
+import TsxComp from '@/components/tsxComp';
 import { getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
 

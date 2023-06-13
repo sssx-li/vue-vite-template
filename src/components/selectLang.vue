@@ -21,7 +21,7 @@ import { useLocalCache } from '@/hooks';
 import { TLang } from '@/i18n';
 
 defineOptions({
-  name: 'selectLang',
+  name: 'SelectLang',
 });
 withDefaults(defineProps<{ size?: number }>(), {
   size: 22,
