@@ -15,9 +15,7 @@ import { setupMock } from '../mock';
 const app = createApp(App);
 
 (async () => {
-  if (import.meta.env.VITE_MOCK_ENV) {
-    await setupMock();
-  }
+  await setupMock();
   app.use(store);
   app.use(router);
   await app.use(directives);
