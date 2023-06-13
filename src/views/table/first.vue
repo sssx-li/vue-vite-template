@@ -99,11 +99,12 @@
 </template>
 
 <script setup lang="ts">
+import { Table } from '@/service/api';
+import { usePage } from './usePage';
+
 defineOptions({
   name: 'tableFirst',
 });
-import { Table } from '@/service/api';
-import { usePage } from './usePage';
 
 const { t } = useI18n();
 const searchForm = reactive({

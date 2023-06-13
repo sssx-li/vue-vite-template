@@ -5,7 +5,7 @@
       v-if="!item.children || item.children.length === 0"
     >
       <el-icon :size="14" v-if="item.meta && item.meta.icon">
-        <svg-icon :name="item.meta.icon" />
+        <svg-icon :name="item.meta.icon as string" />
       </el-icon>
       <span>{{
         item.meta?.subTitle
@@ -16,7 +16,7 @@
     <el-sub-menu :index="item.path" v-else>
       <template #title>
         <el-icon :size="14" v-if="item.meta && item.meta.icon">
-          <svg-icon :name="item.meta.icon" />
+          <svg-icon :name="item.meta.icon as string" />
         </el-icon>
         <span>{{ $t(`nav.${item.meta?.title}`) }}</span>
       </template>
