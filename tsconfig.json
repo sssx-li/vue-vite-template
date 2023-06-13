@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2018",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "node",
@@ -27,5 +27,6 @@
     "typing/*.d.ts",
     "mock/**/*.ts"
   ],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

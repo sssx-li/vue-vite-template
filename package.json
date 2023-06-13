@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
-    "element-plus": "^2.3.3",
+    "element-plus": "^2.3.6",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.33",
@@ -33,7 +33,7 @@
     "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "@vue/runtime-core": "^3.3.4",
+    "@vue/runtime-core": "3.2.47",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-prettier": "^4.2.1",
