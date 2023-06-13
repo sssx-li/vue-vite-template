@@ -28,11 +28,10 @@ export default defineConfig({
       },
     }),
     eslintPlugin({
-      include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.vue'],
+      include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],
     }),
     AutoImport({
-      // dts: './typing/auto.import.d.ts',
-      dts: false,
+      dts: './typing/auto.import.d.ts',
       imports: [
         'vue',
         'vue-router',
@@ -44,9 +43,14 @@ export default defineConfig({
           imports: ['RouteRecordRaw'],
           type: true,
         },
+        {
+          from: 'unplugin-vue-macros/vite',
+          imports: ['defineOptions'],
+          type: true,
+        },
       ],
       eslintrc: {
-        enabled: false,
+        enabled: true,
         filepath: './.eslintrc-auto-import.json',
       },
       resolvers: [ElementPlusResolver()],

@@ -25,10 +25,10 @@
       <el-switch
         v-model="isDark"
         inline-prompt
-        active-text="暗黑"
+        :active-text="$t('nav.dark')"
         size="large"
-        inactive-text="浅亮"
-        @change="toggleDark"
+        :inactive-text="$t('nav.light')"
+        @change="() => toggleDark"
         class="theme-switch"
       />
       <select-lang class="mx-14px" />
@@ -44,7 +44,7 @@
           <el-dropdown-menu>
             <el-dropdown-item command="logout">
               <i-ep:switch-button class="mr-4px" />
-              登出
+              {{ $t('nav.logout') }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

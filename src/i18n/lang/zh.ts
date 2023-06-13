@@ -8,6 +8,8 @@ const zh: TLangConfig = {
     home: '首页',
     form: '表单',
     table: '表格{subTitle}',
+    dark: '暗黑',
+    light: '浅亮',
   },
   errorTip: {
     please_enter_username: '请输入用户名',

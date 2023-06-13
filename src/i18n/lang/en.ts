@@ -6,6 +6,8 @@ const en = {
     home: 'Home',
     form: 'Form',
     table: 'Table{subTitle}',
+    dark: 'Dark',
+    light: 'Light',
   },
   errorTip: {
     please_enter_username: 'Please enter username.',
