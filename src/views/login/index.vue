@@ -120,10 +120,10 @@ input {
   padding: 12px 5px 12px 15px;
   font-size: 16px;
   color: #11142d;
+  caret-color: #11142d;
   background: transparent;
   border: 0;
   border-radius: 0;
-  caret-color: #11142d;
 
   &:-webkit-autofill {
     box-shadow: 0 0 0 1000px #fff inset !important;

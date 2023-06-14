@@ -2,7 +2,6 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
 import VueJsx from '@vitejs/plugin-vue-jsx';
-import VueMacros from 'unplugin-vue-macros/vite';
 
 import eslintPlugin from 'vite-plugin-eslint';
 
@@ -21,12 +20,8 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: Vue(),
-        vueJsx: VueJsx(),
-      },
-    }),
+    Vue(),
+    VueJsx(),
     eslintPlugin({
       include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],
     }),
@@ -41,11 +36,6 @@ export default defineConfig({
         {
           from: 'vue-router',
           imports: ['RouteRecordRaw'],
-          type: true,
-        },
-        {
-          from: 'unplugin-vue-macros/vite',
-          imports: ['defineOptions'],
           type: true,
         },
       ],
