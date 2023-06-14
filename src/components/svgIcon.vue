@@ -5,9 +5,6 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({
-  name: 'SvgIcon',
-});
 interface Props {
   prefix?: string;
   name: string;
