@@ -14,7 +14,6 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "types": ["unplugin-vue-macros/macros-global"],
     "paths": {
       "@/*": ["src/*"]
     }
