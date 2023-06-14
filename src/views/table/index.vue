@@ -4,10 +4,6 @@
   </div>
 </template>
 
-<script setup lang="ts">
-defineOptions({
-  name: 'tablePage',
-});
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped></style>

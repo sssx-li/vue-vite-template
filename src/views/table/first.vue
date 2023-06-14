@@ -102,10 +102,6 @@
 import { Table } from '@/service/api';
 import { usePage } from './usePage';
 
-defineOptions({
-  name: 'tableFirst',
-});
-
 const { t } = useI18n();
 const searchForm = reactive({
   name: '',
