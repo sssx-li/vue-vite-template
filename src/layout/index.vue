@@ -1,10 +1,12 @@
 <template>
-  <a-layout>
-    <a-layout-sider>
-      <sideBar />
+  <a-layout class="h-100vh">
+    <a-layout-sider theme="light" :collapsed="isCollapse">
+      <side-bar :isCollapse="isCollapse" />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header><Header /></a-layout-header>
+      <a-layout-header class="bg-#fff! px-20px!">
+        <Header v-model:isCollapse="isCollapse" />
+      </a-layout-header>
       <a-layout-content>
         <router-view></router-view>
       </a-layout-content>
@@ -15,6 +17,7 @@
 <script setup lang="ts">
 import Header from './header.vue';
 import sideBar from './sideBar.vue';
+const isCollapse = ref(false);
 </script>
 
 <style lang="scss" scoped>

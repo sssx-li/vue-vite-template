@@ -24,6 +24,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
+    "@iconify-json/ep": "^1.1.10",
     "@types/mockjs": "^1.0.7",
     "@types/node": "^18.16.18",
     "@types/nprogress": "^0.2.0",
