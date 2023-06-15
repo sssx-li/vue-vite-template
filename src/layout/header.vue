@@ -21,15 +21,6 @@
       </a-breadcrumb>
     </div>
     <div class="fhc">
-      <!-- <el-switch
-        v-model="isDark"
-        inline-prompt
-        :active-text="$t('nav.dark')"
-        size="large"
-        :inactive-text="$t('nav.light')"
-        @change="() => toggleDark"
-        class="theme-switch"
-      /> -->
       <select-lang class="mx-14px" />
       <a-dropdown>
         <span class="fhc outline-none">
@@ -113,10 +104,6 @@ const handleCommand: MenuProps['onClick'] = ({ key }) => {
     window.location.reload();
   }
 };
-
-// 主题色切换 暗黑模式
-// const isDark = useDark();
-// const toggleDark = useToggle(isDark);
 </script>
 
 <style lang="scss" scoped>

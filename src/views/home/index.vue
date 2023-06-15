@@ -24,13 +24,6 @@
       </option>
     </select>
     <br />
-    语言测试：{{ $t('nav.logout') }}
-    <br />
-    当前语言环境: {{ locale === 'en' ? 'English' : '中文' }}
-    <br />
-    <button @click="changeLang(locale === 'en' ? 'zh' : 'en')">
-      点我切换语言
-    </button>
   </div>
 </template>
 
@@ -46,10 +39,9 @@ import { useStore } from '@/store';
 import TsxComp from '@/components/tsxComp';
 import { Login, getUserInfo } from '@/service/api';
 import { IUserInfo } from '@/service/types/user';
-import { TLang } from '@/i18n';
 
 const { userInfo } = storeToRefs(useStore().user);
-const { getCache, setCache } = useLocalCache();
+const { getCache } = useLocalCache();
 
 const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
 const cacheUserInfo = getCache('userInfo');
@@ -70,13 +62,6 @@ const { switchColor } = useSwitchTheme(el, activeTheme);
 nextTick(() => {
   switchColor();
 });
-
-const { t, locale } = useI18n();
-console.log('-----t-----', t('nav.logout'));
-const changeLang = (lang: TLang) => {
-  locale.value = lang;
-  setCache('lang', lang);
-};
 
 // 接口使用示例
 const getInfo = async () => {
