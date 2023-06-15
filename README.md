@@ -20,6 +20,7 @@
 ```base
   main/master: 用于基础功能开发
   element-template: 集成element-plus
+  antd-template: 集成ant-design-vue
   *-scope: 用于cli工具模板生成
 ```
 
