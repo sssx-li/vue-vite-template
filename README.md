@@ -7,11 +7,15 @@
 
   集成vue-router、vueuse、pinia、typescript、mockjs
 
-  集成ESlint、Prettie、Stylelint等代码规范工具。
+  集成ESlint、Prettie、Stylelint代码规范工具。
 
-  集成commitlint git提交信息规范工具
+  集成commitlint git信息提交规范工具
 
-  集成vue-i18n国际化及主题色切换功能
+  集成国际化vue-i18n
+
+  集成主题切换功能(cssVar)
+
+  集成多种动态svg图标使用：封装SvgIcon组件、集成unplugin-icons
 
 ```
 
