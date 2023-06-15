@@ -10,6 +10,7 @@ import { presetAttributify, presetUno, presetIcons } from 'unocss';
 
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 import Icons from 'unplugin-icons/vite';
 import IconsResolver from 'unplugin-icons/resolver';
@@ -42,12 +43,16 @@ export default defineConfig({
         enabled: true,
         filepath: './.eslintrc-auto-import.json',
       },
+      resolvers: [AntDesignVueResolver()],
     }),
     Components({
       dts: './typing/auto.components.d.ts',
       resolvers: [
         IconsResolver({
           customCollections: ['sy'],
+        }),
+        AntDesignVueResolver({
+          importStyle: 'css',
         }),
       ],
     }),

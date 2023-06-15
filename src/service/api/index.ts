@@ -1,4 +1,5 @@
 export * from './user';
+export * from './table';
 
 export enum responseStatusCode {
   success = 0, // 成功
@@ -9,4 +10,8 @@ export enum responseStatusCode {
 export enum User {
   LOGIN = '/login',
   INFO = '/info',
+}
+
+export enum Table {
+  LIST = '/list',
 }
