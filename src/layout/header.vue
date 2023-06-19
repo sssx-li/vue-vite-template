@@ -28,7 +28,7 @@
         :active-text="$t('nav.dark')"
         size="large"
         :inactive-text="$t('nav.light')"
-        @change="() => toggleDark"
+        @change="toggleDark"
         class="theme-switch"
       />
       <select-lang class="mx-14px" />
