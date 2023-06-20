@@ -1,12 +1,12 @@
 import type {
-  MaybeComputedRef,
+  MaybeRefOrGetter,
   DateLike,
   UseDateFormatOptions,
 } from '@vueuse/core';
 
 export type TDateFormat = (
-  date: MaybeComputedRef<DateLike>,
-  formatStr?: MaybeComputedRef<string>,
+  date: MaybeRefOrGetter<DateLike>,
+  formatStr?: MaybeRefOrGetter<string>,
   options?: UseDateFormatOptions
 ) => string;
 
@@ -18,8 +18,8 @@ export type TDateFormat = (
  * @returns
  */
 export function dateFormat(
-  date: MaybeComputedRef<DateLike>,
-  format: MaybeComputedRef<string> = 'YYYY-MM-DD hh:mm:ss',
+  date: MaybeRefOrGetter<DateLike>,
+  format: MaybeRefOrGetter<string> = 'YYYY-MM-DD hh:mm:ss',
   options?: UseDateFormatOptions
 ) {
   return useDateFormat(date, format, options).value;
