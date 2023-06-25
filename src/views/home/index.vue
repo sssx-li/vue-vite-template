@@ -61,9 +61,6 @@ const themeOptions: {
 const el = ref(null);
 const activeTheme = ref<ThemeUnion>(getCache('theme'));
 const { switchColor } = useSwitchTheme(el, activeTheme);
-nextTick(() => {
-  switchColor();
-});
 
 // 接口使用示例
 const getInfo = async () => {

@@ -17,6 +17,9 @@ export function useSwitchTheme(
     });
     setCache('theme', type.value);
   };
+  onMounted(() => {
+    switchColor();
+  });
   return {
     switchColor,
   };
