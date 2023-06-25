@@ -67,9 +67,6 @@ const themeOptions: {
 const el = ref(null);
 const activeTheme = ref<ThemeUnion>(getCache('theme'));
 const { switchColor } = useSwitchTheme(el, activeTheme);
-nextTick(() => {
-  switchColor();
-});
 
 const { t, locale } = useI18n();
 console.log('-----t-----', t('nav.logout'));
