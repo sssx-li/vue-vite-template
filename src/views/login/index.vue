@@ -5,14 +5,17 @@
       <div class="title text-center text-30px mb30px">{{ $t('title') }}</div>
       <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" size="large">
         <el-form-item prop="username">
-          <el-input v-model="ruleForm.username" placeholder="请输入用户名" />
+          <el-input
+            v-model="ruleForm.username"
+            :placeholder="$t('errorTip.please_enter_username')"
+          />
         </el-form-item>
         <el-form-item prop="password">
           <el-input
             v-model="ruleForm.password"
             type="password"
             show-password
-            placeholder="请输入密码"
+            :placeholder="$t('errorTip.please_enter_password')"
             @keydown="handleKeyDown"
           />
         </el-form-item>
