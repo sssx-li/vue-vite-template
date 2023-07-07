@@ -7,7 +7,7 @@
         <a-form-item name="username" v-bind="validateInfos.username">
           <a-input
             v-model:value="loginForm.username"
-            placeholder="请输入用户名"
+            :placeholder="$t('errorTip.please_enter_username')"
           />
         </a-form-item>
         <a-form-item name="password" v-bind="validateInfos.password">
@@ -15,7 +15,7 @@
             v-model:value="loginForm.password"
             type="password"
             show-password
-            placeholder="请输入密码"
+            :placeholder="$t('errorTip.please_enter_password')"
             @keydown="handleKeyDown"
           />
         </a-form-item>
