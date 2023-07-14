@@ -16,6 +16,8 @@ export async function setupMock() {
         const { url, method, response, options, handler } = mockData[i];
         this[method as TMethods](url, response ? response : handler, options);
       }
+      // 过滤其它请求
+      this.passthrough();
     },
   });
 }
