@@ -100,12 +100,9 @@ e.g.: git commit -m "docs: update README.md"
   <svg-icon name="vue" style="color: #f60" />
 ```
 
-### vueuse 中部分方法使用说明
-
-[1. vueuse-useLocalStorage 在项目中的使用](https://blog.csdn.net/weixin_42386379/article/details/130059649)
-
-[2. vueuse-useCssVar 实现主题色切换功能](https://blog.csdn.net/weixin_42386379/article/details/130193843)
-
-[3. vueuse-createFetch 实现接口请求及其封装(代替 axios)](https://blog.csdn.net/weixin_42386379/article/details/130216301)
-
-[4. vueuse-useFullscreen 优雅的使用全屏及退出全屏](https://blog.csdn.net/weixin_42386379/article/details/130598170)
+## vueuse相关系列文章
+### [1.vueuse-useLocalStorage在项目中的使用](https://blog.csdn.net/weixin_42386379/article/details/130059649?spm=1001.2014.3001.5501)
+### [2.vueuse-useCssVar实现主题色切换功能](https://blog.csdn.net/weixin_42386379/article/details/130193843?spm=1001.2014.3001.5502)
+### [3.vueuse-createFetch实现接口请求及其封装(代替axios)](https://blog.csdn.net/weixin_42386379/article/details/130216301?spm=1001.2014.3001.5502)
+### [4.vueuse-useFullscreen优雅的使用全屏及退出全屏](https://blog.csdn.net/weixin_42386379/article/details/130598170?spm=1001.2014.3001.5502)
+### [5.vueuse-useDark实现暗黑主题及浅亮主题及Element-Plus暗黑模式](https://blog.csdn.net/weixin_42386379/article/details/131285114?spm=1001.2014.3001.5502)
