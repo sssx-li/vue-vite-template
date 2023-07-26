@@ -3,7 +3,6 @@ import { createI18n } from 'vue-i18n';
 import zh from './lang/zh';
 import en from './lang/en';
 import { useLocalCache } from '@/hooks';
-import { ObjToUnion } from '@/typing';
 const { getCache } = useLocalCache();
 
 const messages = {
@@ -11,7 +10,7 @@ const messages = {
   zh,
 };
 
-export type TLang = ObjToUnion<typeof messages>;
+export type TLang = keyof typeof messages;
 
 const i18n = createI18n({
   locale: getCache('lang'),
