@@ -1,3 +1,3 @@
-export * from './useSwitchTheme';
-export * from './useHandleApiRes';
+export * from './useTheme';
 export * from './useLocalCache';
+export * from './useHandleApiRes';

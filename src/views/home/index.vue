@@ -35,12 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  ThemeUnion,
-  useHandleApiRes,
-  useLocalCache,
-  useSwitchTheme,
-} from '@/hooks';
+import { ThemeTypes, useHandleApiRes, useLocalCache, useTheme } from '@/hooks';
 import { useStore } from '@/store';
 
 import TsxComp from '@/components/tsxComp';
@@ -55,7 +50,7 @@ const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
 const cacheUserInfo = getCache('userInfo');
 // 主题测试
 const themeOptions: {
-  value: ThemeUnion;
+  value: ThemeTypes;
   label: string;
 }[] = [
   { label: '默认主题', value: 'defaultTheme' },
@@ -64,9 +59,9 @@ const themeOptions: {
     value: 'customTheme',
   },
 ];
-const el = ref(null);
-const activeTheme = ref<ThemeUnion>(getCache('theme'));
-const { switchColor } = useSwitchTheme(el, activeTheme);
+const el = ref<HTMLElement>();
+const activeTheme = ref<ThemeTypes>(getCache('theme'));
+const { switchColor } = useTheme(el, activeTheme);
 
 const { t, locale } = useI18n();
 console.log('-----t-----', t('nav.logout'));
