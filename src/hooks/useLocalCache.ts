@@ -1,11 +1,11 @@
 import { useLocalStorage } from '@vueuse/core';
 
-import type { ThemeUnion } from './useSwitchTheme';
+import type { ThemeTypes } from './useTheme';
 import type { TLang } from '@/i18n';
 
 const defCache = {
   token: '',
-  theme: 'defaultTheme' as ThemeUnion,
+  theme: 'defaultTheme' as ThemeTypes,
   userInfo: { username: '', avatar: '' },
   lang: 'zh' as TLang,
 };
