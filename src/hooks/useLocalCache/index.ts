@@ -1,6 +1,5 @@
 import { useLocalStorage } from '@vueuse/core';
-import { ILocalCache, Keys, TGetCache } from './type';
-import { ThemeUnion } from '../useSwitchTheme';
+import { ILocalCache, Keys } from './type';
 
 const defCache: ILocalCache = {
   token: '',
@@ -11,19 +10,11 @@ const defCache: ILocalCache = {
 
 export function useLocalCache() {
   // 1.获取cache
-  function getCache(key: 'token'): string;
-  function getCache(key: 'theme'): ThemeUnion;
-  function getCache(key: 'userInfo'): ILocalCache['userInfo'];
-  function getCache(key: 'lang'): ILocalCache['lang'];
-  function getCache(key: Keys): TGetCache {
+  function getCache<T extends Keys>(key: T): ILocalCache[T] {
     return useLocalStorage(key, defCache[key]).value;
   }
   // 2.设置cache
-  function setCache(key: 'token', value: string): void;
-  function setCache(key: 'theme', value: ThemeUnion): void;
-  function setCache(key: 'userInfo', value: ILocalCache['userInfo']): void;
-  function setCache(key: 'lang', value: ILocalCache['lang']): void;
-  function setCache(key: Keys, value: any) {
+  function setCache<T extends Keys>(key: T, value: ILocalCache[T]) {
     useLocalStorage(key, defCache[key]).value = value;
   }
   // 3.移除cache
