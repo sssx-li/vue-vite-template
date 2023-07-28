@@ -8,9 +8,3 @@ export interface ILocalCache {
   lang: TLang;
 }
 export type Keys = keyof ILocalCache;
-
-export type TGetCache =
-  | ThemeUnion
-  | ILocalCache['userInfo']
-  | ILocalCache['lang']
-  | string;
