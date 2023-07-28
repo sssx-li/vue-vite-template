@@ -1,20 +1,25 @@
 import { useLocalStorage } from '@vueuse/core';
-import { ILocalCache, Keys } from './type';
 
-const defCache: ILocalCache = {
+import type { ThemeUnion } from './useSwitchTheme';
+import type { TLang } from '@/i18n';
+
+const defCache = {
   token: '',
-  theme: 'defaultTheme',
+  theme: 'defaultTheme' as ThemeUnion,
   userInfo: { username: '', avatar: '' },
-  lang: 'zh',
+  lang: 'zh' as TLang,
 };
+
+type LocalCacheValueType = typeof defCache;
+type Keys = keyof LocalCacheValueType;
 
 export function useLocalCache() {
   // 1.获取cache
-  function getCache<T extends Keys>(key: T): ILocalCache[T] {
+  function getCache<T extends Keys>(key: T): LocalCacheValueType[T] {
     return useLocalStorage(key, defCache[key]).value;
   }
   // 2.设置cache
-  function setCache<T extends Keys>(key: T, value: ILocalCache[T]) {
+  function setCache<T extends Keys>(key: T, value: LocalCacheValueType[T]) {
     useLocalStorage(key, defCache[key]).value = value;
   }
   // 3.移除cache
