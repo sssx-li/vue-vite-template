@@ -16,7 +16,7 @@
     <div class="theme-box fvc my10px" ref="el">
       <div class="text">主题测试区域</div>
     </div>
-    <select placeholder="切换主题" v-model="activeTheme" @change="switchColor">
+    <select placeholder="切换主题" v-model="activeTheme" @change="switchTheme">
       <option
         v-for="theme in themeOptions"
         :key="theme.value"
@@ -55,7 +55,7 @@ const themeOptions: {
 ];
 const el = ref<HTMLElement>();
 const activeTheme = ref<ThemeTypes>(getCache('theme'));
-const { switchColor } = useTheme(el, activeTheme);
+const { switchTheme } = useTheme(el, activeTheme);
 
 // 接口使用示例
 const getInfo = async () => {
