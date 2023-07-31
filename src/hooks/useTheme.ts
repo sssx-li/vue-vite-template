@@ -23,7 +23,7 @@ export function useTheme(
 ) {
   const colors: Record<CssVarTypes | string, Ref<any>> = {};
 
-  const switchColor = () => {
+  const switchTheme = () => {
     Object.keys(themes[type.value]).forEach((item) => {
       colors[item].value = themes[type.value][item as CssVarTypes];
     });
@@ -34,10 +34,10 @@ export function useTheme(
     Object.keys(themes.defaultTheme).forEach((item) => {
       colors[item] = useCssVar(item, el);
     });
-    switchColor();
+    switchTheme();
   });
 
   return {
-    switchColor,
+    switchTheme,
   };
 }
