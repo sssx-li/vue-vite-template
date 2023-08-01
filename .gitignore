@@ -25,3 +25,5 @@ dist-ssr
 auto.components.d.ts
 auto.import.d.ts
 .eslintrc-auto-import.json
+
+vite.config.ts.timestamp*
