@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
     "lint:style": "stylelint  src/**/*.{vue,css,scss} --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generateImgPaths": "node ./generate/imgPaths.js"
   },
   "dependencies": {
     "@vueuse/core": "^10.2.0",
