@@ -24,7 +24,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "typing/*.d.ts",
-    "mock/**/*.ts"
+    "mock/**/*.ts",
+    "generate/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
