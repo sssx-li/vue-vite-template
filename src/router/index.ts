@@ -11,32 +11,32 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/home',
         name: 'home',
-        meta: { title: 'home', icon: 'home' },
+        meta: { title: '首页', icon: 'home' },
         component: () => import('@/views/home/index.vue'),
       },
       {
         path: '/form',
         name: 'form',
-        meta: { title: 'form', icon: 'form' },
+        meta: { title: '表单', icon: 'form' },
         component: () => import('@/views/form/index.vue'),
       },
       {
         path: '/table',
         name: 'table',
-        meta: { title: 'table', icon: 'table' },
+        meta: { title: '表格', icon: 'table' },
         component: () => import('@/views/table/index.vue'),
         redirect: '/table/first',
         children: [
           {
             path: '/table/first',
             name: 'tableFirst',
-            meta: { title: 'table', subTitle: 1 },
+            meta: { title: '表格1' },
             component: () => import('@/views/table/first.vue'),
           },
           {
             path: '/table/secound',
             name: 'tableSecound',
-            meta: { title: 'table', subTitle: 2, isHidden: true },
+            meta: { title: '表格2', isHidden: true },
             component: () => import('@/views/table/secound.vue'),
           },
         ],

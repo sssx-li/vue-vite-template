@@ -1,8 +1,6 @@
 import { useLocalCache, useMessage } from '@/hooks';
 import { responseStatusCode } from './api';
 import Fetch from './fetch';
-import i18n from '@/i18n';
-const { t } = i18n.global;
 
 const { getCache, clearCache } = useLocalCache();
 const { error } = useMessage();
@@ -26,11 +24,11 @@ export const Request = new Fetch({
       // 这里做统一错误处理
       const { code, message } = ctx.data;
       if (code === responseStatusCode.tokenInvalid) {
-        error(t('requestErrorTips.login_expired'));
+        error('登录过期，请重新登录');
         clearCache();
         location.reload();
       } else if (code !== responseStatusCode.success) {
-        error(message || t('requestErrorTips.request_failed'));
+        error(message || '请求失败，请稍后再试');
       }
       return ctx;
     },
@@ -38,9 +36,9 @@ export const Request = new Fetch({
       console.log('ctx', ctx);
       const { code, message } = ctx.error;
       if (code === responseStatusCode.aborted) {
-        error(message || t('requestErrorTips.request_canceled'));
+        error(message || '请求取消');
       } else {
-        error(t('requestErrorTips.require_error'));
+        error('请求错误，请确认后再试');
       }
       return ctx;
     },

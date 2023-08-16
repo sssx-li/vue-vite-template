@@ -5,8 +5,6 @@
     class="h-100% w-250px"
     router
   >
-    <!-- background-color="#545c64"
-  text-color="#b7bdc3" -->
     <div class="text-center p-10px">
       <el-icon :size="isCollapse ? 30 : 40">
         <i-sy-vue />
@@ -48,8 +46,4 @@ const routes = computed(() => {
 const defaultActive = computed(() => route.path);
 </script>
 
-<style lang="scss" scoped>
-.el-menu {
-  /* border-right: none; */
-}
-</style>
+<style lang="scss" scoped></style>

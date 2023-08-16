@@ -25,13 +25,12 @@
       <el-switch
         v-model="isDark"
         inline-prompt
-        :active-text="$t('nav.dark')"
+        active-text="暗黑"
         size="large"
-        :inactive-text="$t('nav.light')"
+        inactive-text="浅亮"
         @change="() => toggleDark"
-        class="theme-switch"
+        class="theme-switch mr-14px"
       />
-      <select-lang class="mx-14px" />
       <el-dropdown @command="handleCommand">
         <span class="fhc outline-none">
           <el-image
@@ -44,7 +43,7 @@
           <el-dropdown-menu>
             <el-dropdown-item command="logout">
               <i-ep:switch-button class="mr-4px" />
-              {{ $t('nav.logout') }}
+              登出
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -64,7 +63,6 @@ const emits = defineEmits(['update:isCollapse']);
 const { clearCache } = useLocalCache();
 const route = useRoute();
 const router = useRouter();
-const { t } = useI18n();
 const layoutRoutes = computed(
   () => router.getRoutes().find((item) => item.name === 'layout')?.children
 );
@@ -84,19 +82,11 @@ const breadcrumbs = computed(() => {
         parentRoute &&
           parentRoute.meta &&
           breadcrumbArr.push({
-            title: parentRoute!.meta.subTitle
-              ? t(`nav.${parentRoute!.meta.title}`, {
-                  subTitle: parentRoute!.meta.subTitle,
-                })
-              : t(`nav.${parentRoute!.meta.title}`),
+            title: parentRoute!.meta.title as string,
             path: parentRoute.path,
           });
         breadcrumbArr.push({
-          title: item.meta.subTitle
-            ? t(`nav.${item.meta.title}`, {
-                subTitle: item.meta.subTitle,
-              })
-            : t(`nav.${item.meta.title}`),
+          title: item.meta.title as string,
           path: item.path,
         });
         break;
