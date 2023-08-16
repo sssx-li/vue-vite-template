@@ -17,7 +17,15 @@
 <script setup lang="ts">
 import Header from './header.vue';
 import sideBar from './sideBar.vue';
+
+const { width } = useWindowSize();
 const isCollapse = ref(false);
+
+watchEffect(() => {
+  if (width.value <= 800) {
+    isCollapse.value = true;
+  }
+});
 </script>
 
 <style lang="scss" scoped>

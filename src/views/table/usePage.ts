@@ -1,8 +1,9 @@
 import { useConfirm, useHandleApiRes, useMessage } from '@/hooks';
 import { Request } from '@/service';
 import { responseStatusCode } from '@/service/api';
-import { ITableRes } from '@/service/types/table';
-import { FormInstance, FormRules } from 'element-plus';
+
+import type { ITableRes } from '@/service/types/table';
+import type { FormInstance } from 'element-plus';
 
 type THandle = 'create' | 'edit' | 'delete';
 
@@ -10,15 +11,12 @@ export function usePage({
   url,
   searchForm = {},
   queryForm = {},
-  validateRules = {} as FormRules,
 }: {
   url: string;
   searchForm?: Record<string, any>;
   queryForm?: Record<string, any>;
-  validateRules: FormRules;
 }) {
   const { success } = useMessage();
-  const { t } = useI18n();
   const confirm = useConfirm();
   const loading = ref(false);
   const dataSource = ref<ITableRes>({ data: [], count: 0 });
@@ -28,7 +26,6 @@ export function usePage({
   });
   const formInline = reactive({ ...queryForm });
   const formRef = ref<FormInstance>();
-  const rules = reactive<FormRules>(validateRules);
   const dialogParams = reactive<{
     visible: boolean;
     loading: boolean;
@@ -61,6 +58,7 @@ export function usePage({
     getPageData();
   };
   const handleCancel = () => {
+    console.log(111);
     dialogParams.type = 'create';
     pageInfo.currentPage = 1;
     dialogParams.visible = false;
@@ -101,7 +99,7 @@ export function usePage({
       })
     );
     if (code === responseStatusCode.success) {
-      success(t('tips.create_success'));
+      success('新增成功');
     }
   };
   const handleEdit = async () => {
@@ -114,15 +112,13 @@ export function usePage({
       })
     );
     if (code === responseStatusCode.success) {
-      success(t('tips.edit_success'));
+      success('编辑成功');
     }
   };
   const handleDelete = (row: Record<string, any>) => {
     confirm({
-      title: t('tips.delete'),
-      content: t('tips.delete_confirm', {
-        desc: row.name,
-      }),
+      title: '删除',
+      content: `确定要删除 ${row.name} 这条记录吗? 删除之后不能恢复哦！`,
       options: {
         type: 'warning',
       },
@@ -134,7 +130,7 @@ export function usePage({
         })
       );
       if (code === responseStatusCode.success) {
-        success(t('tips.delete_success'));
+        success('删除成功');
         pageInfo.currentPage = 1;
         getPageData();
       }
@@ -148,7 +144,6 @@ export function usePage({
     pageInfo,
     formInline,
     formRef,
-    rules,
     dialogParams,
     getPageData,
     handleSizeChange,

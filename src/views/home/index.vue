@@ -1,5 +1,11 @@
 <template>
   <div class="text-20px">
+    <h1 class="text-18px">点我选择语言： <select-lang /></h1>
+    <div class="box b-solid b-1 b-#f60 w-400px h-100px p-10px">
+      {{ $t('title') }} <br />
+      {{ $t('nav.login') }} <br />
+      {{ $t('nav.logout') }}
+    </div>
     当前时间: {{ currentTime }} <br />
     <el-icon :size="14">
       <svg-icon name="vue" />
