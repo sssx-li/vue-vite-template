@@ -41,14 +41,14 @@ export default defineConfig({
         },
       ],
       eslintrc: {
-        enabled: true,
+        enabled: false,
         filepath: './.eslintrc-auto-import.json',
       },
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      dts: './typing/auto.components.d.ts',
-      // dts: false,
+      // dts: './typing/auto.components.d.ts',
+      dts: false,
       resolvers: [
         ElementPlusResolver({
           importStyle: 'sass',
@@ -57,6 +57,7 @@ export default defineConfig({
           customCollections: ['sy'],
         }),
       ],
+      dirs: ['src/**/components'],
     }),
     Icons({
       autoInstall: true,
