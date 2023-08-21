@@ -26,7 +26,8 @@ export default defineConfig({
       include: ['src/**/*.ts', 'src/**/*.tsx', 'src/**/*.vue'],
     }),
     AutoImport({
-      dts: './typing/auto.import.d.ts',
+      // dts: './typing/auto.import.d.ts',
+      dts: false,
       imports: [
         'vue',
         'vue-router',
@@ -47,6 +48,7 @@ export default defineConfig({
     }),
     Components({
       dts: './typing/auto.components.d.ts',
+      // dts: false,
       resolvers: [
         ElementPlusResolver({
           importStyle: 'sass',
@@ -113,5 +115,8 @@ export default defineConfig({
         additionalData: `@use "@/styles/mixins.scss" as *;`,
       },
     },
+  },
+  optimizeDeps: {
+    include: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
   },
 });
