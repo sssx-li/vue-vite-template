@@ -25,7 +25,8 @@ export default defineConfig({
       include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.vue'],
     }),
     AutoImport({
-      dts: './typing/auto.import.d.ts',
+      // dts: './typing/auto.import.d.ts',
+      dts: false,
       imports: [
         'vue',
         'vue-router',
@@ -39,17 +40,19 @@ export default defineConfig({
         },
       ],
       eslintrc: {
-        enabled: true,
+        enabled: false,
         filepath: './.eslintrc-auto-import.json',
       },
     }),
     Components({
-      dts: './typing/auto.components.d.ts',
+      // dts: './typing/auto.components.d.ts',
+      dts: false,
       resolvers: [
         IconsResolver({
           customCollections: ['sy'],
         }),
       ],
+      dirs: ['src/**/components'],
     }),
     Icons({
       autoInstall: true,
