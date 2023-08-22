@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@vueuse/core':
     specifier: ^10.2.0
@@ -8955,3 +8951,7 @@ packages:
       }
     engines: { node: '>=10' }
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

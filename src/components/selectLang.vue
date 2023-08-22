@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { useLocalCache } from '@/hooks';
-import { TLang } from '@/i18n';
+import { LangTypes } from '@/i18n';
 
 withDefaults(defineProps<{ size?: number }>(), {
   size: 22,
@@ -27,7 +27,7 @@ withDefaults(defineProps<{ size?: number }>(), {
 const { setCache } = useLocalCache();
 
 const { locale } = useI18n();
-const handleCommand = (command: TLang) => {
+const handleCommand = (command: LangTypes) => {
   locale.value = command;
   setCache('lang', command);
 };

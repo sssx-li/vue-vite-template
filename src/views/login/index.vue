@@ -31,10 +31,11 @@
 </template>
 
 <script setup lang="ts">
-import { FormInstance, FormRules } from 'element-plus';
 import { useHandleApiRes, useLocalCache } from '@/hooks';
-import { Login, responseStatusCode } from '@/service/api';
-import { ILoginRes } from '@/service/types/user';
+import { Login, ResponseStatusCodeEnum } from '@/service/api';
+
+import type { FormInstance, FormRules } from 'element-plus';
+import type { UserLoginRes } from '@/service/types';
 
 const router = useRouter();
 const { setCache } = useLocalCache();
@@ -79,10 +80,10 @@ const handleLogin = () => {
   ruleFormRef.value.validate(async (valid, fields) => {
     if (valid) {
       loading.value = true;
-      const { code, data } = await useHandleApiRes<ILoginRes>(
+      const { code, data } = await useHandleApiRes<UserLoginRes>(
         Login({ ...ruleForm })
       );
-      if (code === responseStatusCode.success) {
+      if (code === ResponseStatusCodeEnum.success) {
         setCache('token', data.token);
         router.push('/');
       }

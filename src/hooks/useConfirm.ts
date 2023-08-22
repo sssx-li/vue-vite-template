@@ -1,15 +1,15 @@
 import { ElMessageBox, ElMessageBoxOptions } from 'element-plus';
 import 'element-plus/es/components/message-box/style/index';
 
-interface IConfirm {
+interface Confirm {
   title?: ElMessageBoxOptions['title'];
   content?: ElMessageBoxOptions['message'];
   options?: ElMessageBoxOptions;
 }
 
-export function useConfirm(): (options?: IConfirm) => any {
+export function useConfirm(): (options?: Confirm) => any {
   return (
-    params: IConfirm = {
+    params: Confirm = {
       content: '提示',
       title: '提示',
       options: {

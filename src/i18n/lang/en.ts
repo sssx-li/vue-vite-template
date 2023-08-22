@@ -6,6 +6,6 @@ const en = {
   },
 };
 
-export type TLangConfig = typeof en;
+export type LangTypes = typeof en;
 
 export default en;

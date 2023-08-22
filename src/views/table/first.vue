@@ -96,9 +96,10 @@
 </template>
 
 <script setup lang="ts">
-import { Table } from '@/service/api';
+import { TableEnum } from '@/service/api';
 import { usePage } from './usePage';
-import { FormRules } from 'element-plus';
+
+import type { FormRules } from 'element-plus';
 
 const searchForm = reactive({
   name: '',
@@ -145,7 +146,7 @@ const {
   handleCancel,
   handleConfirm,
 } = usePage({
-  url: Table.LIST,
+  url: TableEnum.LIST,
   searchForm,
   queryForm: { name: '', age: '', sex: 1 },
 });

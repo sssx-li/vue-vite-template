@@ -1,9 +1,11 @@
-import { User } from '@/service/api';
-import { IMock } from '../types';
-import { createResponse } from '../utils';
-import { IUserInfo } from '@/service/types/user';
 import Mock from 'mockjs';
+
+import { UserEnum } from '@/service/api';
+import { createResponse } from '../utils';
 import { useLocalCache } from '@/hooks';
+
+import type { MockItem } from '../types';
+import type { UserInfo } from '@/service/types';
 
 const { getCache, setCache } = useLocalCache();
 
@@ -20,17 +22,17 @@ if (cacheUserInfo.username) {
   userInfo.username = cacheUserInfo.username;
 }
 
-const userMocks: IMock[] = [
+const userMocks: MockItem[] = [
   {
-    url: User.INFO,
+    url: UserEnum.INFO,
     method: 'get',
     response: () => {
-      return createResponse<IUserInfo>(userInfo);
+      return createResponse<UserInfo>(userInfo);
     },
     options: { timing: 1000 },
   },
   {
-    url: User.LOGIN,
+    url: UserEnum.LOGIN,
     method: 'post',
     response: (schema, request) => {
       const body = JSON.parse(request.requestBody);

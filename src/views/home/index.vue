@@ -37,10 +37,11 @@
 <script setup lang="ts">
 import { ThemeTypes, useHandleApiRes, useLocalCache, useTheme } from '@/hooks';
 import { useStore } from '@/store';
+import { getUserInfo } from '@/service/api';
+
+import type { UserInfo } from '@/service/types';
 
 import TsxComp from '@/components/tsxComp';
-import { getUserInfo } from '@/service/api';
-import { IUserInfo } from '@/service/types/user';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
@@ -70,7 +71,7 @@ const getInfo = async () => {
     // 取消本次请求
     abort();
   }, 300);
-  const { code, data, message } = await useHandleApiRes<IUserInfo>(
+  const { code, data, message } = await useHandleApiRes<UserInfo>(
     getUserInfo()
   );
   userInfo.value = data;

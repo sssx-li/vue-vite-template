@@ -1,10 +1,12 @@
 import Mock from 'mockjs';
-import { Table } from '@/service/api';
-import { IMock } from 'mock/types';
-import { createResponse } from '../utils';
-import { ITableList, ITableRes } from '@/service/types/table';
 
-const tableData: { data: ITableList[] } = Mock.mock({
+import { TableEnum } from '@/service/api';
+import { createResponse } from '../utils';
+
+import type { MockItem } from 'mock/types';
+import type { TableListItem, TableListRes } from '@/service/types';
+
+const tableData: { data: TableListItem[] } = Mock.mock({
   'data|105': [
     {
       'id|+1': 1,
@@ -16,9 +18,9 @@ const tableData: { data: ITableList[] } = Mock.mock({
   ],
 });
 
-const tableMocks: IMock[] = [
+const tableMocks: MockItem[] = [
   {
-    url: Table.LIST,
+    url: TableEnum.LIST,
     method: 'get',
     response: (schema, request) => {
       const { name, currentPage, pageSize } = request.queryParams;
@@ -33,11 +35,11 @@ const tableMocks: IMock[] = [
           parseInt(currentPage) * parseInt(pageSize)
         );
       resData.count = tableData.data.length;
-      return createResponse<ITableRes>(resData);
+      return createResponse<TableListRes>(resData);
     },
   },
   {
-    url: Table.LIST,
+    url: TableEnum.LIST,
     method: 'put',
     response: (schema, request) => {
       const query = JSON.parse(request.requestBody);
@@ -52,7 +54,7 @@ const tableMocks: IMock[] = [
     },
   },
   {
-    url: Table.LIST,
+    url: TableEnum.LIST,
     method: 'post',
     response: (schema, request) => {
       const query = JSON.parse(request.requestBody);
@@ -67,7 +69,7 @@ const tableMocks: IMock[] = [
     },
   },
   {
-    url: Table.LIST,
+    url: TableEnum.LIST,
     method: 'delete',
     response: (schema, request) => {
       const { id } = request.queryParams;

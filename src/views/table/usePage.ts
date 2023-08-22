@@ -1,8 +1,8 @@
 import { useConfirm, useHandleApiRes, useMessage } from '@/hooks';
 import { Request } from '@/service';
-import { responseStatusCode } from '@/service/api';
+import { ResponseStatusCodeEnum } from '@/service/api';
 
-import type { ITableRes } from '@/service/types/table';
+import type { TableListRes } from '@/service/types/table';
 import type { FormInstance } from 'element-plus';
 
 type THandle = 'create' | 'edit' | 'delete';
@@ -19,7 +19,7 @@ export function usePage({
   const { success } = useMessage();
   const confirm = useConfirm();
   const loading = ref(false);
-  const dataSource = ref<ITableRes>({ data: [], count: 0 });
+  const dataSource = ref<TableListRes>({ data: [], count: 0 });
   const pageInfo = reactive({
     currentPage: 1,
     pageSize: 20,
@@ -37,13 +37,13 @@ export function usePage({
   });
   const getPageData = async () => {
     loading.value = true;
-    const { data, code } = await useHandleApiRes<ITableRes>(
+    const { data, code } = await useHandleApiRes<TableListRes>(
       Request.get({
         url,
         params: { ...searchForm, ...pageInfo },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       dataSource.value = data;
     }
     loading.value = false;
@@ -98,7 +98,7 @@ export function usePage({
         },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       success('新增成功');
     }
   };
@@ -111,7 +111,7 @@ export function usePage({
         },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       success('编辑成功');
     }
   };
@@ -129,7 +129,7 @@ export function usePage({
           params: { id: row.id },
         })
       );
-      if (code === responseStatusCode.success) {
+      if (code === ResponseStatusCodeEnum.success) {
         success('删除成功');
         pageInfo.currentPage = 1;
         getPageData();

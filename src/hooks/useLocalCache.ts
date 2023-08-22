@@ -1,13 +1,13 @@
 import { useLocalStorage } from '@vueuse/core';
 
 import type { ThemeTypes } from './useTheme';
-import type { TLang } from '@/i18n';
+import type { LangTypes } from '@/i18n';
 
 const defCache = {
   token: '',
   theme: 'defaultTheme' as ThemeTypes,
   userInfo: { username: '', avatar: '' },
-  lang: 'zh' as TLang,
+  lang: 'zh' as LangTypes,
 };
 
 type LocalCacheValueType = typeof defCache;
