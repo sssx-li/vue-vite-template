@@ -1,4 +1,4 @@
-export interface ITableList {
+export interface TableListItem {
   id: number;
   name: string;
   sex: 0 | 1;
@@ -6,7 +6,7 @@ export interface ITableList {
   createTime: string;
 }
 
-export interface ITableRes<T = ITableList> {
+export interface TableListRes<T = TableListItem> {
   data: T[];
   count: number;
 }
