@@ -37,11 +37,12 @@
 <script setup lang="ts">
 import { ThemeTypes, useHandleApiRes, useLocalCache, useTheme } from '@/hooks';
 import { useStore } from '@/store';
+import { userLogin, userGetUserInfo } from '@/service/api';
+
+import type { LangType } from '@/i18n';
+import type { UserInfo } from '@/service/types';
 
 import TsxComp from '@/components/tsxComp';
-import { Login, getUserInfo } from '@/service/api';
-import { IUserInfo } from '@/service/types/user';
-import { TLang } from '@/i18n';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache, setCache } = useLocalCache();
@@ -65,21 +66,21 @@ const { switchTheme } = useTheme(el, activeTheme);
 
 const { t, locale } = useI18n();
 console.log('-----t-----', t('nav.logout'));
-const changeLang = (lang: TLang) => {
+const changeLang = (lang: LangType) => {
   locale.value = lang;
   setCache('lang', lang);
 };
 
 // 接口使用示例
 const getInfo = async () => {
-  await Login({ username: 'sssx', password: '123456' });
-  const { abort } = getUserInfo();
+  await userLogin({ username: 'sssx', password: '123456' });
+  const { abort } = userGetUserInfo();
   setTimeout(() => {
     // 取消本次请求
     abort();
   }, 300);
-  const { code, data, message } = await useHandleApiRes<IUserInfo>(
-    getUserInfo()
+  const { code, data, message } = await useHandleApiRes<UserInfo>(
+    userGetUserInfo()
   );
   userInfo.value = data;
   console.log(code, data, message);
