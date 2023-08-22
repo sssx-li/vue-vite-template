@@ -1,6 +1,6 @@
-import { TLangConfig } from './en';
+import { LangTypes } from './en';
 
-const zh: TLangConfig = {
+const zh: LangTypes = {
   nav: {
     logout: '登出',
   },
