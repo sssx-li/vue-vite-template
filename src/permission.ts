@@ -1,10 +1,9 @@
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+
 NProgress.configure({ showSpinner: false });
 
 import router from '@/router';
-import { useLocalCache } from './hooks';
-
 router.beforeEach((to, from, next) => {
   NProgress.start();
   const token = useLocalCache().getCache('token');

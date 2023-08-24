@@ -1,4 +1,4 @@
-import type { DateFormat } from '@/utils';
+import type { DateFormat } from '@/utils/dateFormat';
 
 export interface IFilter {
   dateFormat: DateFormat;

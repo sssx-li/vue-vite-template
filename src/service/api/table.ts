@@ -1,8 +1,5 @@
-import { TableEnum } from '.';
-import { Request } from '..';
-
 export function getTableData(name = '') {
-  return Request.get({
+  return ApiRequest.get({
     url: TableEnum.LIST,
     params: { name },
   });
