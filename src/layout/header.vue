@@ -53,7 +53,6 @@
 </template>
 
 <script setup lang="ts">
-import { getImgUrl } from '@/utils/getImgUrl';
 defineProps<{ isCollapse?: boolean }>();
 const emits = defineEmits(['update:isCollapse']);
 
