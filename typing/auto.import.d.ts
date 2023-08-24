@@ -6,7 +6,6 @@ export {}
 declare global {
   const ApiRequest: typeof import('../src/service/index')['ApiRequest'];
   const EffectScope: typeof import('vue')['EffectScope'];
-  const Login: typeof import('../src/service/api/user')['Login'];
   const ResponseStatusCodeEnum: typeof import('../src/service/api/index')['ResponseStatusCodeEnum'];
   const TableEnum: typeof import('../src/service/api/index')['TableEnum'];
   const UserEnum: typeof import('../src/service/api/index')['UserEnum'];
@@ -45,8 +44,6 @@ declare global {
   const getCurrentInstance: typeof import('vue')['getCurrentInstance'];
   const getCurrentScope: typeof import('vue')['getCurrentScope'];
   const getImgUrl: typeof import('../src/utils/getImgUrl')['getImgUrl'];
-  const getTableData: typeof import('../src/service/api/table')['getTableData'];
-  const getUserInfo: typeof import('../src/service/api/user')['getUserInfo'];
   const h: typeof import('vue')['h'];
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch'];
   const inject: typeof import('vue')['inject'];
@@ -110,6 +107,7 @@ declare global {
   const storeToRefs: typeof import('pinia')['storeToRefs'];
   const syncRef: typeof import('@vueuse/core')['syncRef'];
   const syncRefs: typeof import('@vueuse/core')['syncRefs'];
+  const tableGetList: typeof import('../src/service/api/table')['tableGetList'];
   const templateRef: typeof import('@vueuse/core')['templateRef'];
   const throttledRef: typeof import('@vueuse/core')['throttledRef'];
   const throttledWatch: typeof import('@vueuse/core')['throttledWatch'];
@@ -194,6 +192,7 @@ declare global {
   const useFullscreen: typeof import('@vueuse/core')['useFullscreen'];
   const useGamepad: typeof import('@vueuse/core')['useGamepad'];
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation'];
+  const useGetUserInfo: typeof import('../src/service/api/user')['useGetUserInfo'];
   const useHandleApiRes: typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes'];
   const useI18n: typeof import('vue-i18n')['useI18n'];
   const useIdle: typeof import('@vueuse/core')['useIdle'];
@@ -207,6 +206,7 @@ declare global {
   const useLink: typeof import('vue-router')['useLink'];
   const useLocalCache: typeof import('../src/hooks/useLocalCache')['useLocalCache'];
   const useLocalStorage: typeof import('@vueuse/core')['useLocalStorage'];
+  const useLogin: typeof import('../src/service/api/user')['useLogin'];
   const useMagicKeys: typeof import('@vueuse/core')['useMagicKeys'];
   const useManualRefHistory: typeof import('@vueuse/core')['useManualRefHistory'];
   const useMediaControls: typeof import('@vueuse/core')['useMediaControls'];
@@ -335,9 +335,6 @@ declare module 'vue' {
       typeof import('../src/service/index')['ApiRequest']
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
-    readonly Login: UnwrapRef<
-      typeof import('../src/service/api/user')['Login']
-    >;
     readonly ResponseStatusCodeEnum: UnwrapRef<
       typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
     >;
@@ -435,12 +432,6 @@ declare module 'vue' {
     >;
     readonly getImgUrl: UnwrapRef<
       typeof import('../src/utils/getImgUrl')['getImgUrl']
-    >;
-    readonly getTableData: UnwrapRef<
-      typeof import('../src/service/api/table')['getTableData']
-    >;
-    readonly getUserInfo: UnwrapRef<
-      typeof import('../src/service/api/user')['getUserInfo']
     >;
     readonly h: UnwrapRef<typeof import('vue')['h']>;
     readonly ignorableWatch: UnwrapRef<
@@ -565,6 +556,9 @@ declare module 'vue' {
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>;
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>;
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>;
+    readonly tableGetList: UnwrapRef<
+      typeof import('../src/service/api/table')['tableGetList']
+    >;
     readonly templateRef: UnwrapRef<
       typeof import('@vueuse/core')['templateRef']
     >;
@@ -769,6 +763,9 @@ declare module 'vue' {
     readonly useGeolocation: UnwrapRef<
       typeof import('@vueuse/core')['useGeolocation']
     >;
+    readonly useGetUserInfo: UnwrapRef<
+      typeof import('../src/service/api/user')['useGetUserInfo']
+    >;
     readonly useHandleApiRes: UnwrapRef<
       typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes']
     >;
@@ -799,6 +796,9 @@ declare module 'vue' {
     >;
     readonly useLocalStorage: UnwrapRef<
       typeof import('@vueuse/core')['useLocalStorage']
+    >;
+    readonly useLogin: UnwrapRef<
+      typeof import('../src/service/api/user')['useLogin']
     >;
     readonly useMagicKeys: UnwrapRef<
       typeof import('@vueuse/core')['useMagicKeys']
@@ -1058,9 +1058,6 @@ declare module '@vue/runtime-core' {
       typeof import('../src/service/index')['ApiRequest']
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
-    readonly Login: UnwrapRef<
-      typeof import('../src/service/api/user')['Login']
-    >;
     readonly ResponseStatusCodeEnum: UnwrapRef<
       typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
     >;
@@ -1158,12 +1155,6 @@ declare module '@vue/runtime-core' {
     >;
     readonly getImgUrl: UnwrapRef<
       typeof import('../src/utils/getImgUrl')['getImgUrl']
-    >;
-    readonly getTableData: UnwrapRef<
-      typeof import('../src/service/api/table')['getTableData']
-    >;
-    readonly getUserInfo: UnwrapRef<
-      typeof import('../src/service/api/user')['getUserInfo']
     >;
     readonly h: UnwrapRef<typeof import('vue')['h']>;
     readonly ignorableWatch: UnwrapRef<
@@ -1288,6 +1279,9 @@ declare module '@vue/runtime-core' {
     readonly storeToRefs: UnwrapRef<typeof import('pinia')['storeToRefs']>;
     readonly syncRef: UnwrapRef<typeof import('@vueuse/core')['syncRef']>;
     readonly syncRefs: UnwrapRef<typeof import('@vueuse/core')['syncRefs']>;
+    readonly tableGetList: UnwrapRef<
+      typeof import('../src/service/api/table')['tableGetList']
+    >;
     readonly templateRef: UnwrapRef<
       typeof import('@vueuse/core')['templateRef']
     >;
@@ -1492,6 +1486,9 @@ declare module '@vue/runtime-core' {
     readonly useGeolocation: UnwrapRef<
       typeof import('@vueuse/core')['useGeolocation']
     >;
+    readonly useGetUserInfo: UnwrapRef<
+      typeof import('../src/service/api/user')['useGetUserInfo']
+    >;
     readonly useHandleApiRes: UnwrapRef<
       typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes']
     >;
@@ -1522,6 +1519,9 @@ declare module '@vue/runtime-core' {
     >;
     readonly useLocalStorage: UnwrapRef<
       typeof import('@vueuse/core')['useLocalStorage']
+    >;
+    readonly useLogin: UnwrapRef<
+      typeof import('../src/service/api/user')['useLogin']
     >;
     readonly useMagicKeys: UnwrapRef<
       typeof import('@vueuse/core')['useMagicKeys']
