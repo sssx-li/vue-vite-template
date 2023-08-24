@@ -1,11 +1,11 @@
 const en = {
   title: 'Management System',
   nav: {
-    login: 'useLogin',
+    login: 'Login',
     logout: 'Logout',
     home: 'Home',
     form: 'Form',
-    table: 'TableEnum{subTitle}',
+    table: 'Table{subTitle}',
     dark: 'Dark',
     light: 'Light',
   },
