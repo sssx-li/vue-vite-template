@@ -41,9 +41,6 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store';
-import { getImgUrl } from '@/utils';
-import { useLocalCache } from '@/hooks';
 import { MenuProps } from 'ant-design-vue/es';
 
 defineProps<{ isCollapse?: boolean }>();

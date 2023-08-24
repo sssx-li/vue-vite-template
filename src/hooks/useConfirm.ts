@@ -1,13 +1,13 @@
 import { createVNode } from 'vue';
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { Modal } from 'ant-design-vue';
+import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { LegacyButtonType } from 'ant-design-vue/es/button/buttonTypes';
 import 'ant-design-vue/es/modal/style/css';
 
 import i18n from '@/i18n';
 const { t } = i18n.global;
 
-export interface IConfirm {
+export interface Config {
   title?: string;
   content?: string;
   okText?: string;
@@ -15,7 +15,7 @@ export interface IConfirm {
   okType?: LegacyButtonType;
 }
 
-export function useConfirm(): (obj?: IConfirm) => Promise<any> {
+export function useConfirm(): (obj?: Config) => Promise<any> {
   return (params = {}) => {
     const {
       title = t('tips.tip'),

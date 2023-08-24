@@ -1,7 +1,6 @@
 import { createFetch, CreateFetchOptions, UseFetchOptions } from '@vueuse/core';
-import { objectToSearch } from '@/utils';
 
-import type { IFeatchParams } from './types';
+import type { FeatchParams } from './types';
 
 class Fetch {
   instances;
@@ -22,7 +21,7 @@ class Fetch {
     });
   }
   get(
-    { url, params = {} }: Omit<IFeatchParams, 'data'>,
+    { url, params = {} }: Omit<FeatchParams, 'data'>,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -31,7 +30,7 @@ class Fetch {
     ).json();
   }
   post(
-    { url, data, params = {} }: IFeatchParams,
+    { url, data, params = {} }: FeatchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -42,7 +41,7 @@ class Fetch {
       .json();
   }
   put(
-    { url, data, params = {} }: IFeatchParams,
+    { url, data, params = {} }: FeatchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -53,7 +52,7 @@ class Fetch {
       .json();
   }
   patch(
-    { url, data, params = {} }: IFeatchParams,
+    { url, data, params = {} }: FeatchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -64,7 +63,7 @@ class Fetch {
       .json();
   }
   delete(
-    { url, params = {} }: IFeatchParams,
+    { url, params = {} }: FeatchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(

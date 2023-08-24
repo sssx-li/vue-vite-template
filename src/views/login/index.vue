@@ -35,10 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import { useHandleApiRes, useLocalCache } from '@/hooks';
-import { Login, responseStatusCode } from '@/service/api';
-import { ILoginRes } from '@/service/types/user';
 import { useForm } from 'ant-design-vue/lib/form';
+
+import type { UserLoginRes } from '@/service/types';
 
 const router = useRouter();
 const { setCache } = useLocalCache();
@@ -82,10 +81,10 @@ const handleLogin = () => {
   validate().then(async (valid) => {
     if (valid) {
       loading.value = true;
-      const { code, data } = await useHandleApiRes<ILoginRes>(
-        Login({ ...loginForm })
+      const { code, data } = await useHandleApiRes<UserLoginRes>(
+        useLogin({ ...loginForm })
       );
-      if (code === responseStatusCode.success) {
+      if (code === ResponseStatusCodeEnum.success) {
         setCache('token', data.token);
         router.push('/');
       }

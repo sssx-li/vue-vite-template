@@ -1,16 +1,14 @@
-import { Request } from '@/service';
-import { ILogin } from '../types/user';
-import { User } from './index';
+import type { Login } from '../types';
 
-export function Login(data: ILogin) {
-  return Request.post({
-    url: User.LOGIN,
+export function useLogin(data: Login) {
+  return ApiRequest.post({
+    url: UserEnum.LOGIN,
     data,
   });
 }
 
-export function getUserInfo() {
-  return Request.get({
-    url: User.INFO,
+export function userGetUserInfo() {
+  return ApiRequest.get({
+    url: UserEnum.INFO,
   });
 }

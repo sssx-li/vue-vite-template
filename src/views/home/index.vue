@@ -28,12 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { ThemeTypes, useHandleApiRes, useLocalCache, useTheme } from '@/hooks';
-import { useStore } from '@/store';
-
 import TsxComp from '@/components/tsxComp';
-import { Login, getUserInfo } from '@/service/api';
-import { IUserInfo } from '@/service/types/user';
+
+import type { ThemeTypes } from '@/hooks/useTheme';
+import type { UserInfo } from '@/service/types';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
@@ -57,14 +55,14 @@ const { switchTheme } = useTheme(el, activeTheme);
 
 // 接口使用示例
 const getInfo = async () => {
-  await Login({ username: 'sssx', password: '123456' });
-  const { abort } = getUserInfo();
+  await useLogin({ username: 'sssx', password: '123456' });
+  const { abort } = userGetUserInfo();
   setTimeout(() => {
     // 取消本次请求
     abort();
   }, 300);
-  const { code, data, message } = await useHandleApiRes<IUserInfo>(
-    getUserInfo()
+  const { code, data, message } = await useHandleApiRes<UserInfo>(
+    userGetUserInfo()
   );
   userInfo.value = data;
   console.log(code, data, message);

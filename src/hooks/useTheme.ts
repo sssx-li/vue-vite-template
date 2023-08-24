@@ -1,5 +1,3 @@
-import { useLocalCache } from '@/hooks/useLocalCache';
-
 const { setCache } = useLocalCache();
 
 const themes = {

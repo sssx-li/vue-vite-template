@@ -122,7 +122,6 @@
 </template>
 
 <script setup lang="ts">
-import { Table } from '@/service/api';
 import { usePage } from './usePage';
 
 const { t } = useI18n();
@@ -166,7 +165,7 @@ const {
   handleCancel,
   handleConfirm,
 } = usePage({
-  url: Table.LIST,
+  url: TableEnum.LIST,
   searchForm,
   queryForm: { name: '', age: '', sex: 1 },
   validateRules: ruleConfig as any,

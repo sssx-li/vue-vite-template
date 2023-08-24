@@ -1,8 +1,6 @@
-import { useConfirm, useHandleApiRes, useMessage } from '@/hooks';
-import { Request } from '@/service';
-import { responseStatusCode } from '@/service/api';
-import { ITableRes } from '@/service/types/table';
 import { useForm, Rule } from 'ant-design-vue/es/form';
+
+import type { TableDataRes } from '@/service/types';
 
 type THandle = 'create' | 'edit' | 'delete';
 
@@ -21,7 +19,7 @@ export function usePage({
   const { t } = useI18n();
   const confirm = useConfirm();
   const loading = ref(false);
-  const dataSource = ref<ITableRes>({ data: [], count: 0 });
+  const dataSource = ref<TableDataRes>({ data: [], count: 0 });
   const pageInfo = reactive({
     currentPage: 1,
     pageSize: 10,
@@ -42,13 +40,13 @@ export function usePage({
   });
   const getPageData = async () => {
     loading.value = true;
-    const { data, code } = await useHandleApiRes<ITableRes>(
-      Request.get({
+    const { data, code } = await useHandleApiRes<TableDataRes>(
+      ApiRequest.get({
         url,
         params: { ...searchForm, ...pageInfo },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       dataSource.value = data;
     }
     loading.value = false;
@@ -94,27 +92,27 @@ export function usePage({
   };
   const handleCreate = async () => {
     const { code } = await useHandleApiRes(
-      Request.post({
+      ApiRequest.post({
         url,
         data: {
           ...formInline,
         },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       success(t('tips.create_success'));
     }
   };
   const handleEdit = async () => {
     const { code } = await useHandleApiRes(
-      Request.put({
+      ApiRequest.put({
         url,
         data: {
           ...formInline,
         },
       })
     );
-    if (code === responseStatusCode.success) {
+    if (code === ResponseStatusCodeEnum.success) {
       success(t('tips.edit_success'));
     }
   };
@@ -127,12 +125,12 @@ export function usePage({
       okType: 'danger',
     }).then(async () => {
       const { code } = await useHandleApiRes(
-        Request.delete({
+        ApiRequest.delete({
           url,
           params: { id: row.id },
         })
       );
-      if (code === responseStatusCode.success) {
+      if (code === ResponseStatusCodeEnum.success) {
         success(t('tips.delete_success'));
         pageInfo.currentPage = 1;
         getPageData();

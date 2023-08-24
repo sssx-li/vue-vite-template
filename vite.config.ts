@@ -45,6 +45,13 @@ export default defineConfig({
         filepath: './.eslintrc-auto-import.json',
       },
       resolvers: [AntDesignVueResolver()],
+      dirs: [
+        './src/hooks/**',
+        './src/service/**',
+        './src/utils',
+        './src/store/**',
+      ],
+      vueTemplate: true,
     }),
     Components({
       // dts: './typing/auto.components.d.ts',

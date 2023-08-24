@@ -1,11 +1,11 @@
 const en = {
   title: 'Management System',
   nav: {
-    login: 'Login',
+    login: 'useLogin',
     logout: 'Logout',
     home: 'Home',
     form: 'Form',
-    table: 'Table{subTitle}',
+    table: 'TableEnum{subTitle}',
     dark: 'Dark',
     light: 'Light',
   },
@@ -54,12 +54,12 @@ const en = {
   },
   requestErrorTips: {
     request_canceled: 'Request canceled.',
-    login_expired: 'Login expired. Please log in again.',
+    login_expired: 'useLogin expired. Please log in again.',
     request_failed: 'Request failed. Please try again later.',
     require_error: 'Request error. Please verify and try again.',
   },
 };
 
-export type TLangConfig = typeof en;
+export type LangTypes = typeof en;
 
 export default en;

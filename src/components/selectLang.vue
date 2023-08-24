@@ -22,9 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { useLocalCache } from '@/hooks';
-import { TLang } from '@/i18n';
-import { MenuProps } from 'ant-design-vue/es';
+import type { MenuProps } from 'ant-design-vue/es';
+import type { LangType } from '@/i18n';
 
 withDefaults(defineProps<{ size?: number }>(), {
   size: 22,
@@ -34,8 +33,8 @@ const { setCache } = useLocalCache();
 
 const { locale } = useI18n();
 const handleCommand: MenuProps['onClick'] = ({ key }) => {
-  locale.value = key as TLang;
-  setCache('lang', key as TLang);
+  locale.value = key as LangType;
+  setCache('lang', key as LangType);
 };
 </script>
 
