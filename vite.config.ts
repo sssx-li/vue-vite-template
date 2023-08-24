@@ -51,6 +51,7 @@ export default defineConfig({
         './src/utils',
         './src/store/**',
       ],
+      vueTemplate: true,
     }),
     Components({
       // dts: './typing/auto.components.d.ts',
