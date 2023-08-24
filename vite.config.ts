@@ -45,6 +45,12 @@ export default defineConfig({
         filepath: './.eslintrc-auto-import.json',
       },
       resolvers: [ElementPlusResolver()],
+      dirs: [
+        './src/hooks/**',
+        './src/service/**',
+        './src/utils',
+        './src/store/**',
+      ],
     }),
     Components({
       // dts: './typing/auto.components.d.ts',

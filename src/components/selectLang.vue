@@ -17,8 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { useLocalCache } from '@/hooks';
-import { LangTypes } from '@/i18n';
+import type { LangTypes } from '@/i18n';
 
 withDefaults(defineProps<{ size?: number }>(), {
   size: 22,

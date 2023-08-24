@@ -1,8 +1,7 @@
-import { Response, Request } from 'miragejs';
-import { HandlerOptions, RouteHandler } from 'miragejs/server';
-
-import { AnyRegistry } from 'miragejs/-types';
-import Schema from 'miragejs/orm/schema';
+import type Schema from 'miragejs/orm/schema';
+import type { Response, Request } from 'miragejs';
+import type { HandlerOptions, RouteHandler } from 'miragejs/server';
+import type { AnyRegistry } from 'miragejs/-types';
 
 export type MethodTypes =
   | 'get'

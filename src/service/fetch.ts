@@ -1,5 +1,4 @@
 import { createFetch, CreateFetchOptions, UseFetchOptions } from '@vueuse/core';
-import { objectToSearch } from '@/utils';
 
 import type { FeatchParams } from './types';
 

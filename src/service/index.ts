@@ -1,12 +1,10 @@
-import { useLocalCache, useMessage } from '@/hooks';
-import { ResponseStatusCodeEnum } from './api';
 import Fetch from './fetch';
 
 const { getCache, clearCache } = useLocalCache();
 const { error } = useMessage();
 const whiteApis = ['/login']; // 接口白名单
 
-export const Request = new Fetch({
+export const ApiRequest = new Fetch({
   baseUrl: import.meta.env.VITE_BASE_URL,
   options: {
     beforeFetch({ options, cancel, url }) {

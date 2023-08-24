@@ -31,9 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import { useHandleApiRes, useLocalCache } from '@/hooks';
-import { Login, ResponseStatusCodeEnum } from '@/service/api';
-
 import type { FormInstance, FormRules } from 'element-plus';
 import type { UserLoginRes } from '@/service/types';
 
