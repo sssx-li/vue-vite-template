@@ -53,10 +53,6 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store';
-import { getImgUrl } from '@/utils';
-import { useLocalCache } from '@/hooks';
-
 defineProps<{ isCollapse?: boolean }>();
 const emits = defineEmits(['update:isCollapse']);
 

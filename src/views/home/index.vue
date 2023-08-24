@@ -35,10 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { ThemeTypes, useHandleApiRes, useLocalCache, useTheme } from '@/hooks';
-import { useStore } from '@/store';
-import { getUserInfo } from '@/service/api';
-
+import type { ThemeTypes } from '@/hooks/useTheme';
 import type { UserInfo } from '@/service/types';
 
 import TsxComp from '@/components/tsxComp';

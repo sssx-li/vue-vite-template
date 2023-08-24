@@ -1,6 +1,5 @@
 import Mock from 'mockjs';
 
-import { TableEnum } from '@/service/api';
 import { createResponse } from '../utils';
 
 import type { MockItem } from 'mock/types';

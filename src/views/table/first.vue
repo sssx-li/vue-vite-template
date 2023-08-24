@@ -96,7 +96,6 @@
 </template>
 
 <script setup lang="ts">
-import { TableEnum } from '@/service/api';
 import { usePage } from './usePage';
 
 import type { FormRules } from 'element-plus';

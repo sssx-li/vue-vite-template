@@ -1,4 +1,4 @@
-import { LangTypes } from './en';
+import type { LangTypes } from './en';
 
 const zh: LangTypes = {
   title: '后台管理系统',
