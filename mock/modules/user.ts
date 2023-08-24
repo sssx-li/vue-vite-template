@@ -1,7 +1,5 @@
 import Mock from 'mockjs';
 
-import { UserEnum } from '@/service/api';
-import { useLocalCache } from '@/hooks';
 import { createResponse } from '../utils';
 
 import type { MockItem } from '../types';

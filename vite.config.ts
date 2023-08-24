@@ -43,6 +43,13 @@ export default defineConfig({
         enabled: false,
         filepath: './.eslintrc-auto-import.json',
       },
+      dirs: [
+        './src/hooks/**',
+        './src/service/**',
+        './src/utils',
+        './src/store/**',
+      ],
+      vueTemplate: true,
     }),
     Components({
       // dts: './typing/auto.components.d.ts',
