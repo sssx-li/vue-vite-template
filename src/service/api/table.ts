@@ -1,4 +1,4 @@
-export function getTableData(name = '') {
+export function tableGetList(name = '') {
   return ApiRequest.get({
     url: TableEnum.LIST,
     params: { name },

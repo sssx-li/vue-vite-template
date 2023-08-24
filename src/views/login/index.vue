@@ -78,7 +78,7 @@ const handleLogin = () => {
     if (valid) {
       loading.value = true;
       const { code, data } = await useHandleApiRes<UserLoginRes>(
-        Login({ ...ruleForm })
+        useLogin({ ...ruleForm })
       );
       if (code === ResponseStatusCodeEnum.success) {
         setCache('token', data.token);

@@ -63,13 +63,13 @@ const { switchTheme } = useTheme(el, activeTheme);
 
 // 接口使用示例
 const getInfo = async () => {
-  const { abort } = getUserInfo();
+  const { abort } = useGetUserInfo();
   setTimeout(() => {
     // 取消本次请求
     abort();
   }, 300);
   const { code, data, message } = await useHandleApiRes<UserInfo>(
-    getUserInfo()
+    useGetUserInfo()
   );
   userInfo.value = data;
   console.log(code, data, message);
