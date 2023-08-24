@@ -1,13 +1,13 @@
-export interface ILogin {
+export interface Login {
   password: string;
   username: string;
 }
 
-export interface ILoginRes {
+export interface UserLoginRes {
   token: string;
 }
 
-export interface IUserInfo {
+export interface UserInfo {
   username: string;
   avatar: string;
   [propName: string]: any;

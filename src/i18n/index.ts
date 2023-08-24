@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n';
 
 import zh from './lang/zh';
 import en from './lang/en';
-import { useLocalCache } from '@/hooks';
+
 const { getCache } = useLocalCache();
 
 const messages = {
@@ -10,7 +10,7 @@ const messages = {
   zh,
 };
 
-export type TLang = keyof typeof messages;
+export type LangType = keyof typeof messages;
 
 const i18n = createI18n({
   locale: getCache('lang'),

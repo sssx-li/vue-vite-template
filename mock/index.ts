@@ -1,5 +1,6 @@
 import { createServer } from 'miragejs';
-import { TMethods } from './types';
+
+import type { MethodTypes } from './types';
 
 const files = import.meta.glob('../mock/modules/**/*.ts');
 const mockData: any[] = [];
@@ -14,7 +15,11 @@ export async function setupMock() {
       this.namespace = import.meta.env.VITE_BASE_URL;
       for (let i = 0; i < mockData.length; i++) {
         const { url, method, response, options, handler } = mockData[i];
-        this[method as TMethods](url, response ? response : handler, options);
+        this[method as MethodTypes](
+          url,
+          response ? response : handler,
+          options
+        );
       }
       // 过滤其它请求
       this.passthrough();

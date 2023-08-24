@@ -4,7 +4,7 @@ import type {
   UseDateFormatOptions,
 } from '@vueuse/core';
 
-export type TDateFormat = (
+export type DateFormat = (
   date: MaybeComputedRef<DateLike>,
   formatStr?: MaybeComputedRef<string>,
   options?: UseDateFormatOptions

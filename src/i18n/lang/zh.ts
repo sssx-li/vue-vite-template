@@ -1,6 +1,6 @@
-import { TLangConfig } from './en';
+import type { LangTypes } from './en';
 
-const zh: TLangConfig = {
+const zh: LangTypes = {
   title: '后台管理系统',
   nav: {
     login: '登录',

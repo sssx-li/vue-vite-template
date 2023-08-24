@@ -26,7 +26,8 @@ export default defineConfig({
       include: ['src/**/*.ts', 'src/**/*.js', 'src/**/*.vue'],
     }),
     AutoImport({
-      dts: './typing/auto.import.d.ts',
+      // dts: './typing/auto.import.d.ts',
+      dts: false,
       imports: [
         'vue',
         'vue-router',
@@ -40,13 +41,21 @@ export default defineConfig({
         },
       ],
       eslintrc: {
-        enabled: true,
+        enabled: false,
         filepath: './.eslintrc-auto-import.json',
       },
       resolvers: [AntDesignVueResolver()],
+      dirs: [
+        './src/hooks/**',
+        './src/service/**',
+        './src/utils',
+        './src/store/**',
+      ],
+      vueTemplate: true,
     }),
     Components({
-      dts: './typing/auto.components.d.ts',
+      // dts: './typing/auto.components.d.ts',
+      dts: false,
       resolvers: [
         IconsResolver({
           customCollections: ['sy'],
@@ -55,6 +64,7 @@ export default defineConfig({
           importStyle: 'css',
         }),
       ],
+      dirs: ['src/**/components'],
     }),
     Icons({
       autoInstall: true,
@@ -113,5 +123,8 @@ export default defineConfig({
         additionalData: `@use "@/styles/mixins.scss" as *;`,
       },
     },
+  },
+  optimizeDeps: {
+    include: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
   },
 });
