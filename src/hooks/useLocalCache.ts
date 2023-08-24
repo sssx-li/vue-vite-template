@@ -1,5 +1,3 @@
-import { useLocalStorage } from '@vueuse/core';
-
 import type { ThemeTypes } from './useTheme';
 import type { LangType } from '@/i18n';
 

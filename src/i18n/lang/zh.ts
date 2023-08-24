@@ -1,4 +1,4 @@
-import { LangTypes } from './en';
+import type { LangTypes } from './en';
 
 const zh: LangTypes = {
   nav: {

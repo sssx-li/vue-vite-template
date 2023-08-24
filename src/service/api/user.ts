@@ -1,17 +1,14 @@
-import { Request } from '@/service';
-import { UserEnum } from './index';
-
 import type { UserLogin } from '../types';
 
 export function userLogin(data: UserLogin) {
-  return Request.post({
+  return ApiRequest.post({
     url: UserEnum.LOGIN,
     data,
   });
 }
 
 export function userGetUserInfo() {
-  return Request.get({
+  return ApiRequest.get({
     url: UserEnum.INFO,
   });
 }
