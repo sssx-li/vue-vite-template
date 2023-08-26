@@ -29,10 +29,7 @@ const tableMocks: MockItem[] = [
           if (!name) return true;
           return item.name.indexOf(name) !== -1;
         })
-        .slice(
-          (parseInt(currentPage) - 1) * parseInt(pageSize),
-          parseInt(currentPage) * parseInt(pageSize)
-        );
+        .slice((+currentPage - 1) * +pageSize, +currentPage * +pageSize);
       resData.count = tableData.data.length;
       return createResponse<TableListRes>(resData);
     },

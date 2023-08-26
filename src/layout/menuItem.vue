@@ -24,6 +24,7 @@
 <script setup lang="ts">
 defineOptions({
   name: 'menuItem',
+  inheritAttrs: false,
 });
 defineProps<{ routes: Array<RouteRecordRaw> }>();
 </script>

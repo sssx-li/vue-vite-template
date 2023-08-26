@@ -17,6 +17,11 @@
 <script setup lang="ts">
 import MenuItem from './menuItem.vue';
 
+defineOptions({
+  name: 'LayoutSideBar',
+  inheritAttrs: false,
+});
+
 defineProps<{ isCollapse?: boolean }>();
 
 const route = useRoute();
