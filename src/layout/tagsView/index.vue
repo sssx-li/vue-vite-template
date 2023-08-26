@@ -10,7 +10,7 @@
       <div class="flex flex-nowrap">
         <!-- 这里的必须将 disable-transitions设置为true;否则动画会影响el-scrollbar的更新计算导致滚动到当前tag失败(可以使用延迟调用解决) -->
         <el-tag
-          :class="[`mx-${SPACING}px`, 'cursor-pointer', 'tag-item']"
+          class="mx-4px cursor-pointer tag-item"
           closable
           disable-transitions
           :effect="$route.path === item.path ? 'light' : 'plain'"
