@@ -1,11 +1,13 @@
 import type { ElScrollbar } from 'element-plus';
 
-interface Tag {
+export interface Tag {
   name: string;
   path: string;
 }
 
-class TagView {
+export const SPACING = 4;
+export const firstTag: Tag = { name: '首页', path: '/home' };
+export class TagView {
   tags = ref<Tag[]>([]);
   addTag(tag: Tag) {
     if (this.hasTag(tag)) return;
@@ -15,6 +17,17 @@ class TagView {
     if (this.isEmpty() || !this.hasTag(tag)) return;
     const index = this.findTagIndex(tag);
     this.tags.value.splice(index, 1);
+  }
+  deleteAll() {
+    this.tags.value = [];
+  }
+  deleteRightTags(tag: Tag) {
+    if (this.isEmpty() || !this.hasTag(tag)) return;
+    this.tags.value.splice(this.findTagIndex(tag) + 1);
+  }
+  deleteOtherTags(tag: Tag) {
+    if (this.isEmpty() || !this.hasTag(tag)) return;
+    this.tags.value = [tag];
   }
   hasTag(tag: Tag) {
     return !!this.tags.value.find((item) => item.path === tag.path);
@@ -30,13 +43,10 @@ class TagView {
   }
 }
 
-const SPACING = 4;
-
 export function useTags() {
   const route = useRoute();
   const router = useRouter();
 
-  const firstTag: Tag = { name: '首页', path: '/home' };
   const tagsView = new TagView();
   const scrollTagsRef = ref<InstanceType<typeof ElScrollbar>>();
 
@@ -87,8 +97,9 @@ export function useTags() {
   );
 
   return {
-    tags: tagsView.tags,
+    tagsView,
     scrollTagsRef,
     closeTag,
+    moveToTag,
   };
 }

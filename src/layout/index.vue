@@ -38,7 +38,6 @@ watchEffect(() => {
 <style lang="scss" scoped>
 .el-header {
   padding: 0;
-  background-color: #fff;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 2px 8px 0 rgb(0 0 0 / 24%);
 }
