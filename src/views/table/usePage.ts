@@ -1,5 +1,7 @@
-import type { TableListRes } from '@/service/types/table';
+import { usePagination } from './usePagination';
+
 import type { FormInstance } from 'element-plus';
+import type { TableListRes } from '@/service/types';
 
 type THandle = 'create' | 'edit' | 'delete';
 
@@ -16,10 +18,17 @@ export function usePage({
   const confirm = useConfirm();
   const loading = ref(false);
   const dataSource = ref<TableListRes>({ data: [], count: 0 });
-  const pageInfo = reactive({
-    currentPage: 1,
-    pageSize: 20,
-  });
+
+  const { pageInfo, pageSizeChange, currentPageChange, resetPageSize } =
+    usePagination();
+  watch(
+    () => pageInfo,
+    () => {
+      getPageData();
+    },
+    { deep: true }
+  );
+
   const formInline = reactive({ ...queryForm });
   const formRef = ref<FormInstance>();
   const dialogParams = reactive<{
@@ -44,18 +53,9 @@ export function usePage({
     }
     loading.value = false;
   };
-  const handleSizeChange = (val: number) => {
-    pageInfo.currentPage = 1;
-    pageInfo.pageSize = val;
-    getPageData();
-  };
-  const handleCurrentChange = (val: number) => {
-    pageInfo.currentPage = val;
-    getPageData();
-  };
+
   const handleCancel = () => {
     dialogParams.type = 'create';
-    pageInfo.currentPage = 1;
     dialogParams.visible = false;
     dialogParams.loading = false;
     Object.assign(formInline, { ...queryForm });
@@ -71,7 +71,7 @@ export function usePage({
           await handleEdit();
         }
         handleCancel();
-        getPageData();
+        pageInfo.currentPage === 1 ? getPageData() : resetPageSize();
       }
     });
   };
@@ -126,8 +126,7 @@ export function usePage({
       );
       if (code === ResponseStatusCodeEnum.success) {
         success('删除成功');
-        pageInfo.currentPage = 1;
-        getPageData();
+        pageInfo.currentPage === 1 ? getPageData() : resetPageSize();
       }
     });
   };
@@ -141,8 +140,8 @@ export function usePage({
     formRef,
     dialogParams,
     getPageData,
-    handleSizeChange,
-    handleCurrentChange,
+    pageSizeChange,
+    currentPageChange,
     handleAction,
     handleCreate,
     handleEdit,
