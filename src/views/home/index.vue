@@ -1,16 +1,41 @@
 <template>
   <div class="text-20px p-20px">
     当前时间: {{ currentTime }} <br />
-    <svg-icon name="vue" />
     {{ cacheUserInfo.username }} <br />
-    <i-sy-vue class="w20px h20px inline-block" />
-    {{ userInfo?.username }}
+    {{ userInfo?.username }} <br />
+
+    icon使用方式1：<svg-icon name="vue" />
     <br />
-    <input type="text" v-focus placeholder="测试聚焦指令" class="my10px" />
+    icon使用方式3：<i-sy-vue class="w20px h20px inline-block" />
     <br />
-    <TsxComp />
-    <test-comp />
-    <sy-button>测试按钮</sy-button>
+    聚焦指令：<input
+      type="text"
+      v-model="text"
+      v-focus
+      placeholder="测试聚焦指令"
+      class="my10px"
+    />
+    <br />
+    防抖指令：<input
+      type="text"
+      v-model="text"
+      v-debounce="{ callback: ($event) => inputChange('debounce', $event) }"
+      placeholder="输入防抖"
+      class="my10px"
+    />
+    <br />
+    <button v-debounce="{ type: 'click', callback: clickButton }">
+      按钮防抖
+    </button>
+    <br />
+    节流指令：<input
+      type="text"
+      v-model="text"
+      v-throttle="{ callback: ($event) => inputChange('throttle', $event) }"
+      placeholder="输入节流"
+      class="my10px"
+    />
+    <br />
     <div class="theme-box fvc my10px" ref="el">
       <div class="text">主题测试区域</div>
     </div>
@@ -39,13 +64,25 @@ import type { ThemeTypes } from '@/hooks/useTheme';
 import type { LangType } from '@/i18n';
 import type { UserInfo } from '@/service/types';
 
-import TsxComp from '@/components/tsxComp';
-
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache, setCache } = useLocalCache();
 
 const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
 const cacheUserInfo = getCache('userInfo');
+
+// 自定义指令
+const text = ref('');
+const inputChange = (type: 'debounce' | 'throttle', evt: Event) => {
+  if (type === 'debounce') {
+    console.log('触发输入防抖:', evt);
+  } else {
+    console.log('触发输入节流:', evt);
+  }
+};
+const clickButton = () => {
+  console.log('触发按钮防抖');
+};
+
 // 主题测试
 const themeOptions: {
   value: ThemeTypes;
