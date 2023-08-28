@@ -17,10 +17,10 @@ import { setupMock } from '../mock';
 const app = createApp(App);
 
 (async () => {
+  await app.use(directives);
   await setupMock();
   app.use(store);
   app.use(router);
-  await app.use(directives);
   app.use(filters);
   app.use(i18n);
   app.mount('#app');
