@@ -1,10 +1,10 @@
-import type { App } from 'vue';
-export interface IDrrective {
+import type { App, Directive } from 'vue';
+export interface IDirective<T = any, V = any> {
   name: string;
-  directive: any;
+  directive: Directive<T, V>;
 }
 
-const directiveList: Array<IDrrective> = [];
+const directiveList: Array<IDirective> = [];
 
 export default async function directives(app: App) {
   const files = import.meta.glob('./modules/*.ts');
