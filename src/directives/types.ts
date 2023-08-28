@@ -1,11 +1,13 @@
 import type { Directive } from 'vue';
 
+type EventTypes = 'click' | 'input';
+
 export interface Directives {
   vFocus: Directive;
   vDebounce: Directive<
     any,
     {
-      type?: 'click' | 'input';
+      type?: EventTypes;
       delay?: number;
       callback: (...args: any[]) => void;
     }
@@ -13,7 +15,7 @@ export interface Directives {
   vThrottle: Directive<
     any,
     {
-      type?: 'click' | 'input';
+      type?: EventTypes;
       delay?: number;
       callback: (...args: any[]) => void;
     }
@@ -22,7 +24,7 @@ export interface Directives {
 
 export type Keys = keyof Directives;
 type DirectiveName<T extends Keys> = T extends `v${infer V}`
-  ? `${Lowercase<V>}`
+  ? Lowercase<V>
   : never;
 
 export interface DirectiveOptions<T extends Keys> {
