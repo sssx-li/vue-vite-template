@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { useZIndex } from 'element-plus';
-import { useTags, SPACING } from './useTags';
+import { useTags } from './useTags';
 import { useTagMenus } from './useTagMenus';
 defineOptions({
   name: 'LayoutTags',
