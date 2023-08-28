@@ -1,5 +1,5 @@
 import type { DateFormat } from '@/utils/dateFormat';
 
-export interface IFilter {
+export interface Filter {
   dateFormat: DateFormat;
 }
