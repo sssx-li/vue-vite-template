@@ -16,7 +16,7 @@
       <svg-icon name="vue" />
     </el-icon>
     <br />
-    icon使用方式3：<i-sy-vue class="w20px h20px inline-block" />
+    icon使用方式2：<i-sy-vue class="w20px h20px inline-block" />
     <br />
     聚焦指令：<input
       type="text"
