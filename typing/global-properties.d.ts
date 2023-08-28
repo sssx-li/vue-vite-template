@@ -1,5 +1,4 @@
 import { Component } from 'vue';
-import type { IFilters } from '../src/filters/types';
 
 import type { ObjKeysToUnion } from '@/typing';
 import type { LangTypes } from '@/i18n/lang/en';
