@@ -9,7 +9,7 @@ const focusDirective: DirectiveOptions<'vThrottle'> = {
       // 默认监听input事件
       el.addEventListener(type, el.__fn__);
     },
-    unmounted: (el: ELType, { value }) => {
+    beforeUnmount: (el: ELType, { value }) => {
       el.removeEventListener(value.type || 'input', el.__fn__);
     },
   },
