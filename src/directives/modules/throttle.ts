@@ -1,17 +1,16 @@
-import { DirectiveOptions } from '../types';
+import type { DirectiveOptions, ELType } from '../types';
 
-let fn;
 const focusDirective: DirectiveOptions<'vThrottle'> = {
   name: 'throttle',
   directive: {
-    mounted: (el: HTMLInputElement, { value }, vnode) => {
+    mounted: (el: ELType, { value }, vnode) => {
       const { type = 'input', delay, callback } = value;
-      fn = useThrottleFn(callback.bind(vnode), delay ?? 300);
+      el.__fn__ = useThrottleFn(callback.bind(vnode), delay ?? 300);
       // 默认监听input事件
-      el.addEventListener(type, fn);
+      el.addEventListener(type, el.__fn__);
     },
-    unmounted: (el: HTMLInputElement, { value }) => {
-      el.removeEventListener(value.type || 'input', fn!);
+    unmounted: (el: ELType, { value }) => {
+      el.removeEventListener(value.type || 'input', el.__fn__);
     },
   },
 };
