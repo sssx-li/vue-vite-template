@@ -1,11 +1,11 @@
 import { usePagination } from './usePagination';
 
 import type { FormInstance } from 'element-plus';
-import type { TableListRes } from '@/service/types';
+import type { TableListItem, TableListRes } from '@/service/types';
 
 type THandle = 'create' | 'edit' | 'delete';
 
-export function usePage({
+export function usePage<T = TableListItem>({
   url,
   searchForm = {},
   queryForm = {},
@@ -17,7 +17,7 @@ export function usePage({
   const { success } = useMessage();
   const confirm = useConfirm();
   const loading = ref(false);
-  const dataSource = ref<TableListRes>({ data: [], count: 0 });
+  const dataSource = reactive<TableListRes<T>>({ data: [], count: 0 });
 
   const { pageInfo, pageSizeChange, currentPageChange, resetPageSize } =
     usePagination();
@@ -42,14 +42,14 @@ export function usePage({
   });
   const getPageData = async () => {
     loading.value = true;
-    const { data, code } = await useHandleApiRes<TableListRes>(
+    const { data, code } = await useHandleApiRes<TableListRes<T>>(
       ApiRequest.get({
         url,
         params: { ...searchForm, ...pageInfo },
       })
     );
     if (code === ResponseStatusCodeEnum.success) {
-      dataSource.value = data;
+      Object.assign(dataSource, data);
     }
     loading.value = false;
   };
