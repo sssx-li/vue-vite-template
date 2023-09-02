@@ -81,17 +81,6 @@ export default defineConfig({
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],
-      rules: [
-        [
-          'flex justify-center items-center flex-col',
-          {
-            display: 'flex',
-            'justify-content': 'center',
-            'align-items': 'center',
-            'flex-direction': 'column',
-          },
-        ],
-      ],
     }),
   ],
   resolve: {
