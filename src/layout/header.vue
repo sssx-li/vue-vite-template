@@ -1,8 +1,8 @@
 <template>
   <div class="header-container h-100%">
-    <div class="fhc">
+    <div class="flex justify-center items-center">
       <span
-        class="cursor-pointer mr-14px text-20px fhc"
+        class="cursor-pointer mr-14px text-20px flex justify-center items-center"
         @click="emits('update:isCollapse', !isCollapse)"
       >
         <i-ep:fold v-if="!isCollapse" />
@@ -20,10 +20,10 @@
         </template>
       </a-breadcrumb>
     </div>
-    <div class="fhc">
+    <div class="flex justify-center items-center">
       <select-lang class="mx-14px" />
       <a-dropdown>
-        <span class="fhc outline-none">
+        <span class="flex justify-center items-center outline-none">
           <img :src="getImgUrl('avatar.png')" class="w-40px h-40px b-rd-50%" />
           <span class="ml-4px">{{ userInfo.username }}</span>
         </span>

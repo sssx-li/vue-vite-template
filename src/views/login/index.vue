@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container fvc">
+  <div class="login-container flex justify-center items-center flex-clo">
     <div class="form-content w450px p30px relative">
       <select-lang class="absolute! top-10px right-10px" />
       <div class="title text-center text-30px mb30px">{{ $t('title') }}</div>
