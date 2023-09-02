@@ -46,8 +46,9 @@ export default defineConfig({
       dirs: [
         './src/hooks/**',
         './src/service/**',
-        './src/utils',
+        './src/utils/**',
         './src/store/**',
+        './src/constants/**',
       ],
       vueTemplate: true,
     }),
@@ -75,25 +76,6 @@ export default defineConfig({
     }),
     Unocss({
       presets: [presetUno(), presetAttributify(), presetIcons()],
-      rules: [
-        [
-          'fhc',
-          {
-            display: 'flex',
-            'justify-content': 'center',
-            'align-items': 'center',
-          },
-        ],
-        [
-          'fvc',
-          {
-            display: 'flex',
-            'justify-content': 'center',
-            'align-items': 'center',
-            'flex-direction': 'column',
-          },
-        ],
-      ],
     }),
   ],
   resolve: {
