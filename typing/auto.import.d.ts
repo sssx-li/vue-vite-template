@@ -6,9 +6,9 @@ export {}
 declare global {
   const ApiRequest: typeof import('../src/service/index')['ApiRequest'];
   const EffectScope: typeof import('vue')['EffectScope'];
-  const ResponseStatusCodeEnum: typeof import('../src/service/api/index')['ResponseStatusCodeEnum'];
-  const TableEnum: typeof import('../src/service/api/index')['TableEnum'];
-  const UserEnum: typeof import('../src/service/api/index')['UserEnum'];
+  const ResponseStatusCodeEnum: typeof import('../src/constants/apiEnum')['ResponseStatusCodeEnum'];
+  const TableEnum: typeof import('../src/constants/apiEnum')['TableEnum'];
+  const UserEnum: typeof import('../src/constants/apiEnum')['UserEnum'];
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate'];
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed'];
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef'];
@@ -327,13 +327,13 @@ declare module 'vue' {
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
     readonly ResponseStatusCodeEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
+      typeof import('../src/constants/apiEnum')['ResponseStatusCodeEnum']
     >;
     readonly TableEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['TableEnum']
+      typeof import('../src/constants/apiEnum')['TableEnum']
     >;
     readonly UserEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['UserEnum']
+      typeof import('../src/constants/apiEnum')['UserEnum']
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']
@@ -1027,13 +1027,13 @@ declare module '@vue/runtime-core' {
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
     readonly ResponseStatusCodeEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
+      typeof import('../src/constants/apiEnum')['ResponseStatusCodeEnum']
     >;
     readonly TableEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['TableEnum']
+      typeof import('../src/constants/apiEnum')['TableEnum']
     >;
     readonly UserEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['UserEnum']
+      typeof import('../src/constants/apiEnum')['UserEnum']
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']

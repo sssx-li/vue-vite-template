@@ -36,7 +36,10 @@
       class="my10px"
     />
     <br />
-    <div class="theme-box fvc my10px" ref="el">
+    <div
+      class="theme-box flex justify-center items-center flex-clo my10px"
+      ref="el"
+    >
       <div class="text">主题测试区域</div>
     </div>
     <select placeholder="切换主题" v-model="activeTheme" @change="switchTheme">
