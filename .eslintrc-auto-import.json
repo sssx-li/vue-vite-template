@@ -34,7 +34,6 @@
     "createTemplatePromise": true,
     "createUnrefFn": true,
     "customRef": true,
-    "dateFormat": true,
     "debouncedRef": true,
     "debouncedWatch": true,
     "defineAsyncComponent": true,

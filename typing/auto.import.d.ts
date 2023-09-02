@@ -6,9 +6,9 @@ export {}
 declare global {
   const ApiRequest: typeof import('../src/service/index')['ApiRequest'];
   const EffectScope: typeof import('vue')['EffectScope'];
-  const ResponseStatusCodeEnum: typeof import('../src/service/api/index')['ResponseStatusCodeEnum'];
-  const TableEnum: typeof import('../src/service/api/index')['TableEnum'];
-  const UserEnum: typeof import('../src/service/api/index')['UserEnum'];
+  const ResponseStatusCodeEnum: typeof import('../src/constants/apiEmum')['ResponseStatusCodeEnum'];
+  const TableEnum: typeof import('../src/constants/apiEmum')['TableEnum'];
+  const UserEnum: typeof import('../src/constants/apiEmum')['UserEnum'];
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate'];
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed'];
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef'];
@@ -30,7 +30,6 @@ declare global {
   const createTemplatePromise: typeof import('@vueuse/core')['createTemplatePromise'];
   const createUnrefFn: typeof import('@vueuse/core')['createUnrefFn'];
   const customRef: typeof import('vue')['customRef'];
-  const dateFormat: typeof import('../src/utils/dateFormat')['dateFormat'];
   const debouncedRef: typeof import('@vueuse/core')['debouncedRef'];
   const debouncedWatch: typeof import('@vueuse/core')['debouncedWatch'];
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent'];
@@ -336,13 +335,13 @@ declare module 'vue' {
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
     readonly ResponseStatusCodeEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
+      typeof import('../src/constants/apiEmum')['ResponseStatusCodeEnum']
     >;
     readonly TableEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['TableEnum']
+      typeof import('../src/constants/apiEmum')['TableEnum']
     >;
     readonly UserEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['UserEnum']
+      typeof import('../src/constants/apiEmum')['UserEnum']
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']
@@ -399,9 +398,6 @@ declare module 'vue' {
       typeof import('@vueuse/core')['createUnrefFn']
     >;
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>;
-    readonly dateFormat: UnwrapRef<
-      typeof import('../src/utils/dateFormat')['dateFormat']
-    >;
     readonly debouncedRef: UnwrapRef<
       typeof import('@vueuse/core')['debouncedRef']
     >;
@@ -1059,13 +1055,13 @@ declare module '@vue/runtime-core' {
     >;
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>;
     readonly ResponseStatusCodeEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['ResponseStatusCodeEnum']
+      typeof import('../src/constants/apiEmum')['ResponseStatusCodeEnum']
     >;
     readonly TableEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['TableEnum']
+      typeof import('../src/constants/apiEmum')['TableEnum']
     >;
     readonly UserEnum: UnwrapRef<
-      typeof import('../src/service/api/index')['UserEnum']
+      typeof import('../src/constants/apiEmum')['UserEnum']
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']
@@ -1122,9 +1118,6 @@ declare module '@vue/runtime-core' {
       typeof import('@vueuse/core')['createUnrefFn']
     >;
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>;
-    readonly dateFormat: UnwrapRef<
-      typeof import('../src/utils/dateFormat')['dateFormat']
-    >;
     readonly debouncedRef: UnwrapRef<
       typeof import('@vueuse/core')['debouncedRef']
     >;
