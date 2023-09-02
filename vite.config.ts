@@ -48,8 +48,9 @@ export default defineConfig({
       dirs: [
         './src/hooks/**',
         './src/service/**',
-        './src/utils',
+        './src/utils/**',
         './src/store/**',
+        './src/constants/**',
       ],
       vueTemplate: true,
     }),
@@ -82,15 +83,7 @@ export default defineConfig({
       presets: [presetUno(), presetAttributify(), presetIcons()],
       rules: [
         [
-          'fhc',
-          {
-            display: 'flex',
-            'justify-content': 'center',
-            'align-items': 'center',
-          },
-        ],
-        [
-          'fvc',
+          'flex justify-center items-center flex-col',
           {
             display: 'flex',
             'justify-content': 'center',

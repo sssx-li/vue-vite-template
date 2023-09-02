@@ -1,6 +1,6 @@
 <template>
   <div class="header-container h-50px px-20px">
-    <div class="fhc">
+    <div class="flex justify-center items-center">
       <el-icon
         :size="24"
         class="cursor-pointer mr-14px"
@@ -21,7 +21,7 @@
         </template>
       </el-breadcrumb>
     </div>
-    <div class="fhc">
+    <div class="flex justify-center items-center">
       <el-switch
         v-model="isDark"
         inline-prompt
@@ -32,7 +32,7 @@
         class="theme-switch mr-14px"
       />
       <el-dropdown @command="handleCommand">
-        <span class="fhc outline-none">
+        <span class="flex justify-center items-center outline-none">
           <el-image
             :src="getImgUrl('avatar.png')"
             class="w-40px h-40px b-rd-50%"

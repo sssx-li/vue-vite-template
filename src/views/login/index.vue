@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container fvc">
+  <div class="login-container flex justify-center items-center flex-col">
     <div class="form-content w450px p30px">
       <div class="title text-center text-30px mb30px">后台管理系统</div>
       <el-form ref="ruleFormRef" :model="ruleForm" :rules="rules" size="large">
