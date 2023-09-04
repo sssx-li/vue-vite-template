@@ -19,6 +19,61 @@
 
 ```
 
+### 项目结构说明
+
+- generate  
+  目前用于生成静态资源图片路径，即 src/assets/imgs 目录下的图片资源(为 src/utils/getImgUrl 函数参数提供类型声明)
+
+- mock  
+  用于 mock 数据供项目使用
+
+- typing  
+  存放全局变量/属性声明
+
+- src(核心代码存放位置)
+
+  - assets(静态资源文件)  
+     存放图片、字体等资源文件
+
+  - components  
+    存放全局通用组件
+
+  - constants  
+    存放全局常量
+
+  - directives
+    存放全局指令函数
+
+  - filters  
+    存放全局过滤函数
+
+  - hooks  
+    存放全局 hook
+
+  - i18n  
+    存放国际化配置
+
+  - router  
+    存放路由配置
+
+  - service  
+    存放网络请求相关内容
+
+  - store  
+    存放状态管理
+
+  - styles  
+    存放全局样式
+
+  - typing  
+    存放公用变量/属性类型声明及类型转换函数
+
+  - utils  
+    存放全局工具函数
+
+  - views
+    存放页面组件
+
 #### 分支管理
 
 ```base
@@ -100,9 +155,14 @@ e.g.: git commit -m "docs: update README.md"
   <svg-icon name="vue" style="color: #f60" />
 ```
 
-## vueuse相关系列文章
-### [1.vueuse-useLocalStorage在项目中的使用](https://blog.csdn.net/weixin_42386379/article/details/130059649?spm=1001.2014.3001.5501)
-### [2.vueuse-useCssVar实现主题色切换功能](https://blog.csdn.net/weixin_42386379/article/details/130193843?spm=1001.2014.3001.5502)
-### [3.vueuse-createFetch实现接口请求及其封装(代替axios)](https://blog.csdn.net/weixin_42386379/article/details/130216301?spm=1001.2014.3001.5502)
-### [4.vueuse-useFullscreen优雅的使用全屏及退出全屏](https://blog.csdn.net/weixin_42386379/article/details/130598170?spm=1001.2014.3001.5502)
-### [5.vueuse-useDark实现暗黑主题及浅亮主题及Element-Plus暗黑模式](https://blog.csdn.net/weixin_42386379/article/details/131285114?spm=1001.2014.3001.5502)
+### vueuse 使用相关系列文章
+
+#### [1.vueuse-useLocalStorage 在项目中的使用](https://blog.csdn.net/weixin_42386379/article/details/130059649?spm=1001.2014.3001.5501)
+
+#### [2.vueuse-useCssVar 实现主题色切换功能](https://blog.csdn.net/weixin_42386379/article/details/130193843?spm=1001.2014.3001.5502)
+
+#### [3.vueuse-createFetch 实现接口请求及其封装(代替 axios)](https://blog.csdn.net/weixin_42386379/article/details/130216301?spm=1001.2014.3001.5502)
+
+#### [4.vueuse-useFullscreen 优雅的使用全屏及退出全屏](https://blog.csdn.net/weixin_42386379/article/details/130598170?spm=1001.2014.3001.5502)
+
+#### [5.vueuse-useDark 实现暗黑主题及浅亮主题及 Element-Plus 暗黑模式](https://blog.csdn.net/weixin_42386379/article/details/131285114?spm=1001.2014.3001.5502)
