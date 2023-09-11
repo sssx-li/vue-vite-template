@@ -11,11 +11,7 @@
           :name="item.meta.icon as string"
         />
       </template>
-      <span>{{
-        item.meta?.subTitle
-          ? $t(`nav.${item.meta?.title}`, { subTitle: item.meta?.subTitle })
-          : $t(`nav.${item.meta?.title}`)
-      }}</span>
+      <span>{{ item.meta?.title }}</span>
     </a-menu-item>
     <template v-else>
       <a-sub-menu :key="item.path">
@@ -27,7 +23,7 @@
           />
         </template>
         <template #title>
-          <span>{{ $t(`nav.${item.meta?.title}`) }}</span>
+          <span>{{ item.meta?.title }}</span>
         </template>
         <menuItem :routes="item.children" />
       </a-sub-menu>

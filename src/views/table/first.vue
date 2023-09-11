@@ -1,20 +1,13 @@
 <template>
   <a-form layout="inline" :model="searchForm">
-    <a-form-item :label="$t('table.username')">
-      <a-input
-        v-model:value="searchForm.name"
-        :placeholder="$t('table.tips.enter_username')"
-      />
+    <a-form-item label="用户名">
+      <a-input v-model:value="searchForm.name" placeholder="请输入用户名" />
     </a-form-item>
     <a-form-item>
-      <a-button type="primary" @click="getPageData">
-        {{ $t('table.search') }}
-      </a-button>
+      <a-button type="primary" @click="getPageData"> 搜索 </a-button>
     </a-form-item>
     <a-form-item>
-      <a-button type="primary" @click="handleAction('create')">
-        {{ $t('table.create') }}
-      </a-button>
+      <a-button type="primary" @click="handleAction('create')"> 新增 </a-button>
     </a-form-item>
   </a-form>
   <a-table
@@ -23,29 +16,21 @@
     :pagination="false"
     class="mt-14px"
   >
-    <a-table-column
-      key="name"
-      data-index="name"
-      :title="$t('table.username')"
-    />
-    <a-table-column key="age" data-index="age" :title="$t('table.age')" />
-    <a-table-column key="sex" :title="$t('table.sex')">
+    <a-table-column key="name" data-index="name" title="用户名" />
+    <a-table-column key="age" data-index="age" title="年龄" />
+    <a-table-column key="sex" title="性别">
       <template #default="{ record }">
-        {{ record.sex === 1 ? $t('table.man') : $t('table.woman') }}
+        {{ record.sex === 1 ? '男' : '女' }}
       </template>
     </a-table-column>
-    <a-table-column
-      key="createTime"
-      data-index="createTime"
-      :title="$t('table.create_time')"
-    />
-    <a-table-column key="handler" :title="$t('table.operate')">
+    <a-table-column key="createTime" data-index="createTime" title="创建时间" />
+    <a-table-column key="handler" title="操作">
       <template #default="{ record }">
         <a-button type="link" primary @click="handleAction('edit', record)">
-          {{ $t('table.edit') }}
+          编辑
         </a-button>
         <a-button danger type="link" @click="handleAction('delete', record)">
-          {{ $t('table.delete') }}
+          删除
         </a-button>
       </template>
     </a-table-column>
@@ -61,9 +46,7 @@
   </div>
   <a-modal
     v-model:visible="dialogParams.visible"
-    :title="
-      dialogParams.type === 'create' ? $t('table.create') : $t('table.edit')
-    "
+    :title="dialogParams.type === 'create' ? '新增' : '编辑'"
   >
     <a-form
       :model="formInline"
@@ -71,50 +54,38 @@
       :wrapper-col="{ span: 16 }"
       style="max-width: 460px"
     >
-      <a-form-item
-        :label="$t('table.username')"
-        name="name"
-        v-bind="validateInfos.name"
-      >
+      <a-form-item label="用户名" name="name" v-bind="validateInfos.name">
         <a-input v-model:value="formInline.name" autocomplete="off" />
       </a-form-item>
-      <a-form-item
-        :label="$t('table.age')"
-        name="age"
-        v-bind="validateInfos.age"
-      >
+      <a-form-item label="年龄" name="age" v-bind="validateInfos.age">
         <a-input
           v-model:value.number="formInline.age"
           autocomplete="off"
           step="1"
         />
       </a-form-item>
-      <a-form-item
-        :label="$t('table.sex')"
-        name="sex"
-        v-bind="validateInfos.sex"
-      >
+      <a-form-item label="性别" name="sex" v-bind="validateInfos.sex">
         <a-select
           v-model:value="formInline.sex"
-          :placeholder="$t('table.tips.select_sex')"
+          placeholder="请选择性别"
           class="w-100%"
         >
-          <a-select-option :value="1">{{ $t('table.man') }}</a-select-option>
-          <a-select-option :value="0">{{ $t('table.woman') }}</a-select-option>
+          <a-select-option :value="1">男</a-select-option>
+          <a-select-option :value="0">女</a-select-option>
         </a-select>
       </a-form-item>
     </a-form>
     <template #footer>
       <span class="dialog-footer">
         <a-button @click="handleCancel" :disabled="dialogParams.loading">
-          {{ $t('table.cancel') }}
+          取消
         </a-button>
         <a-button
           type="primary"
           @click="handleConfirm"
           :loading="dialogParams.loading"
         >
-          {{ $t('table.ok') }}
+          确认
         </a-button>
       </span>
     </template>
@@ -124,34 +95,33 @@
 <script setup lang="ts">
 import { usePage } from './usePage';
 
-const { t } = useI18n();
 const searchForm = reactive({
   name: '',
 });
-const ruleConfig = computed(() => ({
+const rules = {
   name: [
     {
       required: true,
-      message: t('table.tips.enter_username'),
+      message: '请输入用户名',
     },
   ],
   sex: [
     {
       required: true,
-      message: t('table.tips.select_sex'),
+      message: '请选择性别',
     },
   ],
   age: [
     {
       required: true,
-      message: t('table.tips.enter_age'),
+      message: '请输入年龄',
     },
     {
       type: 'number',
-      message: t('table.tips.age_must_be_a_number'),
+      message: '年龄必须为数字',
     },
   ],
-}));
+};
 const {
   loading,
   dataSource,
@@ -168,7 +138,7 @@ const {
   url: TableEnum.LIST,
   searchForm,
   queryForm: { name: '', age: '', sex: 1 },
-  validateRules: ruleConfig as any,
+  validateRules: rules as any,
 });
 </script>
 

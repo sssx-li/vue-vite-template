@@ -1,13 +1,12 @@
 <template>
   <div class="login-container flex justify-center items-center flex-clo">
     <div class="form-content w450px p30px relative">
-      <select-lang class="absolute! top-10px right-10px" />
-      <div class="title text-center text-30px mb30px">{{ $t('title') }}</div>
+      <div class="title text-center text-30px mb30px">后台管理系统</div>
       <a-form :model="loginForm" size="large">
         <a-form-item name="username" v-bind="validateInfos.username">
           <a-input
             v-model:value="loginForm.username"
-            :placeholder="$t('errorTip.please_enter_username')"
+            placeholder="请输入用户名"
           />
         </a-form-item>
         <a-form-item name="password" v-bind="validateInfos.password">
@@ -15,7 +14,7 @@
             v-model:value="loginForm.password"
             type="password"
             show-password
-            :placeholder="$t('errorTip.please_enter_password')"
+            placeholder="请输入密码"
             @keydown="handleKeyDown"
           />
         </a-form-item>
@@ -26,7 +25,7 @@
             type="primary"
             class="w100%"
           >
-            {{ $t('nav.login') }}
+            登录
           </a-button>
         </a-form-item>
       </a-form>
@@ -41,41 +40,37 @@ import type { UserLoginRes } from '@/service/types';
 
 const router = useRouter();
 const { setCache } = useLocalCache();
-const { t } = useI18n();
 
 const loading = ref(false);
 const loginForm = reactive({
   username: '',
   password: '',
 });
-const computedRule = computed(() => ({
+const rules = {
   username: [
     {
       required: true,
-      message: t('errorTip.please_enter_username'),
+      message: '请输入用户名',
     },
     {
       min: 2,
       max: 12,
-      message: t('errorTip.username_length', { min: 2, max: 12 }),
+      message: '用户名长度为2~12个字符',
     },
   ],
   password: [
     {
       required: true,
-      message: t('errorTip.please_enter_password'),
+      message: '请输入密码',
     },
     {
       min: 4,
       max: 12,
-      message: t('errorTip.password_length', { min: 4, max: 12 }),
+      message: '密码长度为4~12个字符',
     },
   ],
-}));
-const { resetFields, validate, validateInfos } = useForm(
-  loginForm,
-  computedRule
-);
+};
+const { resetFields, validate, validateInfos } = useForm(loginForm, rules);
 
 const handleLogin = () => {
   validate().then(async (valid) => {

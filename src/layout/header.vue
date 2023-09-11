@@ -21,7 +21,6 @@
       </a-breadcrumb>
     </div>
     <div class="flex justify-center items-center">
-      <select-lang class="mx-14px" />
       <a-dropdown>
         <span class="flex justify-center items-center outline-none">
           <img :src="getImgUrl('avatar.png')" class="w-40px h-40px b-rd-50%" />
@@ -31,7 +30,7 @@
           <a-menu @click="handleCommand">
             <a-menu-item key="logout">
               <i-ep:switch-button class="mr-4px vertical-mid mt--5px" />
-              {{ $t('nav.logout') }}
+              登出
             </a-menu-item>
           </a-menu>
         </template>
@@ -49,7 +48,6 @@ const emits = defineEmits(['update:isCollapse']);
 const { clearCache } = useLocalCache();
 const route = useRoute();
 const router = useRouter();
-const { t } = useI18n();
 const layoutRoutes = computed(
   () => router.getRoutes().find((item) => item.name === 'layout')?.children
 );
@@ -69,19 +67,11 @@ const breadcrumbs = computed(() => {
         parentRoute &&
           parentRoute.meta &&
           breadcrumbArr.push({
-            title: parentRoute!.meta.subTitle
-              ? t(`nav.${parentRoute!.meta.title}`, {
-                  subTitle: parentRoute!.meta.subTitle,
-                })
-              : t(`nav.${parentRoute!.meta.title}`),
+            title: parentRoute!.meta.title as string,
             path: parentRoute.path,
           });
         breadcrumbArr.push({
-          title: item.meta.subTitle
-            ? t(`nav.${item.meta.title}`, {
-                subTitle: item.meta.subTitle,
-              })
-            : t(`nav.${item.meta.title}`),
+          title: item.meta.title as string,
           path: item.path,
         });
         break;

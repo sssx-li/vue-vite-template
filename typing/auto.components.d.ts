@@ -5,42 +5,42 @@
 // Read more: https://github.com/vuejs/core/pull/3399
 import '@vue/runtime-core'
 
-export {};
+export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb'];
-    ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem'];
-    AButton: typeof import('ant-design-vue/es')['Button'];
-    AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider'];
-    ADropdown: typeof import('ant-design-vue/es')['Dropdown'];
-    AForm: typeof import('ant-design-vue/es')['Form'];
-    AFormItem: typeof import('ant-design-vue/es')['FormItem'];
-    AInput: typeof import('ant-design-vue/es')['Input'];
-    ALayout: typeof import('ant-design-vue/es')['Layout'];
-    ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent'];
-    ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader'];
-    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider'];
-    AMenu: typeof import('ant-design-vue/es')['Menu'];
-    AMenuItem: typeof import('ant-design-vue/es')['MenuItem'];
-    AModal: typeof import('ant-design-vue/es')['Modal'];
-    APagination: typeof import('ant-design-vue/es')['Pagination'];
-    ARadioButton: typeof import('ant-design-vue/es')['RadioButton'];
-    ARadioGroup: typeof import('ant-design-vue/es')['RadioGroup'];
-    ASelect: typeof import('ant-design-vue/es')['Select'];
-    ASelectOption: typeof import('ant-design-vue/es')['SelectOption'];
-    ASubMenu: typeof import('ant-design-vue/es')['SubMenu'];
-    ATable: typeof import('ant-design-vue/es')['Table'];
-    ATableColumn: typeof import('ant-design-vue/es')['TableColumn'];
-    'IEp:expand': typeof import('~icons/ep/expand')['default'];
-    'IEp:fold': typeof import('~icons/ep/fold')['default'];
-    'IEp:switchButton': typeof import('~icons/ep/switch-button')['default'];
-    ISyVue: typeof import('~icons/sy/vue')['default'];
-    RouterLink: typeof import('vue-router')['RouterLink'];
-    RouterView: typeof import('vue-router')['RouterView'];
-    SelectLang: typeof import('./../src/components/selectLang.vue')['default'];
-    SvgIcon: typeof import('./../src/components/svgIcon.vue')['default'];
-    SyButton: typeof import('./../src/components/syButton/index.vue')['default'];
-    TestComp: typeof import('./../src/components/testComp.vue')['default'];
+    ABreadcrumb: typeof import('ant-design-vue/es')['Breadcrumb']
+    ABreadcrumbItem: typeof import('ant-design-vue/es')['BreadcrumbItem']
+    AButton: typeof import('ant-design-vue/es')['Button']
+    AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
+    ADropdown: typeof import('ant-design-vue/es')['Dropdown']
+    AForm: typeof import('ant-design-vue/es')['Form']
+    AFormItem: typeof import('ant-design-vue/es')['FormItem']
+    AInput: typeof import('ant-design-vue/es')['Input']
+    ALayout: typeof import('ant-design-vue/es')['Layout']
+    ALayoutContent: typeof import('ant-design-vue/es')['LayoutContent']
+    ALayoutHeader: typeof import('ant-design-vue/es')['LayoutHeader']
+    ALayoutSider: typeof import('ant-design-vue/es')['LayoutSider']
+    AMenu: typeof import('ant-design-vue/es')['Menu']
+    AMenuItem: typeof import('ant-design-vue/es')['MenuItem']
+    AModal: typeof import('ant-design-vue/es')['Modal']
+    APagination: typeof import('ant-design-vue/es')['Pagination']
+    ARadioButton: typeof import('ant-design-vue/es')['RadioButton']
+    ARadioGroup: typeof import('ant-design-vue/es')['RadioGroup']
+    ASelect: typeof import('ant-design-vue/es')['Select']
+    ASelectOption: typeof import('ant-design-vue/es')['SelectOption']
+    ASubMenu: typeof import('ant-design-vue/es')['SubMenu']
+    ATable: typeof import('ant-design-vue/es')['Table']
+    ATableColumn: typeof import('ant-design-vue/es')['TableColumn']
+    'IEp:expand': typeof import('~icons/ep/expand')['default']
+    'IEp:fold': typeof import('~icons/ep/fold')['default']
+    'IEp:switchButton': typeof import('~icons/ep/switch-button')['default']
+    ISyVue: typeof import('~icons/sy/vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
+    SelectLang: typeof import('./../src/components/selectLang.vue')['default']
+    SvgIcon: typeof import('./../src/components/svgIcon.vue')['default']
+    SyButton: typeof import('./../src/components/syButton/index.vue')['default']
+    TestComp: typeof import('./../src/components/testComp.vue')['default']
   }
 }

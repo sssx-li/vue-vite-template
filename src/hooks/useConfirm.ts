@@ -4,9 +4,6 @@ import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
 import { LegacyButtonType } from 'ant-design-vue/es/button/buttonTypes';
 import 'ant-design-vue/es/modal/style/css';
 
-import i18n from '@/i18n';
-const { t } = i18n.global;
-
 export interface Config {
   title?: string;
   content?: string;
@@ -18,10 +15,10 @@ export interface Config {
 export function useConfirm(): (obj?: Config) => Promise<any> {
   return (params = {}) => {
     const {
-      title = t('tips.tip'),
-      content = t('tips.tip'),
-      cancelText = t('tips.cancel'),
-      okText = t('tips.ok'),
+      title = '提示',
+      content = '提示',
+      cancelText = '取消',
+      okText = '确认',
       okType = 'default',
     } = params;
     return new Promise((resolve) => {
