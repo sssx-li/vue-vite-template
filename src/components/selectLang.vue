@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LangTypes } from '@/i18n';
+import type { LangType } from '@/i18n';
 
 withDefaults(defineProps<{ size?: number }>(), {
   size: 22,
@@ -26,7 +26,7 @@ withDefaults(defineProps<{ size?: number }>(), {
 const { setCache } = useLocalCache();
 
 const { locale } = useI18n();
-const handleCommand = (command: LangTypes) => {
+const handleCommand = (command: LangType) => {
   locale.value = command;
   setCache('lang', command);
 };
