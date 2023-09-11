@@ -10,7 +10,7 @@ const messages = {
   zh,
 };
 
-export type LangTypes = keyof typeof messages;
+export type LangType = keyof typeof messages;
 
 const i18n = createI18n({
   locale: getCache('lang'),
