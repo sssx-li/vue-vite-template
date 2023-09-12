@@ -10,6 +10,7 @@ declare global {
   const TableEnum: typeof import('../src/constants/apiEmum')['TableEnum'];
   const UserEnum: typeof import('../src/constants/apiEmum')['UserEnum'];
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate'];
+  const arr2map: typeof import('../src/utils/arr2map')['arr2map'];
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed'];
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef'];
   const computed: typeof import('vue')['computed'];
@@ -345,6 +346,9 @@ declare module 'vue' {
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']
+    >;
+    readonly arr2map: UnwrapRef<
+      typeof import('../src/utils/arr2map')['arr2map']
     >;
     readonly asyncComputed: UnwrapRef<
       typeof import('@vueuse/core')['asyncComputed']
@@ -1065,6 +1069,9 @@ declare module '@vue/runtime-core' {
     >;
     readonly acceptHMRUpdate: UnwrapRef<
       typeof import('pinia')['acceptHMRUpdate']
+    >;
+    readonly arr2map: UnwrapRef<
+      typeof import('../src/utils/arr2map')['arr2map']
     >;
     readonly asyncComputed: UnwrapRef<
       typeof import('@vueuse/core')['asyncComputed']
