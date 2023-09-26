@@ -13,7 +13,7 @@
     "generateImgPaths": "node ./generate/imgPaths.js"
   },
   "dependencies": {
-    "@vueuse/core": "^9.13.0",
+    "@vueuse/core": "^10.2.0",
     "ant-design-vue": "^3.2.20",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
