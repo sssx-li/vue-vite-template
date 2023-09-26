@@ -109,4 +109,15 @@ export default defineConfig({
   optimizeDeps: {
     include: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vue: ['vue', 'vue-router', 'vue-i18n', '@vueuse/core'],
+          pinia: ['pinia'],
+          elementPlus: ['element-plus'],
+        },
+      },
+    },
+  },
 });
