@@ -1,11 +1,13 @@
 import type {
-  MaybeComputedRef,
+  MaybeRefOrGetter,
   DateLike,
   UseDateFormatOptions,
 } from '@vueuse/core';
 
-export type DateFormat = (
-  date: MaybeComputedRef<DateLike>,
-  formatStr?: MaybeComputedRef<string>,
-  options?: UseDateFormatOptions
-) => string;
+export interface Filter {
+  dateFormat: (
+    date: MaybeRefOrGetter<DateLike>,
+    format: MaybeRefOrGetter<string>,
+    options?: UseDateFormatOptions
+  ) => string;
+}
