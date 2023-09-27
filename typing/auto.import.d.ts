@@ -169,6 +169,7 @@ declare global {
   const useDeviceOrientation: typeof import('@vueuse/core')['useDeviceOrientation'];
   const useDevicePixelRatio: typeof import('@vueuse/core')['useDevicePixelRatio'];
   const useDevicesList: typeof import('@vueuse/core')['useDevicesList'];
+  const useDialog: typeof import('../src/hooks/useDialog')['useDialog'];
   const useDisplayMedia: typeof import('@vueuse/core')['useDisplayMedia'];
   const useDocumentVisibility: typeof import('@vueuse/core')['useDocumentVisibility'];
   const useDraggable: typeof import('@vueuse/core')['useDraggable'];
@@ -225,7 +226,9 @@ declare global {
   const useObjectUrl: typeof import('@vueuse/core')['useObjectUrl'];
   const useOffsetPagination: typeof import('@vueuse/core')['useOffsetPagination'];
   const useOnline: typeof import('@vueuse/core')['useOnline'];
+  const usePage: typeof import('../src/hooks/usePage')['usePage'];
   const usePageLeave: typeof import('@vueuse/core')['usePageLeave'];
+  const usePagination: typeof import('../src/hooks/usePagination')['usePagination'];
   const useParallax: typeof import('@vueuse/core')['useParallax'];
   const useParentElement: typeof import('@vueuse/core')['useParentElement'];
   const usePerformanceObserver: typeof import('@vueuse/core')['usePerformanceObserver'];
@@ -704,6 +707,9 @@ declare module 'vue' {
     readonly useDevicesList: UnwrapRef<
       typeof import('@vueuse/core')['useDevicesList']
     >;
+    readonly useDialog: UnwrapRef<
+      typeof import('../src/hooks/useDialog')['useDialog']
+    >;
     readonly useDisplayMedia: UnwrapRef<
       typeof import('@vueuse/core')['useDisplayMedia']
     >;
@@ -840,8 +846,14 @@ declare module 'vue' {
       typeof import('@vueuse/core')['useOffsetPagination']
     >;
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>;
+    readonly usePage: UnwrapRef<
+      typeof import('../src/hooks/usePage')['usePage']
+    >;
     readonly usePageLeave: UnwrapRef<
       typeof import('@vueuse/core')['usePageLeave']
+    >;
+    readonly usePagination: UnwrapRef<
+      typeof import('../src/hooks/usePagination')['usePagination']
     >;
     readonly useParallax: UnwrapRef<
       typeof import('@vueuse/core')['useParallax']
@@ -1427,6 +1439,9 @@ declare module '@vue/runtime-core' {
     readonly useDevicesList: UnwrapRef<
       typeof import('@vueuse/core')['useDevicesList']
     >;
+    readonly useDialog: UnwrapRef<
+      typeof import('../src/hooks/useDialog')['useDialog']
+    >;
     readonly useDisplayMedia: UnwrapRef<
       typeof import('@vueuse/core')['useDisplayMedia']
     >;
@@ -1563,8 +1578,14 @@ declare module '@vue/runtime-core' {
       typeof import('@vueuse/core')['useOffsetPagination']
     >;
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>;
+    readonly usePage: UnwrapRef<
+      typeof import('../src/hooks/usePage')['usePage']
+    >;
     readonly usePageLeave: UnwrapRef<
       typeof import('@vueuse/core')['usePageLeave']
+    >;
+    readonly usePagination: UnwrapRef<
+      typeof import('../src/hooks/usePagination')['usePagination']
     >;
     readonly useParallax: UnwrapRef<
       typeof import('@vueuse/core')['useParallax']

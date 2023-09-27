@@ -1,13 +1,13 @@
 <template>
-  <el-form :inline="true" :model="searchForm">
+  <el-form @submit.prevent :inline="true" :model="searchForm">
     <el-form-item label="用户名">
       <el-input v-model="searchForm.name" placeholder="请输入用户名" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="getPageData"> 搜索 </el-button>
+      <el-button type="primary" @click="refreshData"> 搜索 </el-button>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="handleAction('create')">
+      <el-button type="primary" @click="dialogRef?.openDialog('create')">
         新增
       </el-button>
     </el-form-item>
@@ -23,14 +23,14 @@
     <el-table-column prop="createTime" label="创建时间" />
     <el-table-column prop="handler" label="操作">
       <template #default="scope">
-        <el-button type="primary" link @click="handleAction('edit', scope.row)">
+        <el-button
+          type="primary"
+          link
+          @click="dialogRef?.openDialog('edit', scope.row)"
+        >
           编辑
         </el-button>
-        <el-button
-          type="danger"
-          link
-          @click="handleAction('delete', scope.row)"
-        >
+        <el-button type="danger" link @click="handleDelete(scope.row)">
           删除
         </el-button>
       </template>
@@ -46,108 +46,31 @@
       :total="dataSource.count"
     />
   </div>
-  <el-dialog
-    v-model="dialogParams.visible"
-    :title="dialogParams.type === 'create' ? '新增' : '编辑'"
-    @closed="handleCancel"
-  >
-    <el-form
-      :model="formInline"
-      :rules="rules"
-      ref="formRef"
-      label-width="100px"
-      style="max-width: 460px"
-    >
-      <el-form-item label="用户名" prop="name">
-        <el-input v-model="formInline.name" autocomplete="off" />
-      </el-form-item>
-      <el-form-item label="年龄" prop="age">
-        <el-input v-model.number="formInline.age" autocomplete="off" step="1" />
-      </el-form-item>
-      <el-form-item label="性别" prop="sex">
-        <el-select
-          v-model="formInline.sex"
-          placeholder="请选择性别"
-          class="w-100%"
-        >
-          <el-option label="男" :value="1" />
-          <el-option label="女" :value="0" />
-        </el-select>
-      </el-form-item>
-    </el-form>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button
-          @click="dialogParams.visible = false"
-          :disabled="dialogParams.loading"
-        >
-          取消
-        </el-button>
-        <el-button
-          type="primary"
-          @click="handleConfirm"
-          :loading="dialogParams.loading"
-        >
-          确定
-        </el-button>
-      </span>
-    </template>
-  </el-dialog>
+  <editDialog @callback="getPageData" ref="dialogRef" />
 </template>
 
 <script setup lang="ts">
-import { usePage } from './usePage';
+import editDialog from './editDialog.vue';
 
-import type { FormRules } from 'element-plus';
+import type { TableItem } from '@/service/types';
 
+const dialogRef = ref<InstanceType<typeof editDialog>>();
 const searchForm = reactive({
   name: '',
 });
-const rules: FormRules = {
-  name: [
-    {
-      required: true,
-      message: '请输入用户名',
-      trigger: 'blur',
-    },
-  ],
-  sex: [
-    {
-      required: true,
-      message: '请选择性别',
-      trigger: 'change',
-    },
-  ],
-  age: [
-    {
-      required: true,
-      message: '请输入年龄',
-      trigger: 'blur',
-    },
-    {
-      type: 'number',
-      message: '年龄必须为数字',
-      trigger: 'change',
-    },
-  ],
-};
+
 const {
   loading,
   dataSource,
   pageInfo,
-  formInline,
-  formRef,
-  dialogParams,
   getPageData,
+  refreshData,
   pageSizeChange,
   currentPageChange,
-  handleAction,
-  handleCancel,
-  handleConfirm,
-} = usePage({
+  handleDelete,
+} = usePage<TableItem>({
   url: TableEnum.LIST,
   searchForm,
-  queryForm: { name: '', age: '', sex: 1 },
 });
 </script>
 

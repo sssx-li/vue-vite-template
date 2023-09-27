@@ -6,3 +6,9 @@ export interface FeatchParams {
   params?: Record<string, any>;
   data?: Record<string, any>;
 }
+
+// 表格返回信息
+export interface TableRes<T = any> {
+  data: T[];
+  count: number;
+}
