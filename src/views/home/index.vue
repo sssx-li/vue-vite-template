@@ -61,6 +61,13 @@
         {{ theme.label }}
       </option>
     </select>
+    <icon-select
+      v-model="iconStr"
+      width="520px"
+      type="button"
+      class="my-10px"
+    />
+    <icon-select v-model="iconStr" width="520px" />
   </div>
 </template>
 
@@ -116,6 +123,9 @@ const getInfo = async () => {
   console.log(code, data, message);
 };
 getInfo();
+
+// 图标选择
+const iconStr = ref();
 </script>
 
 <style lang="scss" scoped>
