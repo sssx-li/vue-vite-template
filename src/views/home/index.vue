@@ -1,5 +1,8 @@
 <template>
   <div class="text-20px p-20px">
+    <div class="w-300px">
+      图标选择器：<icon-select type="button" v-model="icon" />
+    </div>
     当前时间: {{ currentTime }} <br />
     {{ cacheUserInfo.username }} <br />
     {{ userInfo?.username }} <br />
@@ -123,6 +126,8 @@ const getInfo = async () => {
   console.log(code, data, message);
 };
 getInfo();
+
+const icon = ref('vue');
 </script>
 
 <style lang="scss" scoped>

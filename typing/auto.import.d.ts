@@ -227,6 +227,7 @@ declare global {
   const usePointer: typeof import('@vueuse/core')['usePointer'];
   const usePointerLock: typeof import('@vueuse/core')['usePointerLock'];
   const usePointerSwipe: typeof import('@vueuse/core')['usePointerSwipe'];
+  const usePopper: typeof import('../src/hooks/usePopper')['usePopper'];
   const usePreferredColorScheme: typeof import('@vueuse/core')['usePreferredColorScheme'];
   const usePreferredContrast: typeof import('@vueuse/core')['usePreferredContrast'];
   const usePreferredDark: typeof import('@vueuse/core')['usePreferredDark'];
@@ -839,6 +840,9 @@ declare module 'vue' {
     >;
     readonly usePointerSwipe: UnwrapRef<
       typeof import('@vueuse/core')['usePointerSwipe']
+    >;
+    readonly usePopper: UnwrapRef<
+      typeof import('../src/hooks/usePopper')['usePopper']
     >;
     readonly usePreferredColorScheme: UnwrapRef<
       typeof import('@vueuse/core')['usePreferredColorScheme']
@@ -1550,6 +1554,9 @@ declare module '@vue/runtime-core' {
     >;
     readonly usePointerSwipe: UnwrapRef<
       typeof import('@vueuse/core')['usePointerSwipe']
+    >;
+    readonly usePopper: UnwrapRef<
+      typeof import('../src/hooks/usePopper')['usePopper']
     >;
     readonly usePreferredColorScheme: UnwrapRef<
       typeof import('@vueuse/core')['usePreferredColorScheme']
