@@ -13,6 +13,7 @@
     "generateImgPaths": "node ./generate/imgPaths.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "@vueuse/core": "^10.2.0",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.4",

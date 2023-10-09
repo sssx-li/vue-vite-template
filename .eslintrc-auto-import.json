@@ -231,6 +231,7 @@
     "usePointer": true,
     "usePointerLock": true,
     "usePointerSwipe": true,
+    "usePopper": true,
     "usePreferredColorScheme": true,
     "usePreferredContrast": true,
     "usePreferredDark": true,
