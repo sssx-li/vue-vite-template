@@ -8,7 +8,7 @@ interface IConfirm {
 }
 
 export function useConfirm(): (options?: IConfirm) => any {
-  return (params: IConfirm = {}) => {
+  return (params = {}) => {
     const {
       content = '提示',
       title = '提示',
