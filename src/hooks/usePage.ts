@@ -39,7 +39,10 @@ export function usePage<T = any>({
     pageInfo.currentPage === 1 ? getPageData() : resetPageSize();
   };
   // 删除
-  const handleDelete = (row: Record<string, any>) => {
+  const handleDelete = (
+    row: Record<string, any>,
+    callback?: (...res: any[]) => void
+  ) => {
     confirm({
       title: t('tips.delete'),
       content: t('tips.delete_confirm', {
@@ -58,6 +61,7 @@ export function usePage<T = any>({
       if (code === ResponseStatusCodeEnum.success) {
         success(t('tips.delete_success'));
         refreshData();
+        callback && callback(toRaw(row));
       }
     });
   };
