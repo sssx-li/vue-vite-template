@@ -6,9 +6,23 @@
 pnpm install
 ```
 
+## vscode 相关插件推荐
+
+```
+  TypeScript Vue Plugin(Volar)
+  Vue Language Features(Volar)
+
+  Eslint
+  Stylelint
+  Prettier - Code formatter
+  EditorConfig for VS Code
+
+  UnoCss
+```
+
 ### 开发环境编译运行
 
-开发时建议将 vite.config.ts 中 `dts: './typing/auto.import.d.ts',`、`dts: './typing/auto.components.d.ts'` 放开(取消注释) 以及将 `eslintrc` 下的 `enabled` 设置为true。这样会自动生成组件及、部分方法的ts类型声明及eslint校验配置
+开发时建议将 vite.config.ts 中 `dts: './typing/auto.import.d.ts',`、`dts: './typing/auto.components.d.ts'` 放开(取消注释) 以及将 `eslintrc` 下的 `enabled` 设置为 `true`。这样开发时可以自动生成组件及、部分方法的ts类型声明及eslint校验配置
 
 ```
 pnpm run dev
@@ -60,6 +74,10 @@ e.g.: git commit -m "docs: update README.md"
   集成主题切换功能(cssVar)
 
   集成多种动态svg图标使用：封装SvgIcon组件、集成unplugin-icons
+
+  封装多种通用hooks
+
+  自定义指令(directive)及过滤属性(filter)封装及使用示例
 
 ```
 
