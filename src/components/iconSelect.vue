@@ -25,14 +25,12 @@
         :style="{ maxHeight: scrollbarHeight, overflow: 'auto' }"
       >
         <template v-for="icon in filterIcons" :key="icon">
-          <el-tooltip effect="dark" :content="icon" placement="top">
-            <li
-              class="icon-item px-10px py-5px mr-6px mb-10px w-10% cursor-pointer"
-              @click="selectIcon(icon)"
-            >
-              <svg-icon :name="icon" />
-            </li>
-          </el-tooltip>
+          <li
+            class="icon-item px-10px py-5px mr-6px mb-10px w-10% cursor-pointer"
+            @click="selectIcon(icon)"
+          >
+            <svg-icon :name="icon" />
+          </li>
         </template>
       </ul>
       <div id="arrow" data-popper-arrow></div>
