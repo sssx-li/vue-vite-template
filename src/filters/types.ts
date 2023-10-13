@@ -7,7 +7,7 @@ import type {
 export interface Filter {
   dateFormat: (
     date: MaybeRefOrGetter<DateLike>,
-    format: MaybeRefOrGetter<string>,
+    format?: MaybeRefOrGetter<string>,
     options?: UseDateFormatOptions
   ) => string;
 }
