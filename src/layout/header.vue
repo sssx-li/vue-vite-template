@@ -22,6 +22,12 @@
       </el-breadcrumb>
     </div>
     <div class="flex justify-center items-center">
+      <el-icon :size="22" class="cursor-pointer">
+        <svg-icon
+          :name="!isFullscreen ? 'full-screen' : 'exit-screen'"
+          @click="toggle"
+        />
+      </el-icon>
       <el-switch
         v-model="isDark"
         inline-prompt
@@ -29,7 +35,7 @@
         size="large"
         inactive-text="浅亮"
         @change="() => toggleDark"
-        class="theme-switch mr-14px"
+        class="theme-switch mx-14px"
       />
       <el-dropdown @command="handleCommand">
         <span class="flex justify-center items-center outline-none">
@@ -111,6 +117,9 @@ const handleCommand = (command: string) => {
 // 主题色切换 暗黑模式
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+// 全屏
+const { isFullscreen, toggle } = useFullscreen();
 </script>
 
 <style lang="scss" scoped>
