@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import path from 'path';
 import { defineConfig } from 'vite';
 import Vue from '@vitejs/plugin-vue';
@@ -18,6 +20,19 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    // 启用类似 jest 的全局测试 API
+    globals: true,
+    reporters: ['html'],
+    // 使用 happy-dom 模拟 DOM
+    // 这需要你安装 happy-dom 作为对等依赖（peer dependency）
+    environment: 'happy-dom',
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', ['html', { subdir: 'src' }]],
+      enabled: true, // 使用Vitest UI
+    },
+  },
   plugins: [
     Vue(),
     VueJsx(),
