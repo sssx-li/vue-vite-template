@@ -106,9 +106,6 @@ export default defineConfig({
       },
     },
   },
-  optimizeDeps: {
-    include: ['vue', 'vue-router', 'pinia', 'vue-i18n', '@vueuse/core'],
-  },
   build: {
     rollupOptions: {
       output: {
