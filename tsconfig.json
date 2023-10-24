@@ -14,6 +14,7 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "types": ["vitest/globals"],
     "paths": {
       "@/*": ["src/*"]
     }
@@ -25,7 +26,8 @@
     "src/**/*.vue",
     "typing/*.d.ts",
     "mock/**/*.ts",
-    "generate/**/*.ts"
+    "generate/**/*.ts",
+    "test/**/*.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
