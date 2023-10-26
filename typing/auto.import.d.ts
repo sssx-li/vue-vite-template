@@ -191,6 +191,7 @@ declare global {
   const useGeolocation: typeof import('@vueuse/core')['useGeolocation'];
   const useHandleApiRes: typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes'];
   const useI18n: typeof import('vue-i18n')['useI18n'];
+  const useI18nKey: typeof import('../src/hooks/useI18nKey')['useI18nKey'];
   const useIdle: typeof import('@vueuse/core')['useIdle'];
   const useImage: typeof import('@vueuse/core')['useImage'];
   const useInfiniteScroll: typeof import('@vueuse/core')['useInfiniteScroll'];
@@ -755,6 +756,9 @@ declare module 'vue' {
       typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes']
     >;
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>;
+    readonly useI18nKey: UnwrapRef<
+      typeof import('../src/hooks/useI18nKey')['useI18nKey']
+    >;
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>;
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>;
     readonly useInfiniteScroll: UnwrapRef<
@@ -1469,6 +1473,9 @@ declare module '@vue/runtime-core' {
       typeof import('../src/hooks/useHandleApiRes')['useHandleApiRes']
     >;
     readonly useI18n: UnwrapRef<typeof import('vue-i18n')['useI18n']>;
+    readonly useI18nKey: UnwrapRef<
+      typeof import('../src/hooks/useI18nKey')['useI18nKey']
+    >;
     readonly useIdle: UnwrapRef<typeof import('@vueuse/core')['useIdle']>;
     readonly useImage: UnwrapRef<typeof import('@vueuse/core')['useImage']>;
     readonly useInfiniteScroll: UnwrapRef<
