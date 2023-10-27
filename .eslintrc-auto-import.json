@@ -195,6 +195,7 @@
     "useGeolocation": true,
     "useHandleApiRes": true,
     "useI18n": true,
+    "useI18nKey": true,
     "useIdle": true,
     "useImage": true,
     "useInfiniteScroll": true,
