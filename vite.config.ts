@@ -18,6 +18,31 @@ import IconsResolver from 'unplugin-icons/resolver';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
+function splitChunkFile(id) {
+  if (id.includes('node_modules')) {
+    const pkg = id
+      .toString()
+      .split('node_modules/')[1]
+      .split('/')[1]
+      .toString();
+    if (pkg.includes('i18n')) {
+      return 'i18n';
+    }
+    if (pkg.includes('@vueuse')) {
+      return 'vueuse';
+    }
+    if (pkg.includes('vue')) {
+      return 'vue';
+    }
+  } else if (
+    ['src/directives', 'src/filters', 'src/utils', 'src/constants'].some(
+      (dir) => id.includes(dir)
+    )
+  ) {
+    return 'utils';
+  }
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
@@ -119,10 +144,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vue: ['vue', 'vue-router', 'vue-i18n', '@vueuse/core'],
-          pinia: ['pinia'],
-        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        manualChunks: (id) => splitChunkFile(id),
       },
     },
   },
