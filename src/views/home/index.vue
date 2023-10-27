@@ -1,5 +1,7 @@
 <template>
   <div class="text-20px p-20px">
+    虚拟列表 <br />
+    <Virtual />
     <div class="w-300px">
       图标选择器：<icon-select type="button" v-model="icon" />
     </div>
@@ -66,6 +68,8 @@
 </template>
 
 <script setup lang="ts">
+import Virtual from '../virtual.vue';
+
 import type { ThemeTypes } from '@/hooks/useTheme';
 import type { LangType } from '@/i18n';
 import type { UserInfo } from '@/service/types';
