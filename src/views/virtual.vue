@@ -64,7 +64,6 @@ const getScroll = (event: any) => {
   position: relative;
   width: 300px;
   height: 200px;
-  margin: 10px;
   overflow: auto;
 
   .virtual-item {
