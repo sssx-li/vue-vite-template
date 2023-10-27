@@ -1,7 +1,7 @@
 <template>
   <div class="text-20px p-20px">
     虚拟列表 <br />
-    <Virtual />
+    <Virtual class="my-10px" />
     <div class="w-300px">
       图标选择器：<icon-select type="button" v-model="icon" />
     </div>

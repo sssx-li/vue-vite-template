@@ -25,9 +25,6 @@ function splitChunkFile(id) {
       .split('node_modules/')[1]
       .split('/')[1]
       .toString();
-    if (pkg.includes('i18n')) {
-      return 'i18n';
-    }
     if (pkg.includes('@vueuse')) {
       return 'vueuse';
     }
