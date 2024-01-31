@@ -125,7 +125,7 @@ const getInfo = async () => {
 getInfo();
 
 // 图标选择
-const iconStr = ref();
+const iconStr = ref('');
 </script>
 
 <style lang="scss" scoped>
