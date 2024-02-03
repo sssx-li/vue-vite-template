@@ -1,7 +1,7 @@
-import { DirectiveOptions } from '../types';
+import { DirectiveOptions } from "../types";
 
-const focusDirective: DirectiveOptions<'vFocus'> = {
-  name: 'focus',
+const focusDirective: DirectiveOptions<"vFocus"> = {
+  name: "focus",
   directive: {
     mounted: (el: HTMLInputElement) => el.focus(),
   },

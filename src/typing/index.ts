@@ -4,11 +4,11 @@ export type UnionToObj<K extends string, V = string> = {
 };
 
 // { a: 1, b: { ba: { baa: 1, bab: 2 }, bb: 2} } ---> a | b.ba.baa | b.ba.bab | b.bb
-export type ObjKeysToUnion<T, P extends string = ''> = T extends object
+export type ObjKeysToUnion<T, P extends string = ""> = T extends object
   ? {
       [K in keyof T]: ObjKeysToUnion<
         T[K],
-        P extends '' ? `${K & string}` : `${P}.${K & string}`
+        P extends "" ? `${K & string}` : `${P}.${K & string}`
       >;
     }[keyof T]
   : P;

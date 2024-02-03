@@ -5,6 +5,6 @@ export enum ResponseStatusCodeEnum {
 }
 
 export enum UserEnum {
-  LOGIN = '/login',
-  INFO = '/info',
+  LOGIN = "/login",
+  INFO = "/info",
 }

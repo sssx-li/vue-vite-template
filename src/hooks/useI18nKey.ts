@@ -1,7 +1,7 @@
-import i18n from '@/i18n';
+import i18n from "@/i18n";
 
-import type { LangTypes } from '@/i18n/lang/en';
-import type { ObjKeysToUnion } from '@/typing';
+import type { LangTypes } from "@/i18n/lang/en";
+import type { ObjKeysToUnion } from "@/typing";
 
 /**
  * useI18nKey

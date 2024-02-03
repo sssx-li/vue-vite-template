@@ -1,7 +1,7 @@
 export function createResponse<T = any>(
   resData: any,
   code = 0,
-  message = 'success'
+  message = "success"
 ) {
   return {
     code,

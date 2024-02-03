@@ -69,8 +69,8 @@ const getScroll = (event: any) => {
   .virtual-item {
     position: absolute;
     width: 100%;
-    height: #{v-bind('ITEM_HEIGHT')}px;
-    line-height: #{v-bind('ITEM_HEIGHT')}px;
+    height: #{v-bind("ITEM_HEIGHT")}px;
+    line-height: #{v-bind("ITEM_HEIGHT")}px;
   }
 }
 </style>

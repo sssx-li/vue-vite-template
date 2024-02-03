@@ -1,11 +1,11 @@
-import type { ThemeTypes } from './useTheme';
-import type { LangType } from '@/i18n';
+import type { ThemeTypes } from "./useTheme";
+import type { LangType } from "@/i18n";
 
 const defCache = {
-  token: '',
-  theme: 'defaultTheme' as ThemeTypes,
-  userInfo: { username: '', avatar: '' },
-  lang: 'zh' as LangType,
+  token: "",
+  theme: "defaultTheme" as ThemeTypes,
+  userInfo: { username: "", avatar: "" },
+  lang: "zh" as LangType,
 };
 
 type LocalCacheValueType = typeof defCache;

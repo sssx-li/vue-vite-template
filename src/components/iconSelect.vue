@@ -6,7 +6,7 @@
       @click="changeVisible"
     >
       <svg-icon :name="selectValue" />
-      <span class="ml-4px">{{ selectValue || '点击选择图标' }}</span>
+      <span class="ml-4px">{{ selectValue || "点击选择图标" }}</span>
     </button>
     <div
       class="sy-tooltip bg-#fff px-14px py-10px"
@@ -39,10 +39,10 @@
 </template>
 
 <script setup lang="ts">
-import type { RefrenceElement } from '@/hooks/usePopper';
+import type { RefrenceElement } from "@/hooks/usePopper";
 
 defineOptions({
-  name: 'iconSelect',
+  name: "iconSelect",
 });
 
 const prop = withDefaults(
@@ -52,24 +52,24 @@ const prop = withDefaults(
     scrollbarHeight?: string; // 滚动高度
   }>(),
   {
-    width: '100%',
-    scrollbarHeight: '250px',
+    width: "100%",
+    scrollbarHeight: "250px",
   }
 );
 
-const emit = defineEmits(['update:modelValue']);
-const selectValue = useVModel(prop, 'modelValue', emit);
-const searchValue = ref('');
+const emit = defineEmits(["update:modelValue"]);
+const selectValue = useVModel(prop, "modelValue", emit);
+const searchValue = ref("");
 
 const visible = ref(false);
 const referenceElementRef = ref<RefrenceElement>();
 const popperElementRef = ref<HTMLElement>();
 
 usePopper(referenceElementRef, popperElementRef, {
-  placement: 'right',
+  placement: "right",
   modifiers: [
     {
-      name: 'offset',
+      name: "offset",
       options: {
         offset: [0, 8],
       },
@@ -89,9 +89,9 @@ onClickOutside(
 // 加载所有svg图标
 const icons: string[] = [];
 function loadIcons() {
-  const svgs = import.meta.glob('../assets/svgs/*.svg');
+  const svgs = import.meta.glob("../assets/svgs/*.svg");
   for (const icon in svgs) {
-    const iconName = icon.split('assets/svgs/')[1].split('.svg')[0];
+    const iconName = icon.split("assets/svgs/")[1].split(".svg")[0];
     icons.push(iconName);
   }
 }
@@ -107,7 +107,7 @@ function changeVisible() {
 // 选则图标
 function selectIcon(icon: string) {
   selectValue.value = icon;
-  searchValue.value = '';
+  searchValue.value = "";
   visible.value = false;
 }
 </script>
@@ -127,8 +127,7 @@ function selectIcon(icon: string) {
   .icon-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-items: center;
+    place-items: center center;
     font-size: 14px;
     border: 1px solid #ccc;
 
@@ -156,23 +155,23 @@ function selectIcon(icon: string) {
 
 #arrow::before {
   visibility: visible;
-  content: '';
+  content: "";
   transform: rotate(45deg);
 }
 
-#tooltip[data-popper-placement^='top'] > #arrow {
+#tooltip[data-popper-placement^="top"] > #arrow {
   bottom: -4px;
 }
 
-#tooltip[data-popper-placement^='bottom'] > #arrow {
+#tooltip[data-popper-placement^="bottom"] > #arrow {
   top: -4px;
 }
 
-#tooltip[data-popper-placement^='left'] > #arrow {
+#tooltip[data-popper-placement^="left"] > #arrow {
   right: -4px;
 }
 
-#tooltip[data-popper-placement^='right'] > #arrow {
+#tooltip[data-popper-placement^="right"] > #arrow {
   left: -4px;
 }
 </style>

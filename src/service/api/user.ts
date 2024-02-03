@@ -1,4 +1,4 @@
-import type { UserLogin } from '../types';
+import type { UserLogin } from "../types";
 
 export function userLogin(data: UserLogin) {
   return ApiRequest.post({

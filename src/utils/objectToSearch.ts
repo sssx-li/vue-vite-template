@@ -1,5 +1,5 @@
 export function objectToSearch(params: Record<string, any>) {
-  let searchParams = '';
+  let searchParams = "";
   if (Object.keys(params).length > 0) {
     for (const key in params) {
       searchParams += `${key}=${params[key]}&`;

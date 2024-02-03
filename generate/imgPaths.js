@@ -1,9 +1,9 @@
-import fs from 'fs';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const prefix_path = '\\src\\assets\\imgs';
+const prefix_path = "\\src\\assets\\imgs";
 
 const imgBasePaths = [];
 
@@ -18,7 +18,7 @@ function readDir(dir) {
       imgBasePaths.push(
         newPath
           .substring(newPath.indexOf(prefix_path) + prefix_path.length + 1)
-          .replace(/\\/g, '/')
+          .replace(/\\/g, "/")
       );
     }
   }
@@ -26,20 +26,20 @@ function readDir(dir) {
 
 function writeFile() {
   fs.writeFile(
-    path.resolve(__dirname, './index.ts'),
+    path.resolve(__dirname, "./index.ts"),
     `export const imgBasePaths = ${JSON.stringify(imgBasePaths)
       .replace(/"/g, "'")
-      .replace(/,/g, ', ')} as const;\n`,
-    'utf-8',
+      .replace(/,/g, ", ")} as const;\n`,
+    "utf-8",
     (err) => {
       if (err) {
-        console.log('图片路径生成失败...');
+        console.log("图片路径生成失败...");
       }
     }
   );
 }
 
-readDir(path.resolve(__dirname, '../src/assets/imgs'));
+readDir(path.resolve(__dirname, "../src/assets/imgs"));
 
 if (imgBasePaths.length > 0) {
   writeFile();

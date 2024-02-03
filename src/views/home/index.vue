@@ -57,9 +57,9 @@
       </option>
     </select>
     <br />
-    语言测试：{{ $t('nav.logout') }}
+    语言测试：{{ $t("nav.logout") }}
     <br />
-    当前语言环境: {{ locale === 'en' ? 'English' : '中文' }}
+    当前语言环境: {{ locale === "en" ? "English" : "中文" }}
     <br />
     <button @click="changeLang(locale === 'en' ? 'zh' : 'en')">
       点我切换语言
@@ -68,29 +68,29 @@
 </template>
 
 <script setup lang="ts">
-import Virtual from '../virtual.vue';
+import Virtual from "../virtual.vue";
 
-import type { ThemeTypes } from '@/hooks/useTheme';
-import type { LangType } from '@/i18n';
-import type { UserInfo } from '@/service/types';
+import type { ThemeTypes } from "@/hooks/useTheme";
+import type { LangType } from "@/i18n";
+import type { UserInfo } from "@/service/types";
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache, setCache } = useLocalCache();
 
-const currentTime = useDateFormat(useNow(), 'YYYY-MM-DD hh:mm:ss');
-const cacheUserInfo = getCache('userInfo');
+const currentTime = useDateFormat(useNow(), "YYYY-MM-DD hh:mm:ss");
+const cacheUserInfo = getCache("userInfo");
 
 // 自定义指令
-const text = ref('');
-const inputChange = (type: 'debounce' | 'throttle', evt: Event) => {
-  if (type === 'debounce') {
-    console.log('触发输入防抖:', evt);
+const text = ref("");
+const inputChange = (type: "debounce" | "throttle", evt: Event) => {
+  if (type === "debounce") {
+    console.log("触发输入防抖:", evt);
   } else {
-    console.log('触发输入节流:', evt);
+    console.log("触发输入节流:", evt);
   }
 };
 const clickButton = () => {
-  console.log('触发按钮防抖');
+  console.log("触发按钮防抖");
 };
 
 // 主题测试
@@ -98,40 +98,39 @@ const themeOptions: {
   value: ThemeTypes;
   label: string;
 }[] = [
-  { label: '默认主题', value: 'defaultTheme' },
+  { label: "默认主题", value: "defaultTheme" },
   {
-    label: '自定义主题',
-    value: 'customTheme',
+    label: "自定义主题",
+    value: "customTheme",
   },
 ];
 const el = ref<HTMLElement>();
-const activeTheme = ref<ThemeTypes>(getCache('theme'));
+const activeTheme = ref<ThemeTypes>(getCache("theme"));
 const { switchTheme } = useTheme(el, activeTheme);
 
 const { t, locale } = useI18n();
-console.log('-----t-----', t('nav.logout'));
+console.log("-----t-----", t("nav.logout"));
 const changeLang = (lang: LangType) => {
   locale.value = lang;
-  setCache('lang', lang);
+  setCache("lang", lang);
 };
 
 // 接口使用示例
 const getInfo = async () => {
-  await userLogin({ username: 'sssx', password: '123456' });
+  await userLogin({ username: "sssx", password: "123456" });
   const { abort } = userGetUserInfo();
   setTimeout(() => {
     // 取消本次请求
     abort();
   }, 300);
-  const { code, data, message } = await useHandleApiRes<UserInfo>(
-    userGetUserInfo()
-  );
+  const { code, data, message } =
+    await useHandleApiRes<UserInfo>(userGetUserInfo());
   userInfo.value = data;
   console.log(code, data, message);
 };
 getInfo();
 
-const icon = ref('vue');
+const icon = ref("vue");
 </script>
 
 <style lang="scss" scoped>

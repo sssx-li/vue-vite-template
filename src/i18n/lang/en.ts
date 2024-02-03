@@ -1,6 +1,6 @@
 const en = {
   nav: {
-    logout: 'Logout',
+    logout: "Logout",
   },
 };
 export type LangTypes = typeof en;

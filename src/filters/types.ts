@@ -2,7 +2,7 @@ import type {
   MaybeRefOrGetter,
   DateLike,
   UseDateFormatOptions,
-} from '@vueuse/core';
+} from "@vueuse/core";
 
 export interface Filter {
   dateFormat: (

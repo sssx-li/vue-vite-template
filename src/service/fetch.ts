@@ -1,15 +1,15 @@
-import { createFetch, CreateFetchOptions, UseFetchOptions } from '@vueuse/core';
+import { createFetch, CreateFetchOptions, UseFetchOptions } from "@vueuse/core";
 
-import type { FeatchParams } from './types';
+import type { FeatchParams } from "./types";
 
 class Fetch {
   instances;
   constructor(params: CreateFetchOptions) {
     const {
       baseUrl,
-      combination = 'chain',
+      combination = "chain",
       fetchOptions = {
-        mode: 'cors',
+        mode: "cors",
       },
       options,
     } = params;
@@ -21,11 +21,11 @@ class Fetch {
     });
   }
   get(
-    { url, params = {} }: Omit<FeatchParams, 'data'>,
+    { url, params = {} }: Omit<FeatchParams, "data">,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     ).json();
   }
@@ -34,7 +34,7 @@ class Fetch {
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .post(data)
@@ -45,7 +45,7 @@ class Fetch {
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .put(data)
@@ -56,7 +56,7 @@ class Fetch {
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .patch(data)
@@ -67,7 +67,7 @@ class Fetch {
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .delete()

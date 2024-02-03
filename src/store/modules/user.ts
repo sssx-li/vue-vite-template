@@ -1,7 +1,7 @@
-export const useUserStore = defineStore('user', {
+export const useUserStore = defineStore("user", {
   state: () => {
     return {
-      userInfo: { username: 'sy', avatar: '' },
+      userInfo: { username: "sy", avatar: "" },
     };
   },
 });

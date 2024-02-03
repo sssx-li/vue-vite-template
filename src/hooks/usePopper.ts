@@ -1,5 +1,5 @@
-import { createPopper } from '@popperjs/core';
-import type { Options, VirtualElement, Instance } from '@popperjs/core';
+import { createPopper } from "@popperjs/core";
+import type { Options, VirtualElement, Instance } from "@popperjs/core";
 
 export type ElementType = HTMLElement | undefined;
 export type RefrenceElement = ElementType | VirtualElement;
@@ -16,8 +16,8 @@ export function usePopper(
     const { onFirstUpdate, placement, strategy, modifiers } = unref(opts);
     return {
       onFirstUpdate,
-      placement: placement || 'bottom',
-      strategy: strategy || 'absolute',
+      placement: placement || "bottom",
+      strategy: strategy || "absolute",
       modifiers: [...(modifiers || [])],
     };
   });
