@@ -1,14 +1,14 @@
-import type { UserLogin } from '../types';
+import type { IUserLogin } from '../types';
 
-export function useLogin(data: UserLogin) {
+export function apiUseLogin(data: IUserLogin) {
   return ApiRequest.post({
-    url: UserEnum.LOGIN,
+    url: EnumUser.LOGIN,
     data,
   });
 }
 
-export function useGetUserInfo() {
+export function apiUseGetUserInfo() {
   return ApiRequest.get({
-    url: UserEnum.INFO,
+    url: EnumUser.INFO,
   });
 }

@@ -4,7 +4,7 @@ import type {
   UseDateFormatOptions,
 } from '@vueuse/core';
 
-export interface Filter {
+export interface IFilter {
   dateFormat: (
     date: MaybeRefOrGetter<DateLike>,
     format?: MaybeRefOrGetter<string>,

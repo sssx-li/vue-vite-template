@@ -11,19 +11,19 @@ const themes = {
   },
 };
 
-type Theme = typeof themes;
-export type ThemeTypes = keyof Theme;
-export type CssVarTypes = keyof Theme['defaultTheme'];
+type TTheme = typeof themes;
+export type TThemeTypes = keyof TTheme;
+export type TCssVarTypes = keyof TTheme['defaultTheme'];
 
 export function useTheme(
   el: HTMLElement | Ref<HTMLElement | null | undefined>,
-  type: Ref<ThemeTypes> = ref('defaultTheme')
+  type: Ref<TThemeTypes> = ref('defaultTheme')
 ) {
-  const colors: Record<CssVarTypes | string, Ref<any>> = {};
+  const colors: Record<TCssVarTypes | string, Ref<any>> = {};
 
   const switchTheme = () => {
     Object.keys(themes[type.value]).forEach((item) => {
-      colors[item].value = themes[type.value][item as CssVarTypes];
+      colors[item].value = themes[type.value][item as TCssVarTypes];
     });
     setCache('theme', type.value);
   };

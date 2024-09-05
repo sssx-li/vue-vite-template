@@ -1,6 +1,6 @@
-export function tableGetList(name = '') {
+export function apiTableGetList(name = '') {
   return ApiRequest.get({
-    url: TableEnum.LIST,
+    url: EnumTableApi.LIST,
     params: { name },
   });
 }

@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus';
-import type { UserLoginRes } from '@/service/types';
+import type { IUserLoginRes } from '@/service/types';
 
 const router = useRouter();
 const { setCache } = useLocalCache();
@@ -77,10 +77,10 @@ const handleLogin = () => {
   ruleFormRef.value.validate(async (valid, fields) => {
     if (valid) {
       loading.value = true;
-      const { code, data } = await useHandleApiRes<UserLoginRes>(
-        useLogin({ ...ruleForm })
+      const { code, data } = await useHandleApiRes<IUserLoginRes>(
+        apiUseLogin({ ...ruleForm })
       );
-      if (code === ResponseStatusCodeEnum.success) {
+      if (code === IResponseStatusCodeEnum.success) {
         setCache('token', data.token);
         router.push('/');
       }

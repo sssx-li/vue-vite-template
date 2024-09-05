@@ -1,11 +1,11 @@
 import type { FormInstance, FormRules } from 'element-plus';
 
-export type DialogType = 'create' | 'edit';
-export type DialogCallbackType = DialogType | 'close';
-export interface DialogParams {
+export type IDialogType = 'create' | 'edit';
+export type IDialogCallbackType = IDialogType | 'close';
+export interface IDialogParams {
   visible: boolean;
   loading: boolean;
-  type: DialogType;
+  type: IDialogType;
 }
 
 /**
@@ -25,7 +25,7 @@ export function useDialog<T extends object>({
   url?: string;
   queryForm?: T;
   validateRules?: ComputedRef<FormRules> | FormRules;
-  callback?: (type: DialogCallbackType) => any;
+  callback?: (type: IDialogCallbackType) => any;
 }) {
   const { success } = useMessage();
   // 表单
@@ -33,14 +33,14 @@ export function useDialog<T extends object>({
   const formRef = ref<FormInstance>();
   const rules = reactive<FormRules>(validateRules as FormRules);
   // 弹窗
-  const dialogParams = reactive<DialogParams>({
+  const dialogParams = reactive<IDialogParams>({
     visible: false,
     loading: false,
     type: 'create',
   });
 
   // 打开弹窗
-  const openDialog = (type: DialogType, row: Record<string, any> = {}) => {
+  const openDialog = (type: IDialogType, row: Record<string, any> = {}) => {
     Object.assign(
       formInline,
       type === 'create' ? { ...queryForm, ...row } : row
@@ -78,7 +78,7 @@ export function useDialog<T extends object>({
         },
       })
     );
-    if (code === ResponseStatusCodeEnum.success) {
+    if (code === IResponseStatusCodeEnum.success) {
       success('新增成功');
       await callback('create');
       resetDialog();
@@ -94,7 +94,7 @@ export function useDialog<T extends object>({
         },
       })
     );
-    if (code === ResponseStatusCodeEnum.success) {
+    if (code === IResponseStatusCodeEnum.success) {
       success('编辑成功');
       await callback('edit');
       resetDialog();

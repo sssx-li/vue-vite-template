@@ -1,19 +1,19 @@
 import type { ElScrollbar } from 'element-plus';
 
-export interface Tag {
+export interface ITag {
   name: string;
   path: string;
 }
 
 export const SPACING = 4;
-export const firstTag: Tag = { name: '首页', path: '/home' };
+export const firstTag: ITag = { name: '首页', path: '/home' };
 export class TagView {
-  tags = ref<Tag[]>([]);
-  addTag(tag: Tag) {
+  tags = ref<ITag[]>([]);
+  addTag(tag: ITag) {
     if (this.hasTag(tag)) return;
     this.tags.value.push(tag);
   }
-  deleteTag(tag: Tag) {
+  deleteTag(tag: ITag) {
     if (this.isEmpty() || !this.hasTag(tag)) return;
     const index = this.findTagIndex(tag);
     this.tags.value.splice(index, 1);
@@ -21,18 +21,18 @@ export class TagView {
   deleteAll() {
     this.tags.value = [];
   }
-  deleteRightTags(tag: Tag) {
+  deleteRightTags(tag: ITag) {
     if (this.isEmpty() || !this.hasTag(tag)) return;
     this.tags.value.splice(this.findTagIndex(tag) + 1);
   }
-  deleteOtherTags(tag: Tag) {
+  deleteOtherTags(tag: ITag) {
     if (this.isEmpty() || !this.hasTag(tag)) return;
     this.tags.value = [tag];
   }
-  hasTag(tag: Tag) {
+  hasTag(tag: ITag) {
     return !!this.tags.value.find((item) => item.path === tag.path);
   }
-  findTagIndex(tag: Tag) {
+  findTagIndex(tag: ITag) {
     return this.tags.value.findIndex((item) => item.path === tag.path);
   }
   findLastTag() {
@@ -55,7 +55,7 @@ export function useTags() {
   );
 
   // 关闭tag
-  function closeTag(tag: Tag) {
+  function closeTag(tag: ITag) {
     tagsView.deleteTag(tag);
     // 如果为空 则跳转到首页
     if (tagsView.isEmpty()) {
@@ -70,7 +70,7 @@ export function useTags() {
   }
 
   // 位移到当前标签
-  function moveToTag(tag: Tag) {
+  function moveToTag(tag: ITag) {
     const tagItems = document.querySelectorAll<HTMLSpanElement>('.tag-item');
     const curItem = tagsView.findTagIndex(tag);
     let scrollLeft = 0;

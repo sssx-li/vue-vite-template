@@ -21,11 +21,11 @@ export const ApiRequest = new Fetch({
     afterFetch(ctx) {
       // 这里做统一错误处理
       const { code, message } = ctx.data;
-      if (code === ResponseStatusCodeEnum.tokenInvalid) {
+      if (code === IResponseStatusCodeEnum.tokenInvalid) {
         error('登录过期，请重新登录');
         clearCache();
         location.reload();
-      } else if (code !== ResponseStatusCodeEnum.success) {
+      } else if (code !== IResponseStatusCodeEnum.success) {
         error(message || '请求失败，请稍后再试');
       }
       return ctx;
@@ -33,7 +33,7 @@ export const ApiRequest = new Fetch({
     onFetchError(ctx) {
       console.log('ctx', ctx);
       const { code, message } = ctx.error;
-      if (code === ResponseStatusCodeEnum.aborted) {
+      if (code === IResponseStatusCodeEnum.aborted) {
         error(message || '请求取消');
       } else {
         error('请求错误，请确认后再试');
