@@ -5,15 +5,13 @@
 </template>
 
 <script setup lang="ts">
-interface Props {
+const { prefix = "icon", name } = defineProps<{
   prefix?: string;
   name: string;
-}
-const props = withDefaults(defineProps<Props>(), {
-  prefix: 'icon',
-});
-const symbolId = computed(() => `#${props.prefix}-${props.name}`);
-const className = computed(() => `svg-icon ${props.name}`);
+}>();
+
+const symbolId = computed(() => `#${prefix}-${name}`);
+const className = computed(() => `svg-icon ${name}`);
 </script>
 
 <style lang="scss" scoped>

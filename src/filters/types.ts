@@ -2,9 +2,9 @@ import type {
   MaybeRefOrGetter,
   DateLike,
   UseDateFormatOptions,
-} from '@vueuse/core';
+} from "@vueuse/core";
 
-export interface Filter {
+export interface IFilter {
   dateFormat: (
     date: MaybeRefOrGetter<DateLike>,
     format?: MaybeRefOrGetter<string>,

@@ -1,15 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'home',
-    component: () => import('../views/home/index.vue'),
+    path: "/",
+    name: "home",
+    component: () => import("../views/home/index.vue"),
   },
   {
-    path: '/:pathMatch(.*)',
-    name: '404',
-    component: () => import('../views/404.vue'),
+    path: "/:pathMatch(.*)",
+    name: "404",
+    component: () => import("../views/404.vue"),
   },
 ];
 

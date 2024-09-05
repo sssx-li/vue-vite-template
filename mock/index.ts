@@ -1,8 +1,8 @@
-import { createServer } from 'miragejs';
+import { createServer } from "miragejs";
 
-import type { MethodTypes } from './types';
+import type { MethodTypes } from "./types";
 
-const files = import.meta.glob('../mock/modules/**/*.ts');
+const files = import.meta.glob("../mock/modules/**/*.ts");
 const mockData: any[] = [];
 
 export async function setupMock() {

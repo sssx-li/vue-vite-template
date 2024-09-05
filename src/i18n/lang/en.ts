@@ -1,7 +1,7 @@
 const en = {
   nav: {
-    logout: 'Logout',
+    logout: "Logout",
   },
 };
-export type LangTypes = typeof en;
+export type TLangTypes = typeof en;
 export default en;

@@ -1,6 +1,6 @@
-import type { Directive } from 'vue';
+import type { Directive } from "vue";
 
-type EventTypes = 'click' | 'input';
+type EventTypes = "click" | "input";
 
 export interface ELType extends HTMLElement {
   __fn__: () => any;

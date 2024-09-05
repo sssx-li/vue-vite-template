@@ -1,41 +1,41 @@
-import Mock from 'mockjs';
+import Mock from "mockjs";
 
-import { createResponse } from '../utils';
+import { createResponse } from "../utils";
 
-import type { MockItem } from '../types';
-import type { UserInfo } from '@/service/types';
+import type { MockItem } from "../types";
+import type { IUserInfo } from "@/service/types";
 
 const { getCache, setCache } = useLocalCache();
 
 const loginRes = Mock.mock({
-  'token|30': /[a-zA-Z0-9]/,
+  "token|30": /[a-zA-Z0-9]/,
 });
 
 const userInfo = Mock.mock({
-  username: '@cname',
-  avatar: '',
+  username: "@cname",
+  avatar: "",
 });
-const cacheUserInfo = getCache('userInfo');
+const cacheUserInfo = getCache("userInfo");
 if (cacheUserInfo.username) {
   userInfo.username = cacheUserInfo.username;
 }
 
 const userMocks: MockItem[] = [
   {
-    url: UserEnum.INFO,
-    method: 'get',
+    url: EnumUser.INFO,
+    method: "get",
     response: () => {
-      return createResponse<UserInfo>(userInfo);
+      return createResponse<IUserInfo>(userInfo);
     },
     options: { timing: 1000 },
   },
   {
-    url: UserEnum.LOGIN,
-    method: 'post',
+    url: EnumUser.LOGIN,
+    method: "post",
     response: (schema, request) => {
       const body = JSON.parse(request.requestBody);
       userInfo.username = body.username;
-      setCache('userInfo', userInfo);
+      setCache("userInfo", userInfo);
       return createResponse(loginRes);
     },
     options: { timing: 2000 },

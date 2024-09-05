@@ -1,15 +1,15 @@
-import { createFetch, CreateFetchOptions, UseFetchOptions } from '@vueuse/core';
+import { createFetch, CreateFetchOptions, UseFetchOptions } from "@vueuse/core";
 
-import type { FeatchParams } from './types';
+import type { IFetchParams } from "./types";
 
 class Fetch {
   instances;
   constructor(params: CreateFetchOptions) {
     const {
       baseUrl,
-      combination = 'chain',
+      combination = "chain",
       fetchOptions = {
-        mode: 'cors',
+        mode: "cors",
       },
       options,
     } = params;
@@ -21,53 +21,53 @@ class Fetch {
     });
   }
   get(
-    { url, params = {} }: Omit<FeatchParams, 'data'>,
+    { url, params = {} }: Omit<IFetchParams, "data">,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     ).json();
   }
   post(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .post(data)
       .json();
   }
   put(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .put(data)
       .json();
   }
   patch(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .patch(data)
       .json();
   }
   delete(
-    { url, params = {} }: FeatchParams,
+    { url, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
-      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ''}`,
+      `${url}${objectToSearch(params) ? `?${objectToSearch(params)}` : ""}`,
       featOptions
     )
       .delete()

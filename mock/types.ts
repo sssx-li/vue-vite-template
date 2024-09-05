@@ -1,18 +1,18 @@
-import type { Response, Request } from 'miragejs';
-import type { HandlerOptions, RouteHandler } from 'miragejs/server';
-import type { AnyRegistry } from 'miragejs/-types';
-import type Schema from 'miragejs/orm/schema';
+import type { Response, Request } from "miragejs";
+import type { HandlerOptions, RouteHandler } from "miragejs/server";
+import type { AnyRegistry } from "miragejs/-types";
+import type Schema from "miragejs/orm/schema";
 
 export type MethodTypes =
-  | 'get'
-  | 'put'
-  | 'post'
-  | 'patch'
-  | 'delete'
-  | 'options'
-  | 'head';
+  | "get"
+  | "put"
+  | "post"
+  | "patch"
+  | "delete"
+  | "options"
+  | "head";
 
-export type TApis = 'user';
+export type TApis = "user";
 export interface MockItem {
   method: MethodTypes;
   url: string;
