@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import editDialog from './editDialog.vue';
 
-import type { TableItem } from '@/service/types';
+import type { ITableItem } from '@/service/types';
 
 const dialogRef = ref<InstanceType<typeof editDialog>>();
 const searchForm = reactive({
@@ -68,8 +68,8 @@ const {
   pageSizeChange,
   currentPageChange,
   handleDelete,
-} = usePage<TableItem>({
-  url: TableEnum.LIST,
+} = usePage<ITableItem>({
+  url: EnumTableApi.LIST,
   searchForm,
 });
 </script>

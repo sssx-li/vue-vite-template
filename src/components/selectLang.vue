@@ -17,16 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import type { LangType } from '@/i18n';
+import type { TLangType } from '@/i18n';
 
-withDefaults(defineProps<{ size?: number }>(), {
-  size: 22,
-});
+const { size = 22 } = defineProps<{ size?: number }>();
 
 const { setCache } = useLocalCache();
 
 const { locale } = useI18n();
-const handleCommand = (command: LangType) => {
+const handleCommand = (command: TLangType) => {
   locale.value = command;
   setCache('lang', command);
 };

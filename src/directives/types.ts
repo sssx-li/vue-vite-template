@@ -1,17 +1,17 @@
 import type { Directive } from 'vue';
 
-type EventTypes = 'click' | 'input';
+type TEventTypes = 'click' | 'input';
 
-export interface ELType extends HTMLElement {
+export interface IELType extends HTMLElement {
   __fn__: () => any;
 }
 
-export interface Directives {
+export interface TDirectives {
   vFocus: Directive;
   vDebounce: Directive<
     any,
     {
-      type?: EventTypes;
+      type?: TEventTypes;
       delay?: number;
       callback: (...args: any[]) => void;
     }
@@ -19,20 +19,20 @@ export interface Directives {
   vThrottle: Directive<
     any,
     {
-      type?: EventTypes;
+      type?: TEventTypes;
       delay?: number;
       callback: (...args: any[]) => void;
     }
   >;
 }
 
-export type Keys = keyof Directives;
+export type TKeys = keyof TDirectives;
 
-type LowerDirectiveName<T extends Keys> = T extends `v${infer V}`
+type ILowerDirectiveName<T extends TKeys> = T extends `v${infer V}`
   ? Lowercase<V>
   : never;
 
-export interface DirectiveOptions<T extends Keys> {
-  name: LowerDirectiveName<T>;
-  directive: Directives[T];
+export interface IDirectiveOptions<T extends TKeys> {
+  name: ILowerDirectiveName<T>;
+  directive: TDirectives[T];
 }

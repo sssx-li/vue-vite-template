@@ -1,14 +1,14 @@
-import type { DirectiveOptions, ELType } from '../types';
+import type { IDirectiveOptions, IELType } from '../types';
 
-const focusDirective: DirectiveOptions<'vThrottle'> = {
+const focusDirective: IDirectiveOptions<'vThrottle'> = {
   name: 'throttle',
   directive: {
-    mounted: (el: ELType, { value }, vnode) => {
+    mounted: (el: IELType, { value }, vnode) => {
       const { type = 'input', delay, callback } = value;
       el.__fn__ = useThrottleFn(callback.bind(vnode), delay ?? 300);
       el.addEventListener(type, el.__fn__);
     },
-    beforeUnmount: (el: ELType, { value }) => {
+    beforeUnmount: (el: IELType, { value }) => {
       el.removeEventListener(value.type || 'input', el.__fn__);
     },
   },

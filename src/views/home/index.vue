@@ -72,8 +72,8 @@
 </template>
 
 <script setup lang="ts">
-import type { ThemeTypes } from '@/hooks/useTheme';
-import type { UserInfo } from '@/service/types';
+import type { TThemeTypes } from '@/hooks/useTheme';
+import type { IUserInfo } from '@/service/types';
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache } = useLocalCache();
@@ -96,7 +96,7 @@ const clickButton = () => {
 
 // 主题测试
 const themeOptions: {
-  value: ThemeTypes;
+  value: TThemeTypes;
   label: string;
 }[] = [
   { label: '默认主题', value: 'defaultTheme' },
@@ -106,18 +106,18 @@ const themeOptions: {
   },
 ];
 const el = ref<HTMLElement>();
-const activeTheme = ref<ThemeTypes>(getCache('theme'));
+const activeTheme = ref<TThemeTypes>(getCache('theme'));
 const { switchTheme } = useTheme(el, activeTheme);
 
 // 接口使用示例
 const getInfo = async () => {
-  const { abort } = useGetUserInfo();
+  const { abort } = apiUseGetUserInfo();
   setTimeout(() => {
     // 取消本次请求
     abort();
   }, 300);
-  const { code, data, message } = await useHandleApiRes<UserInfo>(
-    useGetUserInfo()
+  const { code, data, message } = await useHandleApiRes<IUserInfo>(
+    apiUseGetUserInfo()
   );
   userInfo.value = data;
   console.log(code, data, message);

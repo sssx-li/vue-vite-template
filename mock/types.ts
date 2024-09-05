@@ -3,7 +3,7 @@ import type { Response, Request } from 'miragejs';
 import type { HandlerOptions, RouteHandler } from 'miragejs/server';
 import type { AnyRegistry } from 'miragejs/-types';
 
-export type MethodTypes =
+export type TMethodTypes =
   | 'get'
   | 'put'
   | 'post'
@@ -12,8 +12,8 @@ export type MethodTypes =
   | 'options'
   | 'head';
 
-export interface MockItem {
-  method: MethodTypes;
+export interface IMockItem {
+  method: TMethodTypes;
   url: string;
   response?: (schema: Schema<AnyRegistry>, request: Request) => any;
   handler?: RouteHandler<AnyRegistry, Response>;

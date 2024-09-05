@@ -1,6 +1,6 @@
 import { SPACING, firstTag } from './useTags';
 
-import type { Tag, TagView } from './useTags';
+import type { ITag, TagView } from './useTags';
 import type { ElScrollbar } from 'element-plus';
 type MenuTypes = 'closeOthers' | 'closeRight' | 'close';
 
@@ -11,7 +11,7 @@ export function useTagMenus(
   tagsView: TagView
 ) {
   const router = useRouter();
-  const currentTag = ref<Tag>();
+  const currentTag = ref<ITag>();
   const tagMenuRef = ref<HTMLUListElement>();
   const showMenu = ref(false);
   const menuList: Array<{ icon: string; title: string; type: MenuTypes }> = [
@@ -27,7 +27,7 @@ export function useTagMenus(
   onClickOutside(tagMenuRef, () => (showMenu.value = false));
 
   // 右键菜单
-  function openTagMenu(tag: Tag, e: MouseEvent) {
+  function openTagMenu(tag: ITag, e: MouseEvent) {
     currentTag.value = tag;
     const { left: wrapLeft, top: wrapTop } =
       scrollTagsRef.value!.wrapRef!.getBoundingClientRect();

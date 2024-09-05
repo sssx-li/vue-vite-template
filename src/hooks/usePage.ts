@@ -1,6 +1,6 @@
 import { usePagination } from './usePagination';
 
-import type { TableRes } from '@/service/types';
+import type { ITableRes } from '@/service/types';
 
 export function usePage<T = any>({
   url,
@@ -15,7 +15,7 @@ export function usePage<T = any>({
 
   // 表格数据
   const loading = ref(false);
-  const dataSource = reactive<TableRes<T>>({ data: [], count: 0 });
+  const dataSource = reactive<ITableRes<T>>({ data: [], count: 0 });
   // 分页
   const { pageInfo, pageSizeChange, currentPageChange, resetPageSize } =
     usePagination();
@@ -23,13 +23,13 @@ export function usePage<T = any>({
   // 获取数据
   const getPageData = async () => {
     loading.value = true;
-    const { data, code } = await useHandleApiRes<TableRes<T>>(
+    const { data, code } = await useHandleApiRes<ITableRes<T>>(
       ApiRequest.get({
         url,
         params: { ...searchForm, ...pageInfo },
       })
     );
-    if (code === ResponseStatusCodeEnum.success) {
+    if (code === IResponseStatusCodeEnum.success) {
       Object.assign(dataSource, data);
     }
     loading.value = false;
@@ -58,7 +58,7 @@ export function usePage<T = any>({
           params: { id: row.id },
         })
       );
-      if (code === ResponseStatusCodeEnum.success) {
+      if (code === IResponseStatusCodeEnum.success) {
         success(t('tips.delete_success'));
         refreshData();
         callback && callback(toRaw(row));

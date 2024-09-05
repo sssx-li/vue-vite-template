@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import type { DialogCallbackType } from '@/hooks/useDialog';
+import type { IDialogCallbackType } from '@/hooks/useDialog';
 import type { FormRules } from 'element-plus';
 
 defineOptions({
@@ -45,7 +45,7 @@ defineOptions({
 });
 
 export interface EmitType {
-  (e: 'callback', type: DialogCallbackType): void;
+  (e: 'callback', type: IDialogCallbackType): void;
 }
 
 const emit = defineEmits<EmitType>();
@@ -101,10 +101,10 @@ const {
   handleEdit,
   openDialog,
 } = useDialog<typeof queryForm>({
-  url: TableEnum.LIST,
+  url: EnumTableApi.LIST,
   queryForm,
   validateRules: ruleConfig,
-  callback: (_type: DialogCallbackType) => {
+  callback: (_type: IDialogCallbackType) => {
     if (_type !== 'close') {
       emit('callback', type.value);
     }

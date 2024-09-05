@@ -1,6 +1,6 @@
 import { createServer } from 'miragejs';
 
-import type { MethodTypes } from './types';
+import type { TMethodTypes } from './types';
 
 const files = import.meta.glob('../mock/modules/**/*.ts');
 const mockData: any[] = [];
@@ -15,7 +15,7 @@ export async function setupMock() {
       this.namespace = import.meta.env.VITE_BASE_URL;
       for (let i = 0; i < mockData.length; i++) {
         const { url, method, response, options, handler } = mockData[i];
-        this[method as MethodTypes](
+        this[method as TMethodTypes](
           url,
           response ? response : handler,
           options
