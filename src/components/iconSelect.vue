@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import type { RefrenceElement } from "@/hooks/usePopper";
+import type { TRefrenceElement } from "@/hooks/usePopper";
 
 defineOptions({
   name: "iconSelect",
@@ -62,7 +62,7 @@ const selectValue = useVModel(prop, "modelValue", emit);
 const searchValue = ref("");
 
 const visible = ref(false);
-const referenceElementRef = ref<RefrenceElement>();
+const referenceElementRef = ref<TRefrenceElement>();
 const popperElementRef = ref<HTMLElement>();
 
 usePopper(referenceElementRef, popperElementRef, {

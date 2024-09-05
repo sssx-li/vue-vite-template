@@ -1,21 +1,21 @@
 /// <reference types="vitest" />
 
-import path from "path";
-import { defineConfig } from "vite";
 import Vue from "@vitejs/plugin-vue";
 import VueJsx from "@vitejs/plugin-vue-jsx";
+import path from "path";
+import { defineConfig } from "vite";
 
 import eslintPlugin from "vite-plugin-eslint";
 
+import { presetAttributify, presetIcons, presetUno } from "unocss";
 import Unocss from "unocss/vite";
-import { presetAttributify, presetUno, presetIcons } from "unocss";
 
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 
-import Icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
+import IconsResolver from "unplugin-icons/resolver";
+import Icons from "unplugin-icons/vite";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 function splitChunkFile(id) {

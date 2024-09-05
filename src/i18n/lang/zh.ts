@@ -1,6 +1,6 @@
-import type { LangTypes } from "./en";
+import type { TLangTypes } from "./en";
 
-const zh: LangTypes = {
+const zh: TLangTypes = {
   nav: {
     logout: "登出",
   },

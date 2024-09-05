@@ -1,14 +1,15 @@
 import { createPopper } from "@popperjs/core";
 import type { Options, VirtualElement, Instance } from "@popperjs/core";
 
-export type ElementType = HTMLElement | undefined;
-export type RefrenceElement = ElementType | VirtualElement;
-export type PartialOptions = Partial<Options>;
+export type TElementType = HTMLElement | undefined;
+export type TRefrenceElement = TElementType | VirtualElement;
+
+export type TPartialOptions = Partial<Options>;
 
 export function usePopper(
-  referenceElementRef: Ref<RefrenceElement>,
-  popperElementRef: Ref<ElementType>,
-  opts: Ref<PartialOptions> | PartialOptions = {} as PartialOptions
+  referenceElementRef: Ref<TRefrenceElement>,
+  popperElementRef: Ref<TElementType>,
+  opts: Ref<TPartialOptions> | TPartialOptions = {} as TPartialOptions
 ) {
   const instanceRef = shallowRef<Instance | undefined>();
   // 拓展选项

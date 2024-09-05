@@ -24,7 +24,7 @@
     防抖指令：<input
       type="text"
       v-model="text"
-      v-debounce="{ callback: ($event) => inputChange('debounce', $event) }"
+      v-debounce="{ callback: (e: Event) => inputChange('debounce', e) }"
       placeholder="输入防抖"
       class="my10px"
     />
@@ -36,7 +36,7 @@
     节流指令：<input
       type="text"
       v-model="text"
-      v-throttle="{ callback: ($event) => inputChange('throttle', $event) }"
+      v-throttle="{ callback: (e: Event) => inputChange('throttle', e) }"
       placeholder="输入节流"
       class="my10px"
     />
@@ -72,7 +72,7 @@ import Virtual from "../virtual.vue";
 
 import type { ThemeTypes } from "@/hooks/useTheme";
 import type { LangType } from "@/i18n";
-import type { UserInfo } from "@/service/types";
+import type { IUserInfo } from "@/service/types";
 
 const { userInfo } = storeToRefs(useStore().user);
 const { getCache, setCache } = useLocalCache();
@@ -124,7 +124,7 @@ const getInfo = async () => {
     abort();
   }, 300);
   const { code, data, message } =
-    await useHandleApiRes<UserInfo>(userGetUserInfo());
+    await useHandleApiRes<IUserInfo>(userGetUserInfo());
   userInfo.value = data;
   console.log(code, data, message);
 };

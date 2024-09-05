@@ -1,6 +1,6 @@
 import { createFetch, CreateFetchOptions, UseFetchOptions } from "@vueuse/core";
 
-import type { FeatchParams } from "./types";
+import type { IFetchParams } from "./types";
 
 class Fetch {
   instances;
@@ -21,7 +21,7 @@ class Fetch {
     });
   }
   get(
-    { url, params = {} }: Omit<FeatchParams, "data">,
+    { url, params = {} }: Omit<IFetchParams, "data">,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -30,7 +30,7 @@ class Fetch {
     ).json();
   }
   post(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -41,7 +41,7 @@ class Fetch {
       .json();
   }
   put(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -52,7 +52,7 @@ class Fetch {
       .json();
   }
   patch(
-    { url, data, params = {} }: FeatchParams,
+    { url, data, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(
@@ -63,7 +63,7 @@ class Fetch {
       .json();
   }
   delete(
-    { url, params = {} }: FeatchParams,
+    { url, params = {} }: IFetchParams,
     featOptions: UseFetchOptions = {}
   ) {
     return this.instances(

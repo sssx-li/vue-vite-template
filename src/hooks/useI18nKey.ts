@@ -1,7 +1,7 @@
 import i18n from "@/i18n";
 
-import type { LangTypes } from "@/i18n/lang/en";
-import type { ObjKeysToUnion } from "@/typing";
+import type { TLangTypes } from "@/i18n/lang/en";
+import type { TObjKeysToUnion } from "@/typing";
 
 /**
  * useI18nKey
@@ -14,7 +14,7 @@ import type { ObjKeysToUnion } from "@/typing";
  * @param setupEev 使用环境是否为setup，否则使用i18n.global.t(t)作为替代方案
  * @returns
  */
-export function useI18nKey(key: ObjKeysToUnion<LangTypes>, setupEev = true) {
+export function useI18nKey(key: TObjKeysToUnion<TLangTypes>, setupEev = true) {
   if (!setupEev) {
     return i18n.global.t(key);
   }
